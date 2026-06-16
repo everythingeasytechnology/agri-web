@@ -1,5 +1,10 @@
 <?php
 if (!session_id()) {
+    // On shared hosting, ensure session save path is writable
+    $sp = session_save_path();
+    if (!$sp || !is_writable($sp)) {
+        session_save_path(sys_get_temp_dir());
+    }
     session_start();
 }
 
