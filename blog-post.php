@@ -1,14 +1,41 @@
+<?php
+require_once __DIR__ . '/admin/db.php';
+
+$slug = isset($_GET['slug']) ? trim($_GET['slug']) : '';
+if ($slug === '') {
+    header('Location: news ');
+    exit;
+}
+
+$post = db_fetch("SELECT * FROM blogs WHERE slug = ? AND status = 'published'", [$slug]);
+if (!$post) {
+    header('Location: news ');
+    exit;
+}
+
+$recent = db_fetch_all(
+    "SELECT id, slug, title, image_url, created_at FROM blogs WHERE status = 'published' AND id != ? ORDER BY created_at DESC LIMIT 3",
+    [$post['id']]
+);
+
+$categories = db_fetch_all(
+    "SELECT category, COUNT(*) as cnt FROM blogs WHERE status = 'published' GROUP BY category ORDER BY cnt DESC"
+);
+
+$featured_image = $post['image_url'] ?: 'assets/images/blog/blog-v1-img1.jpg';
+$formatted_date = date('F j, Y', strtotime($post['created_at']));
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact Us | Ficus International</title>
+    <title><?php echo html_escape($post['title']); ?> | Ficus International</title>
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png" />
     <link rel="manifest" href="assets/images/favicons/site.webmanifest" />
-    <meta name="description" content="Contact Ficus International — reach us for agro commodity sourcing, supply, and export enquiries." />
+    <meta name="description" content="<?php echo html_escape($post['excerpt']); ?>" />
     <link rel="preconnect" href="https://fonts.gstatic.com/">
     <link href="https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Shadows+Into+Light&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/vendors/bootstrap/css/bootstrap.min.css" />
@@ -32,7 +59,6 @@
     <link rel="stylesheet" id="jssMode" href="assets/css/modes/agriox-light.css">
     <link rel="stylesheet" href="assets/vendors/toolbar/css/toolbar.css">
     <style>
-        /* Mobile nav icons — force perfect circle on both phone & email */
         .mobile-nav__contact li > i {
             font-size: 15px !important;
             flex-shrink: 0 !important;
@@ -41,9 +67,7 @@
             height: 40px !important;
             border-radius: 50% !important;
         }
-        .mobile-nav__contact li {
-            min-width: 0;
-        }
+        .mobile-nav__contact li { min-width: 0; }
         .mobile-nav__contact li a {
             overflow: hidden;
             text-overflow: ellipsis;
@@ -52,52 +76,188 @@
             display: block;
             font-size: clamp(11px, 3.5vw, 14px);
         }
+        .logo img, .stricky-one-logo img { height: 60px; width: auto; object-fit: contain; }
+        .mobile-nav__container .logo img { height: 50px; width: auto; object-fit: contain; }
+        @media (max-width: 768px) { .logo img, .stricky-one-logo img { height: 46px; } }
+        @media (max-width: 480px) { .logo img, .stricky-one-logo img { height: 38px; } }
 
-        /* Our Offices — clean 2-per-row CSS grid */
-        .contact-page__contact-info-list ul {
-            display: grid !important;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px 0;
-            align-items: start;
-            flex-wrap: unset;
+        /* Blog post content */
+        .blog-post__featured-img {
+            width: 100%;
+            max-height: 480px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 32px;
         }
-        .contact-page__contact-info-list ul li {
-            width: auto !important;
-            margin-left: 0 !important;
-            margin-bottom: 0 !important;
-            padding-right: 40px !important;
-            border-right: 1px solid #eceae0 !important;
+        .blog-post__meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+            align-items: center;
         }
-        /* Remove right border from 2nd and 4th items (right column) */
-        .contact-page__contact-info-list ul li:nth-child(2n) {
-            border-right: none !important;
-            padding-right: 0 !important;
+        .blog-post__meta span {
+            font-size: 14px;
+            color: #777;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
-        @media (max-width: 640px) {
-            .contact-page__contact-info-list ul {
-                grid-template-columns: 1fr;
-            }
-            .contact-page__contact-info-list ul li {
-                border-right: none !important;
-                padding-right: 0 !important;
-            }
+        .blog-post__meta span i { color: var(--thm-base, #88b04b); }
+        .blog-post__meta .meta-category {
+            background: var(--thm-base, #88b04b);
+            color: #fff;
+            padding: 3px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
-        /* Logo sizing — use logo.jpeg at all breakpoints */
-        .logo img, .stricky-one-logo img {
+        .blog-post__title {
+            font-size: clamp(22px, 4vw, 36px);
+            font-weight: 700;
+            color: #1a1a1a;
+            line-height: 1.3;
+            margin-bottom: 24px;
+        }
+        .blog-post__divider {
+            border: none;
+            border-top: 2px solid #e8f0da;
+            margin: 28px 0;
+        }
+        .blog-post__content {
+            font-size: 16px;
+            line-height: 1.85;
+            color: #4a4a4a;
+        }
+        .blog-post__content h1,
+        .blog-post__content h2,
+        .blog-post__content h3,
+        .blog-post__content h4 {
+            color: #1a1a1a;
+            margin-top: 28px;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+        .blog-post__content p { margin-bottom: 18px; }
+        .blog-post__content ul,
+        .blog-post__content ol { margin-bottom: 18px; padding-left: 24px; }
+        .blog-post__content li { margin-bottom: 6px; }
+        .blog-post__content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 24px;
+            font-size: 15px;
+        }
+        .blog-post__content table th,
+        .blog-post__content table td {
+            border: 1px solid #ddd;
+            padding: 10px 14px;
+            text-align: left;
+        }
+        .blog-post__content table th {
+            background: #f3f8e8;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+        .blog-post__content table tr:nth-child(even) td { background: #fafafa; }
+        .blog-post__content img { max-width: 100%; height: auto; border-radius: 6px; margin: 10px 0; }
+        .blog-post__content blockquote {
+            border-left: 4px solid var(--thm-base, #88b04b);
+            margin: 24px 0;
+            padding: 16px 20px;
+            background: #f8faf3;
+            border-radius: 0 6px 6px 0;
+            font-style: italic;
+            color: #555;
+        }
+
+        /* Back to blog link */
+        .blog-post__back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--thm-base, #88b04b);
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            margin-bottom: 28px;
+            transition: gap 0.2s;
+        }
+        .blog-post__back:hover { gap: 12px; color: var(--thm-base, #88b04b); }
+
+        /* Sidebar */
+        .blog-sidebar__card {
+            background: #fff;
+            border: 1px solid #eef2e8;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 12px;
+            display: flex;
+            gap: 14px;
+            padding: 12px;
+            transition: box-shadow 0.2s;
+            text-decoration: none;
+        }
+        .blog-sidebar__card:hover { box-shadow: 0 4px 18px rgba(136,176,75,0.12); text-decoration: none; }
+        .blog-sidebar__card-img {
+            width: 80px;
             height: 60px;
-            width: auto;
-            object-fit: contain;
+            object-fit: cover;
+            border-radius: 6px;
+            flex-shrink: 0;
         }
-        .mobile-nav__container .logo img {
-            height: 50px;
-            width: auto;
-            object-fit: contain;
+        .blog-sidebar__card-body h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1a1a1a;
+            line-height: 1.4;
+            margin-bottom: 4px;
         }
-        @media (max-width: 768px) {
-            .logo img, .stricky-one-logo img { height: 46px; }
+        .blog-sidebar__card-body span { font-size: 12px; color: #999; }
+        .blog-sidebar__widget {
+            background: #fff;
+            border: 1px solid #eef2e8;
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 28px;
         }
-        @media (max-width: 480px) {
-            .logo img, .stricky-one-logo img { height: 38px; }
+        .blog-sidebar__widget-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 18px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e8f0da;
+        }
+        .blog-sidebar__cat-list { list-style: none; padding: 0; margin: 0; }
+        .blog-sidebar__cat-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 9px 0;
+            border-bottom: 1px solid #f2f5ec;
+        }
+        .blog-sidebar__cat-list li:last-child { border-bottom: none; }
+        .blog-sidebar__cat-list li a {
+            color: #4a4a4a;
+            font-size: 15px;
+            text-decoration: none;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .blog-sidebar__cat-list li a:hover { color: var(--thm-base, #88b04b); }
+        .blog-sidebar__cat-list li a i { color: var(--thm-base, #88b04b); font-size: 12px; }
+        .blog-sidebar__cat-list li span {
+            background: #f3f8e8;
+            color: var(--thm-base, #88b04b);
+            font-size: 12px;
+            font-weight: 700;
+            padding: 2px 9px;
+            border-radius: 20px;
         }
     </style>
 </head>
@@ -158,8 +318,8 @@
                                             <li><a href="index.php">Home</a></li>
                                             <li><a href="about.php">About</a></li>
                                             <li><a href="products.php">Products</a></li>
-                                            <li><a href="news.php">Blog</a></li>
-                                            <li class="current"><a href="contact.php">Contact</a></li>
+                                            <li class="current"><a href="news.php">Blog</a></li>
+                                            <li><a href="contact.php">Contact</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -197,131 +357,155 @@
                 <div class="page-header__inner text-center clearfix">
                     <ul class="thm-breadcrumb">
                         <li><a href="index.php">Home</a></li>
-                        <li>Contact</li>
+                        <li><a href="news.php">Blog</a></li>
+                        <li><?php echo html_escape($post['title']); ?></li>
                     </ul>
-                    <h2>Contact Us</h2>
+                    <h2><?php echo html_escape($post['title']); ?></h2>
                 </div>
             </div>
         </section>
 
-        <!-- ==================== CONTACT FORM ==================== -->
-        <section class="contact-page">
+        <!-- ==================== BLOG POST CONTENT ==================== -->
+        <section class="blog-details" style="padding: 80px 0;">
             <div class="container">
                 <div class="row">
-                    <div class="col-xl-4 col-lg-4">
-                        <div class="contact-page__left">
-                            <div class="sec-title">
-                                <div class="icon"><img src="assets/images/resources/sec-title-icon1.png" alt=""></div>
-                                <span class="sec-title__tagline">Reach Out</span>
-                                <h2 class="sec-title__title">Get in Touch <br>with Us</h2>
+
+                    <!-- Main Article -->
+                    <div class="col-xl-8 col-lg-8">
+                        <div class="wow fadeInUp" data-wow-delay="100ms" data-wow-duration="1000ms">
+
+                            <a href="news.php" class="blog-post__back">
+                                <i class="fas fa-arrow-left"></i> Back to Blog
+                            </a>
+
+                            <!-- Featured Image -->
+                            <?php if ($featured_image): ?>
+                            <img
+                                src="<?php echo html_escape($featured_image); ?>"
+                                alt="<?php echo html_escape($post['title']); ?>"
+                                class="blog-post__featured-img"
+                            />
+                            <?php endif; ?>
+
+                            <!-- Meta -->
+                            <div class="blog-post__meta">
+                                <span class="meta-category"><?php echo html_escape($post['category']); ?></span>
+                                <span><i class="fas fa-user-circle"></i> <?php echo html_escape($post['author']); ?></span>
+                                <span><i class="fas fa-calendar-alt"></i> <?php echo $formatted_date; ?></span>
                             </div>
-                            <p class="contact-page__left-text">We welcome enquiries from businesses looking for reliable agro commodity sourcing and supply solutions. Our team is ready to assist you with your requirements.</p>
-                            <div class="contact-page__social-link" style="margin-top: 25px;">
-                                <ul>
-                                    <li><a href="https://www.facebook.com/share/1JcoEmGGfT/" target="_blank"><i class="fab fa-facebook"></i></a></li>
-                                    <li><a href="https://x.com/FicusIntl" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="https://www.instagram.com/ficusinternational?igsh=MXA5dHowOXFjYnBlcg==" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                                    <li><a href="https://www.linkedin.com/company/ficus-international/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-                                </ul>
+
+                            <!-- Title -->
+                            <h1 class="blog-post__title"><?php echo html_escape($post['title']); ?></h1>
+
+                            <hr class="blog-post__divider" />
+
+                            <!-- Full Content -->
+                            <div class="blog-post__content">
+                                <?php echo $post['content']; ?>
                             </div>
+
+                            <hr class="blog-post__divider" />
+
+                            <!-- Share Row -->
+                            <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-top:10px;">
+                                <span style="font-weight:700; color:#1a1a1a; font-size:15px;">Share:</span>
+                                <a href="https://www.facebook.com/sharer/sharer ?u=<?php echo urlencode('https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']); ?>"
+                                   target="_blank" rel="noopener"
+                                   style="width:36px;height:36px;border-radius:50%;background:#3b5998;display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:15px;">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="https://twitter.com/intent/tweet?url=<?php echo urlencode('https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']); ?>&text=<?php echo urlencode($post['title']); ?>"
+                                   target="_blank" rel="noopener"
+                                   style="width:36px;height:36px;border-radius:50%;background:#1da1f2;display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:15px;">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/sharing/share-offsite/?url=<?php echo urlencode('https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']); ?>"
+                                   target="_blank" rel="noopener"
+                                   style="width:36px;height:36px;border-radius:50%;background:#0077b5;display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:15px;">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://wa.me/?text=<?php echo urlencode($post['title'] . ' ' . 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']); ?>"
+                                   target="_blank" rel="noopener"
+                                   style="width:36px;height:36px;border-radius:50%;background:#25d366;display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:15px;">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                            </div>
+
                         </div>
                     </div>
 
-                    <div class="col-xl-8 col-lg-8">
-                        <div class="contact-page__right">
-                            <?php
-                            $contact_status = $_GET['status'] ?? '';
-                            if ($contact_status === 'success'): ?>
-                            <div style="background:#f0fdf4;border:1px solid #86efac;color:#15803d;padding:14px 18px;border-radius:8px;margin-bottom:20px;display:flex;align-items:center;gap:10px;font-size:14px">
-                                <i class="fas fa-check-circle" style="font-size:18px"></i>
-                                <span><strong>Message sent!</strong> Thank you for reaching out. We'll get back to you shortly.</span>
-                            </div>
-                            <?php elseif ($contact_status === 'error'): ?>
-                            <div style="background:#fff1f1;border:1px solid #fca5a5;color:#b91c1c;padding:14px 18px;border-radius:8px;margin-bottom:20px;display:flex;align-items:center;gap:10px;font-size:14px">
-                                <i class="fas fa-exclamation-circle" style="font-size:18px"></i>
-                                <span>Please fill in all required fields (name, email, message) and try again.</span>
-                            </div>
-                            <?php endif; ?>
-                            <form action="contact-submit.php" method="post" class="comment-one__form">
-                                <div class="row">
-                                    <div class="col-xl-6 col-lg-6">
-                                        <div class="comment-form__input-box">
-                                            <input type="text" placeholder="Your name" name="name" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-lg-6">
-                                        <div class="comment-form__input-box">
-                                            <input type="email" placeholder="Email address" name="email" required>
-                                        </div>
-                                    </div>
+                    <!-- Sidebar -->
+                    <div class="col-xl-4 col-lg-4" style="margin-top: 56px;">
+
+                        <!-- Recent Posts -->
+                        <?php if ($recent): ?>
+                        <div class="blog-sidebar__widget wow fadeInRight" data-wow-delay="200ms" data-wow-duration="1000ms">
+                            <h3 class="blog-sidebar__widget-title">Recent Posts</h3>
+                            <?php foreach ($recent as $ri => $r):
+                                $rn = $ri % 3 + 1;
+                                $r_img = $r['image_url'] ?: "assets/images/blog/blog-v1-img{$rn}.jpg";
+                            ?>
+                            <a href="blog-post ?slug=<?php echo urlencode($r['slug']); ?>" class="blog-sidebar__card">
+                                <img src="<?php echo html_escape($r_img); ?>"
+                                     alt="<?php echo html_escape($r['title']); ?>"
+                                     class="blog-sidebar__card-img" />
+                                <div class="blog-sidebar__card-body">
+                                    <h4><?php echo html_escape($r['title']); ?></h4>
+                                    <span><i class="fas fa-calendar-alt" style="margin-right:4px;"></i><?php echo date('M j, Y', strtotime($r['created_at'])); ?></span>
                                 </div>
-                                <div class="row">
-                                    <div class="col-xl-6 col-lg-6">
-                                        <div class="comment-form__input-box">
-                                            <input type="text" placeholder="Phone number" name="phone">
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-lg-6">
-                                        <div class="comment-form__input-box">
-                                            <input type="text" placeholder="Subject" name="subject">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-12 col-lg-12">
-                                        <div class="comment-form__input-box">
-                                            <textarea name="message" placeholder="Write your message" required></textarea>
-                                        </div>
-                                        <button type="submit" class="thm-btn comment-form__btn">Send a Message</button>
-                                    </div>
-                                </div>
-                            </form>
+                            </a>
+                            <?php endforeach; ?>
                         </div>
+                        <?php endif; ?>
+
+                        <!-- Categories -->
+                        <?php if ($categories): ?>
+                        <div class="blog-sidebar__widget wow fadeInRight" data-wow-delay="300ms" data-wow-duration="1000ms">
+                            <h3 class="blog-sidebar__widget-title">Categories</h3>
+                            <ul class="blog-sidebar__cat-list">
+                                <?php foreach ($categories as $cat): ?>
+                                <li>
+                                    <a href="news.php?category=<?php echo urlencode($cat['category']); ?>">
+                                        <i class="fas fa-angle-right"></i>
+                                        <?php echo html_escape($cat['category']); ?>
+                                    </a>
+                                    <span><?php echo (int)$cat['cnt']; ?></span>
+                                </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                        <?php endif; ?>
+
+                        <!-- Contact CTA -->
+                        <div class="blog-sidebar__widget wow fadeInRight" data-wow-delay="400ms" data-wow-duration="1000ms"
+                             style="background: linear-gradient(135deg, #3a5c1a 0%, #5a8a2a 100%); border-color: transparent; text-align: center; padding: 30px 24px;">
+                            <i class="fas fa-tractor" style="font-size:40px; color:#f1cf69; margin-bottom:14px; display:block;"></i>
+                            <h3 style="color:#fff; font-size:18px; margin-bottom:10px;">Need Agro Commodities?</h3>
+                            <p style="color:#c9e0a8; font-size:14px; margin-bottom:20px;">Get in touch with our sourcing team for pricing and availability.</p>
+                            <a href="contact.php" class="thm-btn" style="padding: 10px 24px; font-size: 14px;">Contact Us</a>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ==================== CONTACT INFO ==================== -->
-        <section class="contact-page__contact-info clearfix">
-            <div class="auto-container">
+        <!-- ==================== CTA ==================== -->
+        <section class="cta-one" style="background-image: url(assets/images/backgrounds/cta-v1-bg.jpg);">
+            <div class="container">
                 <div class="row">
                     <div class="col-xl-12">
-                        <div class="contact-page__contact-info-wrapper">
-                            <div class="contact-page__contact-info-title">
-                                <h2>Our Offices</h2>
+                        <div class="cta-one__wrapper">
+                            <div class="cta-one__left">
+                                <div class="cta-one__left-icon" style="display:inline-flex;align-items:center;justify-content:center;"><i class="fas fa-tractor" style="font-size:52px;color:#f1cf69;"></i></div>
+                                <div class="cta-one__left-title">
+                                    <h2>Partner with Ficus International Today</h2>
+                                </div>
                             </div>
-                            <div class="contact-page__contact-info-list">
-                                <ul style="flex-wrap:wrap;">
-                                    <li>
-                                        <div class="icon" style="display:inline-flex;align-items:center;justify-content:center;width:50px;height:50px;border-radius:50%;flex-shrink:0;"><i class="fas fa-map-marker-alt" style="font-size:20px;color:#fff;line-height:1;"></i></div>
-                                        <div class="title">
-                                            <span>India Office</span>
-                                            <p>Karnal, Haryana, India</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="icon" style="display:inline-flex;align-items:center;justify-content:center;width:50px;height:50px;border-radius:50%;flex-shrink:0;"><i class="fas fa-map-marker-alt" style="font-size:20px;color:#fff;line-height:1;"></i></div>
-                                        <div class="title">
-                                            <span>Africa Office</span>
-                                            <p>Plateux Vallon, Abidjan, Cote d'Ivoire</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="icon" style="display:inline-flex;align-items:center;justify-content:center;width:50px;height:50px;border-radius:50%;flex-shrink:0;"><i class="fas fa-envelope" style="font-size:20px;color:#fff;line-height:1;"></i></div>
-                                        <div class="title">
-                                            <span>Send Email</span>
-                                            <p><a href="mailto:contact@ficusinternational.com">contact@ficusinternational.com</a></p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="icon phone" style="display:inline-flex;align-items:center;justify-content:center;width:50px;height:50px;border-radius:50%;flex-shrink:0;"><i class="fas fa-phone-alt" style="font-size:20px;color:#fff;line-height:1;"></i></div>
-                                        <div class="title">
-                                            <span>Call Anytime</span>
-                                            <p><a href="tel:+919653530361">+91 96535 30361</a></p>
-                                        </div>
-                                    </li>
-                                </ul>
+                            <div class="cta-one__right">
+                                <div class="cta-one__right-btn">
+                                    <a href="contact.php" class="thm-btn">Contact Us</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -448,12 +632,12 @@
     <script src="assets/vendors/jarallax/jarallax.min.js"></script>
     <script src="assets/vendors/jquery-appear/jquery.appear.min.js"></script>
     <script src="assets/vendors/jquery-magnific-popup/jquery.magnific-popup.min.js"></script>
-    <script src="assets/vendors/jquery-validate/jquery.validate.min.js"></script>
     <script src="assets/vendors/nouislider/nouislider.min.js"></script>
     <script src="assets/vendors/odometer/odometer.min.js"></script>
     <script src="assets/vendors/swiper/swiper.min.js"></script>
     <script src="assets/vendors/wow/wow.js"></script>
     <script src="assets/vendors/owl-carousel/owl.carousel.min.js"></script>
+    <script src="assets/vendors/parallax/parallax.min.js"></script>
     <script src="assets/js/agriox.js"></script>
     <script src="assets/vendors/toolbar/js/js.cookie.min.js"></script>
     <script src="assets/vendors/toolbar/js/jQuery.style.switcher.min.js"></script>

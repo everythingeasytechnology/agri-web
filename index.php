@@ -1,3 +1,17 @@
+<?php
+require_once __DIR__ . '/admin/db.php';
+$home_products   = db_fetch_all('SELECT * FROM products ORDER BY created_at ASC LIMIT 8');
+$home_blogs      = db_fetch_all("SELECT * FROM blogs WHERE status = 'published' ORDER BY created_at DESC LIMIT 3");
+$contact_status  = $_GET['status'] ?? '';
+$home_reels      = db_fetch_all('SELECT * FROM instagram_reels ORDER BY sort_order ASC, id ASC LIMIT 4');
+
+function reel_embed_url(string $url): string {
+    if (preg_match('#instagram\.com/(?:reel|p)/([A-Za-z0-9_-]+)#', $url, $m)) {
+        return "https://www.instagram.com/reel/{$m[1]}/embed/";
+    }
+    return '';
+}
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -725,383 +739,42 @@
             <h2 class="sec-title__title">Our Products</h2>
           </div>
           <div class="row">
-            <div
-              class="col-xl-3 col-lg-6 wow fadeInLeft"
-              data-wow-delay="0ms"
-              data-wow-duration="1000ms"
-            >
+            <?php
+            $icons      = ['fa-seedling', 'fa-leaf', 'fa-chart-line', 'fa-box-open'];
+            $animations = ['fadeInLeft', 'fadeInLeft', 'fadeInRight', 'fadeInRight'];
+            $delays     = ['0ms', '100ms', '0ms', '100ms'];
+            foreach ($home_products as $i => $p):
+                $pos  = $i % 4;
+                $icon = $icons[$pos];
+                $anim = $animations[$pos];
+                $dly  = $delays[$pos];
+                $img  = $p['image_url']
+                    ? (strpos($p['image_url'], 'http') === 0 ? $p['image_url'] : $p['image_url'])
+                    : '';
+            ?>
+            <div class="col-xl-3 col-lg-6 wow <?= $anim ?>" data-wow-delay="<?= $dly ?>" data-wow-duration="1000ms">
               <div class="services-one__single">
                 <div class="services-one__single-img">
                   <div class="services-one__single-img-inner">
-                    <img
-                      src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=280&fit=crop&auto=format&q=80"
-                      alt="Chia Seeds"
-                    />
+                    <?php if ($img): ?>
+                    <img src="<?= html_escape($img) ?>" alt="<?= html_escape($p['name']) ?>" />
+                    <?php else: ?>
+                    <div style="width:100%;height:280px;display:flex;align-items:center;justify-content:center;background:#f0f5f0">
+                      <i class="fas <?= $icon ?>" style="font-size:64px;color:#9ab87a;opacity:.35"></i>
+                    </div>
+                    <?php endif; ?>
                   </div>
                 </div>
                 <div class="services-one__single-content text-center">
                   <div class="services-one__single-img-icon">
-                    <i class="fas fa-seedling" style="font-size: 38px"></i>
+                    <i class="fas <?= $icon ?>" style="font-size: 38px"></i>
                   </div>
-                  <h3><a href="products.php">Chia Seeds</a></h3>
-                  <p>
-                    Nutrient-rich ancient seeds valued for their versatility and
-                    natural wellness benefits.
-                  </p>
+                  <h3><a href="products.php"><?= html_escape($p['name']) ?></a></h3>
+                  <p><?= html_escape($p['description']) ?></p>
                 </div>
               </div>
             </div>
-
-            <div
-              class="col-xl-3 col-lg-6 wow fadeInLeft"
-              data-wow-delay="100ms"
-              data-wow-duration="1000ms"
-            >
-              <div class="services-one__single">
-                <div class="services-one__single-img">
-                  <div class="services-one__single-img-inner">
-                    <img
-                      src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&h=280&fit=crop&auto=format&q=80"
-                      alt="Quinoa Seeds"
-                    />
-                  </div>
-                </div>
-                <div class="services-one__single-content text-center">
-                  <div class="services-one__single-img-icon">
-                    <i class="fas fa-leaf" style="font-size: 38px"></i>
-                  </div>
-                  <h3><a href="products.php">Quinoa Seeds</a></h3>
-                  <p>
-                    Premium protein-rich grains known for their exceptional
-                    nutritional profile.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div
-              class="col-xl-3 col-lg-6 wow fadeInRight"
-              data-wow-delay="0ms"
-              data-wow-duration="1000ms"
-            >
-              <div class="services-one__single">
-                <div class="services-one__single-img">
-                  <div class="services-one__single-img-inner">
-                    <img
-                      src="https://images.unsplash.com/photo-1610725664285-7c57e6eeac3f?w=400&h=280&fit=crop&auto=format&q=80"
-                      alt="Flaxseeds"
-                    />
-                  </div>
-                </div>
-                <div class="services-one__single-content text-center">
-                  <div class="services-one__single-img-icon">
-                    <i class="fas fa-chart-line" style="font-size: 38px"></i>
-                  </div>
-                  <h3><a href="products.php">Flaxseeds</a></h3>
-                  <p>
-                    Naturally rich seeds widely appreciated for their
-                    nutritional value and diverse applications.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div
-              class="col-xl-3 col-lg-6 wow fadeInRight"
-              data-wow-delay="100ms"
-              data-wow-duration="1000ms"
-            >
-              <div class="services-one__single">
-                <div class="services-one__single-img">
-                  <div class="services-one__single-img-inner">
-                    <img
-                      src="https://images.unsplash.com/photo-1601648764658-cf37e8c89b70?w=400&h=280&fit=crop&auto=format&q=80"
-                      alt="Pumpkin Seeds"
-                    />
-                  </div>
-                </div>
-                <div class="services-one__single-content text-center">
-                  <div class="services-one__single-img-icon">
-                    <i class="fas fa-box-open" style="font-size: 38px"></i>
-                  </div>
-                  <h3><a href="products.php">Pumpkin Seeds</a></h3>
-                  <p>
-                    Carefully sourced seeds offering a rich taste and excellent
-                    nutritional content.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div
-              class="col-xl-3 col-lg-6 wow fadeInLeft"
-              data-wow-delay="0ms"
-              data-wow-duration="1000ms"
-            >
-              <div class="services-one__single">
-                <div class="services-one__single-img">
-                  <div class="services-one__single-img-inner">
-                    <img
-                      src="https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?w=400&h=280&fit=crop&auto=format&q=80"
-                      alt="Sunflower Seeds"
-                    />
-                  </div>
-                </div>
-                <div class="services-one__single-content text-center">
-                  <div class="services-one__single-img-icon">
-                    <i class="fas fa-seedling" style="font-size: 38px"></i>
-                  </div>
-                  <h3><a href="products.php">Sunflower Seeds</a></h3>
-                  <p>
-                    High-quality seeds recognized for their mild flavor and wide
-                    range of uses.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div
-              class="col-xl-3 col-lg-6 wow fadeInLeft"
-              data-wow-delay="100ms"
-              data-wow-duration="1000ms"
-            >
-              <div class="services-one__single">
-                <div class="services-one__single-img">
-                  <div class="services-one__single-img-inner">
-                    <img
-                      src="https://images.unsplash.com/photo-1551462147-37885acc36f1?w=400&h=280&fit=crop&auto=format&q=80"
-                      alt="Sesame Seeds"
-                    />
-                  </div>
-                </div>
-                <div class="services-one__single-content text-center">
-                  <div class="services-one__single-img-icon">
-                    <i class="fas fa-leaf" style="font-size: 38px"></i>
-                  </div>
-                  <h3><a href="products.php">Sesame Seeds</a></h3>
-                  <p>
-                    Premium-grade seeds prized for their distinctive aroma,
-                    flavor, and versatility.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div
-              class="col-xl-3 col-lg-6 wow fadeInRight"
-              data-wow-delay="0ms"
-              data-wow-duration="1000ms"
-            >
-              <div class="services-one__single">
-                <div class="services-one__single-img">
-                  <div class="services-one__single-img-inner">
-                    <img
-                      src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&h=280&fit=crop&auto=format&q=80"
-                      alt="Soyabean Seeds"
-                    />
-                  </div>
-                </div>
-                <div class="services-one__single-content text-center">
-                  <div class="services-one__single-img-icon">
-                    <i class="fas fa-chart-line" style="font-size: 38px"></i>
-                  </div>
-                  <h3><a href="products.php">Soyabean Seeds</a></h3>
-                  <p>
-                    Globally demanded agricultural commodity known for its
-                    extensive industrial and food applications.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div
-              class="col-xl-3 col-lg-6 wow fadeInRight"
-              data-wow-delay="100ms"
-              data-wow-duration="1000ms"
-            >
-              <div class="services-one__single">
-                <div class="services-one__single-img">
-                  <div class="services-one__single-img-inner">
-                    <img
-                      src="https://images.unsplash.com/photo-1536304929831-ee1ca9d44906?w=400&h=280&fit=crop&auto=format&q=80"
-                      alt="Raw Cashew Nuts"
-                    />
-                  </div>
-                </div>
-                <div class="services-one__single-content text-center">
-                  <div class="services-one__single-img-icon">
-                    <i class="fas fa-box-open" style="font-size: 38px"></i>
-                  </div>
-                  <h3><a href="products.php">Raw Cashew Nuts</a></h3>
-                  <p>
-                    Carefully sourced raw cashews selected for quality,
-                    freshness, and consistency.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div
-              class="col-xl-3 col-lg-6 wow fadeInLeft"
-              data-wow-delay="0ms"
-              data-wow-duration="1000ms"
-            >
-              <div class="services-one__single">
-                <div class="services-one__single-img">
-                  <div class="services-one__single-img-inner">
-                    <img
-                      src="https://images.unsplash.com/photo-1541123437800-1bb1317badc2?w=400&h=280&fit=crop&auto=format&q=80"
-                      alt="Ivory Teakwood"
-                    />
-                  </div>
-                </div>
-                <div class="services-one__single-content text-center">
-                  <div class="services-one__single-img-icon">
-                    <i class="fas fa-seedling" style="font-size: 38px"></i>
-                  </div>
-                  <h3><a href="products.php">Ivory Teakwood</a></h3>
-                  <p>
-                    Premium hardwood renowned for its durability, strength, and
-                    natural elegance.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div
-              class="col-xl-3 col-lg-6 wow fadeInLeft"
-              data-wow-delay="100ms"
-              data-wow-duration="1000ms"
-            >
-              <div class="services-one__single">
-                <div class="services-one__single-img">
-                  <div class="services-one__single-img-inner">
-                    <img
-                      src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=400&h=280&fit=crop&auto=format&q=80"
-                      alt="Cloves"
-                    />
-                  </div>
-                </div>
-                <div class="services-one__single-content text-center">
-                  <div class="services-one__single-img-icon">
-                    <i class="fas fa-leaf" style="font-size: 38px"></i>
-                  </div>
-                  <h3><a href="products.php">Cloves</a></h3>
-                  <p>
-                    Aromatic spice celebrated for its rich flavor, fragrance,
-                    and culinary value.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div
-              class="col-xl-3 col-lg-6 wow fadeInRight"
-              data-wow-delay="0ms"
-              data-wow-duration="1000ms"
-            >
-              <div class="services-one__single">
-                <div class="services-one__single-img">
-                  <div class="services-one__single-img-inner">
-                    <img
-                      src="https://images.unsplash.com/photo-1615485500704-8e990f9900f7?w=400&h=280&fit=crop&auto=format&q=80"
-                      alt="Turmeric Powder"
-                    />
-                  </div>
-                </div>
-                <div class="services-one__single-content text-center">
-                  <div class="services-one__single-img-icon">
-                    <i class="fas fa-chart-line" style="font-size: 38px"></i>
-                  </div>
-                  <h3><a href="products.php">Turmeric Powder</a></h3>
-                  <p>
-                    Finely processed turmeric known for its vibrant color and
-                    authentic quality.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div
-              class="col-xl-3 col-lg-6 wow fadeInRight"
-              data-wow-delay="100ms"
-              data-wow-duration="1000ms"
-            >
-              <div class="services-one__single">
-                <div class="services-one__single-img">
-                  <div class="services-one__single-img-inner">
-                    <img
-                      src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=400&h=280&fit=crop&auto=format&q=80"
-                      alt="Cumin Seed"
-                    />
-                  </div>
-                </div>
-                <div class="services-one__single-content text-center">
-                  <div class="services-one__single-img-icon">
-                    <i class="fas fa-box-open" style="font-size: 38px"></i>
-                  </div>
-                  <h3><a href="products.php">Cumin Seed</a></h3>
-                  <p>
-                    Premium cumin seeds valued for their distinctive aroma and
-                    bold flavor profile.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div
-              class="col-xl-3 col-lg-6 wow fadeInLeft"
-              data-wow-delay="0ms"
-              data-wow-duration="1000ms"
-            >
-              <div class="services-one__single">
-                <div class="services-one__single-img">
-                  <div class="services-one__single-img-inner">
-                    <img
-                      src="https://images.unsplash.com/photo-1599940824399-b87987ceb72a?w=400&h=280&fit=crop&auto=format&q=80"
-                      alt="Coriander Seed"
-                    />
-                  </div>
-                </div>
-                <div class="services-one__single-content text-center">
-                  <div class="services-one__single-img-icon">
-                    <i class="fas fa-seedling" style="font-size: 38px"></i>
-                  </div>
-                  <h3><a href="products.php">Coriander Seed</a></h3>
-                  <p>
-                    Naturally aromatic seeds widely used in culinary and food
-                    processing industries.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div
-              class="col-xl-3 col-lg-6 wow fadeInLeft"
-              data-wow-delay="100ms"
-              data-wow-duration="1000ms"
-            >
-              <div class="services-one__single">
-                <div class="services-one__single-img">
-                  <div class="services-one__single-img-inner">
-                    <img
-                      src="https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=400&h=280&fit=crop&auto=format&q=80"
-                      alt="Rice"
-                    />
-                  </div>
-                </div>
-                <div class="services-one__single-content text-center">
-                  <div class="services-one__single-img-icon">
-                    <i class="fas fa-leaf" style="font-size: 38px"></i>
-                  </div>
-                  <h3><a href="products.php">Rice</a></h3>
-                  <p>
-                    Carefully sourced rice varieties delivering quality,
-                    consistency, and global appeal.
-                  </p>
-                </div>
-              </div>
-            </div>
+            <?php endforeach; ?>
           </div>
 
           <div class="text-center" style="margin-top: 40px">
@@ -1217,118 +890,161 @@
             <h2 class="sec-title__title">News &amp; Articles</h2>
           </div>
           <div class="row">
+            <?php if (empty($home_blogs)): ?>
+            <div class="col-lg-12 text-center" style="padding:40px 0">
+              <p style="color:#999;font-size:15px">No blog posts published yet.</p>
+            </div>
+            <?php else: foreach ($home_blogs as $i => $b):
+              $n     = $i % 3 + 1;
+              $delay = $i % 3 * 300;
+              $img   = $b['image_url'] ?: "assets/images/blog/blog-v1-img{$n}.jpg";
+              $link  = 'blog-post ?slug=' . urlencode($b['slug']);
+            ?>
             <div
               class="col-xl-4 col-lg-4 wow fadeInLeft"
-              data-wow-delay="0ms"
+              data-wow-delay="<?= $delay ?>ms"
               data-wow-duration="1500ms"
             >
               <div class="blog-one__single">
                 <div class="blog-one__single-img">
-                  <img src="assets/images/blog/blog-v1-img1.jpg" alt="" />
+                  <img src="<?= html_escape($img) ?>" alt="<?= html_escape($b['title']) ?>" />
                   <div class="overlay-icon">
-                    <a href="news-details.php"><i class="fas fa-plus"></i></a>
+                    <a href="<?= $link ?>"><i class="fas fa-plus"></i></a>
                   </div>
                 </div>
                 <div class="blog-one__single-content">
                   <ul class="meta-info">
-                    <li>
-                      <a href="#"
-                        ><i class="far fa-user-circle"></i>Ficus
-                        International</a
-                      >
-                    </li>
+                    <li><a href="#"><i class="far fa-user-circle"></i><?= html_escape($b['author']) ?></a></li>
+                    <li><a href="#"><i class="far fa-calendar-alt"></i><?= date('d M Y', strtotime($b['created_at'])) ?></a></li>
                   </ul>
-                  <h2>
-                    <a href="news-details.php"
-                      >Why Sourcing Agro Commodities from the Country of Origin
-                      Matters</a
-                    >
-                  </h2>
-                  <p>
-                    Every agricultural product carries a story that begins long
-                    before it reaches global markets. Its country of origin
-                    reflects the climate, soil conditions, farming traditions,
-                    and generations of expertise that shape its quality.
-                  </p>
+                  <h2><a href="<?= $link ?>"><?= html_escape($b['title']) ?></a></h2>
+                  <p><?= html_escape($b['excerpt']) ?></p>
                 </div>
               </div>
             </div>
-
-            <div
-              class="col-xl-4 col-lg-4 wow fadeInLeft"
-              data-wow-delay="300ms"
-              data-wow-duration="1500ms"
-            >
-              <div class="blog-one__single">
-                <div class="blog-one__single-img">
-                  <img src="assets/images/blog/blog-v1-img2.jpg" alt="" />
-                  <div class="overlay-icon">
-                    <a href="news-details.php"><i class="fas fa-plus"></i></a>
-                  </div>
-                </div>
-                <div class="blog-one__single-content">
-                  <ul class="meta-info">
-                    <li>
-                      <a href="#"
-                        ><i class="far fa-user-circle"></i>Ficus
-                        International</a
-                      >
-                    </li>
-                  </ul>
-                  <h2>
-                    <a href="news-details.php"
-                      >How International Logistics Affects Commodity Pricing</a
-                    >
-                  </h2>
-                  <p>
-                    When discussing commodity pricing, most people focus on
-                    production costs, but logistics often plays an equally
-                    important role. From farm to destination, every step in the
-                    supply chain impacts the final price.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div
-              class="col-xl-4 col-lg-4 wow fadeInLeft"
-              data-wow-delay="600ms"
-              data-wow-duration="1500ms"
-            >
-              <div class="blog-one__single">
-                <div class="blog-one__single-img">
-                  <img src="assets/images/blog/blog-v1-img3.jpg" alt="" />
-                  <div class="overlay-icon">
-                    <a href="news-details.php"><i class="fas fa-plus"></i></a>
-                  </div>
-                </div>
-                <div class="blog-one__single-content">
-                  <ul class="meta-info">
-                    <li>
-                      <a href="#"
-                        ><i class="far fa-user-circle"></i>Ficus
-                        International</a
-                      >
-                    </li>
-                  </ul>
-                  <h2>
-                    <a href="news-details.php"
-                      >What Businesses Should Know Before Importing Agro
-                      Commodities</a
-                    >
-                  </h2>
-                  <p>
-                    Importing agro commodities is about much more than selecting
-                    a product and arranging a shipment. Every commodity has a
-                    journey shaped by its origin, growing conditions, harvesting
-                    practices, and local regulations.
-                  </p>
-                </div>
-              </div>
-            </div>
+            <?php endforeach; endif; ?>
           </div>
         </div>
       </section>
+
+      <!-- ==================== INSTAGRAM REELS ==================== -->
+      <!-- <section class="insta-reels-section" style="padding: 80px 0; background: #f8faf3;">
+        <div class="container">
+
+          <div class="sec-title text-center" style="margin-bottom: 48px;">
+            <div class="icon"><img src="assets/images/resources/sec-title-icon1.png" alt="" /></div>
+            <span class="sec-title__tagline">Follow Us</span>
+            <h2 class="sec-title__title">Watch Our Latest Reels</h2>
+            <p style="color:#777; font-size:15px; margin-top:10px; max-width:520px; margin-left:auto; margin-right:auto;">
+              Stay connected with Ficus International on Instagram for updates, behind-the-scenes, and agro commodity insights.
+            </p>
+          </div>
+
+          <?php
+          $placeholder_gradients = [
+            'linear-gradient(160deg,#2d5a1b,#5a9e2f,#f1cf69)',
+            'linear-gradient(160deg,#1a3a0d,#3d7a1a,#88b04b)',
+            'linear-gradient(160deg,#3a2a0a,#8b6914,#f1cf69)',
+            'linear-gradient(160deg,#0d2b1a,#1e6b3a,#4caf74)',
+          ];
+          $placeholder_labels = ['Agro Insights','Sourcing Journey','Global Trade','Farm to Export'];
+          $placeholder_icons  = ['fa-seedling','fa-leaf','fa-globe','fa-tractor'];
+          $delays = [0, 150, 300, 450];
+
+          
+          $show_reels   = !empty($home_reels) ? $home_reels : [];
+          $total_cards  = max(count($show_reels), 4);
+          $total_cards  = min($total_cards, 4);
+          ?>
+
+          <div class="row justify-content-center">
+            <?php for ($ci = 0; $ci < $total_cards; $ci++):
+              $reel  = $show_reels[$ci] ?? null;
+              $label = $reel ? html_escape($reel['label']) : $placeholder_labels[$ci];
+              $grad  = $placeholder_gradients[$ci];
+              $icon  = $placeholder_icons[$ci];
+              $delay = $delays[$ci];
+
+             
+              $reel_id = '';
+              if ($reel && preg_match('#instagram\.com/(?:reel|p)/([A-Za-z0-9_-]+)#', $reel['reel_url'], $rm)) {
+                  $reel_id = $rm[1];
+              }
+            ?>
+            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 wow fadeInUp" data-wow-delay="<?= $delay ?>ms" data-wow-duration="1000ms">
+              <div class="insta-reel-card">
+
+                <?php if ($reel_id): ?>
+             
+                <div class="insta-reel-card__official">
+                  <blockquote
+                    class="instagram-media"
+                    data-instgrm-permalink="https://www.instagram.com/reel/<?= html_escape($reel_id) ?>/"
+                    data-instgrm-version="14"
+                    style="background:#fff;border:0;border-radius:12px;box-shadow:none;margin:0;padding:0;width:100%;min-width:100%;">
+                  </blockquote>
+                </div>
+
+                <?php else: ?>
+               
+                <div class="insta-reel-card__thumb" style="background:<?= $grad ?>;">
+                  <div class="insta-reel-card__play">
+                    <i class="fab fa-instagram" style="font-size:38px;opacity:0.35;position:absolute;top:16px;right:16px;color:#fff;"></i>
+                    <a href="https://www.instagram.com/ficusinternational/" target="_blank" rel="noopener" class="insta-reel-card__play-btn">
+                      <i class="fas fa-play"></i>
+                    </a>
+                  </div>
+                  <div class="insta-reel-card__label"><i class="fas <?= $icon ?>"></i> <?= $label ?></div>
+                </div>
+                <?php endif; ?>
+
+                <div class="insta-reel-card__footer">
+                  <span class="insta-reel-card__handle"><i class="fab fa-instagram"></i> @ficusinternational</span>
+                  <a href="<?= $reel ? html_escape($reel['reel_url']) : 'https://www.instagram.com/ficusinternational/' ?>"
+                     target="_blank" rel="noopener" class="insta-reel-card__watch">
+                    <?= $reel_id ? 'Open' : 'Follow' ?> <i class="fas fa-external-link-alt"></i>
+                  </a>
+                </div>
+
+              </div>
+            </div>
+            <?php endfor; ?>
+          </div>
+
+          <?php if (!empty($show_reels)): ?>
+          <script async src="//www.instagram.com/embed.js"></script>
+          <?php endif; ?>
+
+          <div class="text-center" style="margin-top: 40px;">
+            <a href="https://www.instagram.com/ficusinternational/" target="_blank" rel="noopener"
+               style="display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);color:#fff;padding:13px 32px;border-radius:30px;font-weight:700;font-size:15px;text-decoration:none;">
+              <i class="fab fa-instagram" style="font-size:20px;"></i>
+              Follow @ficusinternational
+            </a>
+          </div>
+
+        </div>
+      </section> -->
+
+      <style>
+        .insta-reel-card { border-radius:16px; overflow:hidden; background:#fff; box-shadow:0 4px 24px rgba(0,0,0,0.10); margin-bottom:24px; transition:transform 0.25s, box-shadow 0.25s; }
+        .insta-reel-card:hover { transform:translateY(-6px); box-shadow:0 12px 36px rgba(0,0,0,0.16); }
+        /* official embed container — let Instagram widget render naturally */
+        .insta-reel-card__official { width:100%; overflow:hidden; }
+        .insta-reel-card__official .instagram-media { max-width:100% !important; min-width:unset !important; width:100% !important; margin:0 !important; border-radius:0 !important; box-shadow:none !important; }
+        /* placeholder card */
+        .insta-reel-card__thumb { position:relative; width:100%; aspect-ratio:9/16; display:flex; align-items:center; justify-content:center; min-height:300px; }
+        .insta-reel-card__play { display:flex; align-items:center; justify-content:center; width:100%; height:100%; }
+        .insta-reel-card__play-btn { width:64px; height:64px; background:rgba(255,255,255,0.22); border:2px solid rgba(255,255,255,0.7); border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff; font-size:22px; text-decoration:none; transition:background 0.2s, transform 0.2s; backdrop-filter:blur(4px); padding-left:4px; }
+        .insta-reel-card__play-btn:hover { background:rgba(255,255,255,0.38); transform:scale(1.12); color:#fff; text-decoration:none; }
+        .insta-reel-card__label { position:absolute; bottom:14px; left:14px; background:rgba(0,0,0,0.45); color:#fff; font-size:12px; font-weight:700; padding:5px 12px; border-radius:20px; display:flex; align-items:center; gap:6px; backdrop-filter:blur(4px); }
+        .insta-reel-card__footer { display:flex; align-items:center; justify-content:space-between; padding:12px 16px; background:#fff; border-top:1px solid #f0f0f0; }
+        .insta-reel-card__handle { font-size:13px; color:#555; display:flex; align-items:center; gap:6px; }
+        .insta-reel-card__handle .fab { background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045); -webkit-background-clip:text; -webkit-text-fill-color:transparent; font-size:16px; }
+        .insta-reel-card__watch { font-size:12px; font-weight:700; color:#88b04b; text-decoration:none; display:flex; align-items:center; gap:4px; }
+        .insta-reel-card__watch:hover { color:#5a8a2a; text-decoration:none; }
+        @media(max-width:576px){ .insta-reel-card__thumb { min-height:220px; } }
+      </style>
 
       <!-- ==================== CONTACT SECTION ==================== -->
       <section class="contact-one" id="contact">
@@ -1435,42 +1151,55 @@
               </div>
             </div>
             <div class="col-lg-6">
-              <form
-                action="#"
-                class="contact-one__form comment-one__form contact-form-validated"
-                novalidate="novalidate"
-              >
+              <?php if ($contact_status === 'success'): ?>
+              <div style="background:#e8f5e9;border:1px solid #a5d6a7;border-radius:8px;padding:16px 20px;margin-bottom:20px;display:flex;align-items:center;gap:12px;">
+                  <i class="fas fa-check-circle" style="color:#388e3c;font-size:22px;flex-shrink:0;"></i>
+                  <div>
+                      <strong style="color:#1b5e20;display:block;margin-bottom:2px;">Message Sent!</strong>
+                      <span style="color:#2e7d32;font-size:14px;">Thank you for reaching out. We will get back to you soon.</span>
+                  </div>
+              </div>
+              <?php elseif ($contact_status === 'error'): ?>
+              <div style="background:#fdecea;border:1px solid #f5c6c6;border-radius:8px;padding:16px 20px;margin-bottom:20px;display:flex;align-items:center;gap:12px;">
+                  <i class="fas fa-exclamation-circle" style="color:#c62828;font-size:22px;flex-shrink:0;"></i>
+                  <div>
+                      <strong style="color:#b71c1c;display:block;margin-bottom:2px;">Something went wrong</strong>
+                      <span style="color:#c62828;font-size:14px;">Please fill in all required fields with a valid email and try again.</span>
+                  </div>
+              </div>
+              <?php endif; ?>
+
+              <form action="contact-submit.php" method="post" class="contact-one__form comment-one__form">
+                <input type="hidden" name="return_to" value="index">
                 <div class="row">
-                  <div class="col-xl-12">
+                  <div class="col-xl-6">
                     <div class="comment-form__input-box">
-                      <input type="text" placeholder="Your name" name="name" />
+                      <input type="text" placeholder="Your name *" name="name" required />
+                    </div>
+                  </div>
+                  <div class="col-xl-6">
+                    <div class="comment-form__input-box">
+                      <input type="email" placeholder="Email address *" name="email" required />
+                    </div>
+                  </div>
+                  <div class="col-xl-6">
+                    <div class="comment-form__input-box">
+                      <input type="text" placeholder="Phone number" name="phone" />
+                    </div>
+                  </div>
+                  <div class="col-xl-6">
+                    <div class="comment-form__input-box">
+                      <input type="text" placeholder="Subject" name="subject" />
                     </div>
                   </div>
                   <div class="col-xl-12">
                     <div class="comment-form__input-box">
-                      <input
-                        type="email"
-                        placeholder="Email address"
-                        name="email"
-                      />
+                      <textarea name="message" placeholder="Write your message *" required></textarea>
                     </div>
                   </div>
                 </div>
-                <div class="row">
-                  <div class="col-xl-12 col-lg-12">
-                    <div class="comment-form__input-box">
-                      <textarea
-                        name="message"
-                        placeholder="Write message"
-                      ></textarea>
-                    </div>
-                    <button type="submit" class="thm-btn comment-form__btn">
-                      Send a Message
-                    </button>
-                  </div>
-                </div>
+                <button type="submit" class="thm-btn comment-form__btn">Send a Message</button>
               </form>
-              <div class="result"></div>
             </div>
           </div>
         </div>

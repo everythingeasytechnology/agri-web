@@ -1,9 +1,10 @@
+<?php require_once __DIR__ . '/admin/db.php'; $blogs = db_fetch_all("SELECT * FROM blogs WHERE status = 'published' ORDER BY created_at DESC"); ?>
 <!DOCTYPE html>
 <html lang="en">
 
 
-<!-- Mirrored from pixydrops.com/agriox/news.php by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 16 Jun 2026 09:09:56 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+
+<meta http-equiv="content-type" content="text/html;charset=utf-8" /><
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -210,7 +211,7 @@
 
         <!--Page Header Start-->
         <section class="page-header clearfix"
-            style="background-image: url(assets/images/backgrounds/page-header-bg.php);">
+            style="background-image: url(assets/images/backgrounds/page-header-bg  );">
             <div class="container">
                 <div class="page-header__inner text-center clearfix">
                     <ul class="thm-breadcrumb">
@@ -227,68 +228,43 @@
         <section class="blog-one blog-one--news">
             <div class="blog-one__bg wow slideInDown" data-wow-delay="100ms" data-wow-duration="2500ms"></div>
             <div class="container">
+                <?php if (empty($blogs)): ?>
                 <div class="row">
-                    <div class="col-xl-4 col-lg-4 wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-                        <div class="blog-one__single">
-                            <div class="blog-one__single-img">
-                                <img src="assets/images/blog/blog-v1-img1.jpg" alt="" />
-                                <div class="overlay-icon">
-                                    <a href="news-details.php"><i class="fas fa-plus"></i></a>
-                                </div>
-                            </div>
-                            <div class="blog-one__single-content">
-                                <ul class="meta-info">
-                                    <li><a href="#"><i class="far fa-user-circle"></i>Ficus International</a></li>
-                                </ul>
-                                <h2><a href="news-details.php">Why Sourcing Agro Commodities from the Country of Origin Matters</a></h2>
-                                <p>Every agricultural product carries a story that begins long before it reaches global markets. Its country of origin reflects the climate, soil conditions, farming traditions, and generations of expertise that shape its quality and characteristics.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-xl-4 col-lg-4 wow fadeInLeft" data-wow-delay="300ms" data-wow-duration="1500ms">
-                        <div class="blog-one__single">
-                            <div class="blog-one__single-img">
-                                <img src="assets/images/blog/blog-v1-img2.jpg" alt="" />
-                                <div class="overlay-icon">
-                                    <a href="news-details.php"><i class="fas fa-plus"></i></a>
-                                </div>
-                            </div>
-                            <div class="blog-one__single-content">
-                                <ul class="meta-info">
-                                    <li><a href="#"><i class="far fa-user-circle"></i>Ficus International</a></li>
-                                </ul>
-                                <h2><a href="news-details.php">How International Logistics Affects Commodity Pricing</a></h2>
-                                <p>When discussing commodity pricing, most people focus on production costs, but logistics often plays an equally important role. From farm to destination, transportation, customs, and shipping all influence the final price.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-xl-4 col-lg-4 wow fadeInLeft" data-wow-delay="600ms" data-wow-duration="1500ms">
-                        <div class="blog-one__single">
-                            <div class="blog-one__single-img">
-                                <img src="assets/images/blog/blog-v1-img3.jpg" alt="" />
-                                <div class="overlay-icon">
-                                    <a href="news-details.php"><i class="fas fa-plus"></i></a>
-                                </div>
-                            </div>
-                            <div class="blog-one__single-content">
-                                <ul class="meta-info">
-                                    <li><a href="#"><i class="far fa-user-circle"></i>Ficus International</a></li>
-                                </ul>
-                                <h2><a href="news-details.php">What Businesses Should Know Before Importing Agro Commodities</a></h2>
-                                <p>Importing agro commodities is about much more than selecting a product and arranging a shipment. Every commodity has a journey shaped by its origin, growing conditions, harvesting practices, and local regulations.</p>
-                            </div>
-                        </div>
+                    <div class="col-lg-12 text-center" style="padding: 60px 0">
+                        <i class="fas fa-blog" style="font-size:48px;color:#ccc;display:block;margin-bottom:16px"></i>
+                        <p style="color:#888;font-size:16px">No blog posts published yet. Check back soon.</p>
                     </div>
                 </div>
+                <?php else: ?>
                 <div class="row">
-                    <div class="col-lg-12 text-center">
-                        <div class="news-sidebar__btn">
-                            <a href="#" class="thm-btn">load more post</a>
+                    <?php foreach ($blogs as $i => $b):
+                        $n      = $i % 3 + 1;
+                        $delay  = $i % 3 * 300;
+                        $img    = $b['image_url'] ?: "assets/images/blog/blog-v1-img{$n}.jpg";
+                        $link   = 'blog-post  ?slug=' . urlencode($b['slug']);
+                    ?>
+                    <div class="col-xl-4 col-lg-4 wow fadeInLeft" data-wow-delay="<?= $delay ?>ms" data-wow-duration="1500ms">
+                        <div class="blog-one__single">
+                            <div class="blog-one__single-img">
+                                <img src="<?= html_escape($img) ?>" alt="<?= html_escape($b['title']) ?>" />
+                                <div class="overlay-icon">
+                                    <a href="<?= $link ?>"><i class="fas fa-plus"></i></a>
+                                </div>
+                            </div>
+                            <div class="blog-one__single-content">
+                                <ul class="meta-info">
+                                    <li><a href="#"><i class="far fa-user-circle"></i><?= html_escape($b['author']) ?></a></li>
+                                    <li><a href="#"><i class="far fa-calendar-alt"></i><?= date('d M Y', strtotime($b['created_at'])) ?></a></li>
+                                    <li><a href="#"><i class="fas fa-tag"></i><?= html_escape($b['category']) ?></a></li>
+                                </ul>
+                                <h2><a href="<?= $link ?>"><?= html_escape($b['title']) ?></a></h2>
+                                <p><?= html_escape($b['excerpt']) ?></p>
+                            </div>
                         </div>
-                    </div><!-- /.col-lg-12 text-center -->
-                </div><!-- /.row -->
+                    </div>
+                    <?php endforeach; ?>
+                </div>
+                <?php endif; ?>
             </div>
         </section>
         <!--Blog One End-->
@@ -502,5 +478,5 @@
 </body>
 
 
-<!-- Mirrored from pixydrops.com/agriox/news.php by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 16 Jun 2026 09:09:59 GMT -->
+
 </html>
