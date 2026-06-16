@@ -3,6 +3,29 @@
    Shared logic for all admin pages (localStorage)
    =================================================== */
 
+/* ---- Sidebar Toggle (mobile/tablet) ---- */
+function toggleSidebar() {
+    const sidebar  = document.getElementById('sidebar');
+    const overlay  = document.getElementById('sidebarOverlay');
+    if (!sidebar) return;
+    sidebar.classList.toggle('open');
+    if (overlay) overlay.classList.toggle('show');
+}
+
+/* Auto-close sidebar on nav link click (mobile) */
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.sidebar-nav a').forEach(function(link) {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 1024) {
+                const sidebar = document.getElementById('sidebar');
+                const overlay = document.getElementById('sidebarOverlay');
+                if (sidebar) sidebar.classList.remove('open');
+                if (overlay) overlay.classList.remove('show');
+            }
+        });
+    });
+});
+
 /* ---- Storage Helpers ---- */
 const DB = {
     get: (key, fallback = []) => {

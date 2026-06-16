@@ -31,6 +31,46 @@
     <link rel="stylesheet" href="assets/css/agriox-rtl.css">
     <link rel="stylesheet" id="jssMode" href="assets/css/modes/agriox-light.css">
     <link rel="stylesheet" href="assets/vendors/toolbar/css/toolbar.css">
+    <style>
+        .services-one__single-img-icon { display:flex !important; align-items:center; justify-content:center; }
+        .providing-quality-one__content-box-list-item .icon i { color:#f1cf69; font-size:32px; }
+        .mobile-nav__contact li > i {
+            font-size: 15px !important;
+            flex-shrink: 0 !important;
+            min-width: 40px !important;
+            width: 40px !important;
+            height: 40px !important;
+            border-radius: 50% !important;
+        }
+        .mobile-nav__contact li {
+            min-width: 0;
+        }
+        .mobile-nav__contact li a {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            min-width: 0;
+            display: block;
+            font-size: clamp(11px, 3.5vw, 14px);
+        }
+        /* Logo sizing — use logo.jpeg at all breakpoints */
+        .logo img, .stricky-one-logo img {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+        }
+        .mobile-nav__container .logo img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+        }
+        @media (max-width: 768px) {
+            .logo img, .stricky-one-logo img { height: 46px; }
+        }
+        @media (max-width: 480px) {
+            .logo img, .stricky-one-logo img { height: 38px; }
+        }
+    </style>
 </head>
 <body>
 
@@ -79,8 +119,8 @@
                                     <div class="stricky-one-logo">
                                         <div class="logo">
                                             <a href="index.html">
-                                                <img class="dark-logo" src="assets/images/resources/logo-1.png" alt="Ficus International">
-                                                <img class="light-logo" src="assets/images/resources/logo-2.png" alt="Ficus International">
+                                                <img class="dark-logo" src="assets/images/logo.jpeg" alt="Ficus International">
+                                                <img class="light-logo" src="assets/images/logo.jpeg" alt="Ficus International">
                                             </a>
                                         </div>
                                     </div>
@@ -98,8 +138,8 @@
                             <div class="main-header--one__bottom-middel">
                                 <div class="logo">
                                     <a href="index.html">
-                                        <img class="dark-logo" src="assets/images/resources/logo-1.png" alt="Ficus International">
-                                        <img class="light-logo" src="assets/images/resources/logo-2.png" alt="Ficus International">
+                                        <img class="dark-logo" src="assets/images/logo.jpeg" alt="Ficus International">
+                                        <img class="light-logo" src="assets/images/logo.jpeg" alt="Ficus International">
                                     </a>
                                 </div>
                             </div>
@@ -205,18 +245,18 @@
                                 <span class="sec-title__tagline">Our Leadership</span>
                                 <h2 class="sec-title__title">About Our <br>Company Director</h2>
                             </div>
-                            <h3 style="margin-bottom: 12px; color: var(--agriox-black);">Ritu Lather</h3>
-                            <p style="margin-bottom: 20px;">As a Food Technologist with roots in a farming family, our founder brings together agricultural heritage and technical expertise. Her commitment to quality, sustainability, and trusted sourcing drives Ficus International's mission to deliver premium agricultural products to customers worldwide.</p>
+                            <h3 style="margin-bottom: 12px; color: #fff;">Ritu Lather</h3>
+                            <p style="margin-bottom: 20px; color: #dbe6d2;">As a Food Technologist with roots in a farming family, our founder brings together agricultural heritage and technical expertise. Her commitment to quality, sustainability, and trusted sourcing drives Ficus International's mission to deliver premium agricultural products to customers worldwide.</p>
                             <ul class="providing-quality-one__content-box-list">
                                 <li class="providing-quality-one__content-box-list-item">
-                                    <div class="icon"><i class="fas fa-seedling" style="font-size:38px"></i></div>
+                                    <div class="icon"><i class="fas fa-seedling" style="font-size:32px;color:#f1cf69;"></i></div>
                                     <div class="text">
                                         <h3>Agricultural Heritage</h3>
                                         <p>Deep-rooted family farming background combined with formal food technology expertise.</p>
                                     </div>
                                 </li>
                                 <li class="providing-quality-one__content-box-list-item">
-                                    <div class="icon"><i class="fas fa-tractor" style="font-size:38px"></i></div>
+                                    <div class="icon" style="display:flex;align-items:center;justify-content:center;"><i class="fas fa-tractor" style="font-size:32px;color:#f1cf69;"></i></div>
                                     <div class="text">
                                         <h3>Commitment to Sustainability</h3>
                                         <p>Driven by a vision of quality, sustainability, and trusted sourcing at every stage.</p>
@@ -254,7 +294,7 @@
                     <div class="col-xl-3 col-lg-6 wow fadeInLeft" data-wow-delay="100ms" data-wow-duration="1000ms">
                         <div class="services-one__single">
                             <div class="services-one__single-img">
-                                <div class="services-one__single-img-inner"><img src="assets/images/services/services-v1-img2.jpg" alt="" /></div>
+                                <div class="services-one__single-img-inner"><img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&h=280&fit=crop&auto=format&q=80" alt="Reliability" /></div>
                             </div>
                             <div class="services-one__single-content text-center">
                                 <div class="services-one__single-img-icon"><i class="fas fa-leaf" style="font-size:38px"></i></div>
@@ -298,7 +338,7 @@
                     <div class="col-xl-12">
                         <div class="cta-one__wrapper">
                             <div class="cta-one__left">
-                                <div class="cta-one__left-icon"><i class="fas fa-tractor" style="font-size:38px"></i></div>
+                                <div class="cta-one__left-icon" style="display:inline-flex;align-items:center;justify-content:center;"><i class="fas fa-tractor" style="font-size:52px;color:#f1cf69;"></i></div>
                                 <div class="cta-one__left-title">
                                     <h2>Partner with Ficus International Today</h2>
                                 </div>
@@ -326,7 +366,7 @@
                                     <div class="col-xl-4 col-lg-6 col-md-6 wow animated fadeInUp" data-wow-delay="0.1s">
                                         <div class="footer-widget__column footer-widget__about">
                                             <div class="footer-widget__about-logo">
-                                                <a href="index.html"><img src="assets/images/resources/footer-logo.png" alt="Ficus International"></a>
+                                                <a href="index.html" style="text-decoration:none;"><span style="font-family:'Reey',cursive,sans-serif;font-size:28px;color:#f1cf69;letter-spacing:0.5px;line-height:1.2;display:inline-block;">Ficus<br><span style="font-size:14px;color:#fff;letter-spacing:3px;font-family:'DM Sans',sans-serif;font-weight:600;text-transform:uppercase;">International</span></span></a>
                                             </div>
                                             <p class="footer-widget__about-text">Ficus International — global agro commodity sourcing and supply, delivering quality from origin to markets worldwide.</p>
                                             <div class="footer-widget__about-contact-box">
@@ -408,7 +448,7 @@
         <div class="mobile-nav__content">
             <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
             <div class="logo-box">
-                <a href="index.html" aria-label="logo image"><img src="assets/images/resources/mobilemenu_logo.png" width="155" alt="" /></a>
+                <a href="index.html" aria-label="logo image"><img src="assets/images/logo.jpeg" width="155" alt="" /></a>
             </div>
             <div class="mobile-nav__container"></div>
             <ul class="mobile-nav__contact list-unstyled">

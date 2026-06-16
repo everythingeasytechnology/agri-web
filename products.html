@@ -31,6 +31,70 @@
     <link rel="stylesheet" href="assets/css/agriox-rtl.css">
     <link rel="stylesheet" id="jssMode" href="assets/css/modes/agriox-light.css">
     <link rel="stylesheet" href="assets/vendors/toolbar/css/toolbar.css">
+    <style>
+        /* Center arrow icon inside read-more-btn circle */
+        .services-one__single-content .read-more-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .services-one__single-content .read-more-btn i {
+            color: var(--agriox-primary, #334b35);
+            font-size: 18px;
+            line-height: 1;
+            transition: color 200ms linear;
+        }
+        .services-one__single-content .read-more-btn:hover i { color: #fff; }
+        /* Center icons inside services icon circle */
+        .services-one__single-img-icon {
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+        }
+        /* Interested in Our Products CTA icon */
+        .cta-one__left-icon {
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: center;
+        }
+        .cta-one__left-icon i { color: var(--agriox-base, #f1cf69); font-size: 52px; }
+        .mobile-nav__contact li > i {
+            font-size: 15px !important;
+            flex-shrink: 0 !important;
+            min-width: 40px !important;
+            width: 40px !important;
+            height: 40px !important;
+            border-radius: 50% !important;
+        }
+        .mobile-nav__contact li {
+            min-width: 0;
+        }
+        .mobile-nav__contact li a {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            min-width: 0;
+            display: block;
+            font-size: clamp(11px, 3.5vw, 14px);
+        }
+        /* Logo sizing — use logo.jpeg at all breakpoints */
+        .logo img, .stricky-one-logo img {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+        }
+        .mobile-nav__container .logo img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+        }
+        @media (max-width: 768px) {
+            .logo img, .stricky-one-logo img { height: 46px; }
+        }
+        @media (max-width: 480px) {
+            .logo img, .stricky-one-logo img { height: 38px; }
+        }
+    </style>
 </head>
 <body>
 
@@ -79,8 +143,8 @@
                                     <div class="stricky-one-logo">
                                         <div class="logo">
                                             <a href="index.html">
-                                                <img class="dark-logo" src="assets/images/resources/logo-1.png" alt="Ficus International">
-                                                <img class="light-logo" src="assets/images/resources/logo-2.png" alt="Ficus International">
+                                                <img class="dark-logo" src="assets/images/logo.jpeg" alt="Ficus International">
+                                                <img class="light-logo" src="assets/images/logo.jpeg" alt="Ficus International">
                                             </a>
                                         </div>
                                     </div>
@@ -98,8 +162,8 @@
                             <div class="main-header--one__bottom-middel">
                                 <div class="logo">
                                     <a href="index.html">
-                                        <img class="dark-logo" src="assets/images/resources/logo-1.png" alt="Ficus International">
-                                        <img class="light-logo" src="assets/images/resources/logo-2.png" alt="Ficus International">
+                                        <img class="dark-logo" src="assets/images/logo.jpeg" alt="Ficus International">
+                                        <img class="light-logo" src="assets/images/logo.jpeg" alt="Ficus International">
                                     </a>
                                 </div>
                             </div>
@@ -359,7 +423,7 @@
                     <div class="col-xl-12">
                         <div class="cta-one__wrapper">
                             <div class="cta-one__left">
-                                <div class="cta-one__left-icon"><i class="fas fa-tractor" style="font-size:38px"></i></div>
+                                <div class="cta-one__left-icon" style="display:inline-flex;align-items:center;justify-content:center;"><i class="fas fa-tractor" style="font-size:52px;color:#f1cf69;"></i></div>
                                 <div class="cta-one__left-title">
                                     <h2>Interested in Our Products? Get a Quote</h2>
                                 </div>
@@ -387,7 +451,7 @@
                                     <div class="col-xl-4 col-lg-6 col-md-6 wow animated fadeInUp" data-wow-delay="0.1s">
                                         <div class="footer-widget__column footer-widget__about">
                                             <div class="footer-widget__about-logo">
-                                                <a href="index.html"><img src="assets/images/resources/footer-logo.png" alt="Ficus International"></a>
+                                                <a href="index.html" style="text-decoration:none;"><span style="font-family:'Reey',cursive,sans-serif;font-size:28px;color:#f1cf69;letter-spacing:0.5px;line-height:1.2;display:inline-block;">Ficus<br><span style="font-size:14px;color:#fff;letter-spacing:3px;font-family:'DM Sans',sans-serif;font-weight:600;text-transform:uppercase;">International</span></span></a>
                                             </div>
                                             <p class="footer-widget__about-text">Ficus International — global agro commodity sourcing and supply, delivering quality from origin to markets worldwide.</p>
                                             <div class="footer-widget__about-contact-box">
@@ -469,7 +533,7 @@
         <div class="mobile-nav__content">
             <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
             <div class="logo-box">
-                <a href="index.html" aria-label="logo image"><img src="assets/images/resources/mobilemenu_logo.png" width="155" alt="" /></a>
+                <a href="index.html" aria-label="logo image"><img src="assets/images/logo.jpeg" width="155" alt="" /></a>
             </div>
             <div class="mobile-nav__container"></div>
             <ul class="mobile-nav__contact list-unstyled">

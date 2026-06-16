@@ -9,6 +9,7 @@
 </head>
 <body>
 <div class="admin-layout">
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
 
     <!-- Sidebar -->
     <aside class="sidebar" id="sidebar">
@@ -33,7 +34,8 @@
 
     <div class="main-content">
         <div class="topbar">
-            <div class="topbar-left">
+            <div class="topbar-left" style="display:flex;align-items:center;gap:0;">
+                <button class="sidebar-toggle" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
                 <h1>Products</h1>
                 <span>Manage your product catalog</span>
             </div>
