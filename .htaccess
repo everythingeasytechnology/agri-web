@@ -3,7 +3,8 @@ Options -Indexes
 RewriteEngine On
 RewriteBase /
 
-# 1. Remove .php from URL bar — redirect browser to clean URL
+# 1. Remove .php from URL bar — only for GET requests (POST must not be redirected)
+RewriteCond %{REQUEST_METHOD} !POST
 RewriteCond %{THE_REQUEST} \s/+(.+?)\.php[\s?] [NC]
 RewriteRule ^ /%1 [R=301,L,QSA]
 
