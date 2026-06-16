@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products | Ficus International Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+<div class="admin-layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <div class="brand-icon"><i class="fas fa-leaf"></i></div>
+            <div class="brand-text"><h2>Ficus Admin</h2><span>Control Panel</span></div>
+        </div>
+        <nav class="sidebar-nav">
+            <div class="nav-section-label">Main</div>
+            <a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <a href="queries.html"><i class="fas fa-envelope-open-text"></i> Contact Queries</a>
+            <div class="nav-section-label" style="margin-top:12px">Content</div>
+            <a href="products.html" class="active"><i class="fas fa-seedling"></i> Products</a>
+            <a href="blogs.html"><i class="fas fa-blog"></i> Blog Posts</a>
+            <div class="nav-section-label" style="margin-top:12px">Site</div>
+            <a href="../index-main.html" target="_blank"><i class="fas fa-external-link-alt"></i> View Website</a>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="index.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+    </aside>
+
+    <div class="main-content">
+        <div class="topbar">
+            <div class="topbar-left">
+                <h1>Products</h1>
+                <span>Manage your product catalog</span>
+            </div>
+            <div class="topbar-right">
+                <div class="topbar-badge"><i class="fas fa-bell"></i><span class="badge-dot"></span></div>
+                <div class="topbar-user">
+                    <div class="avatar">A</div>
+                    <div class="user-info"><strong>Admin</strong><span>Administrator</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <!-- Add Product Form -->
+            <div class="panel">
+                <div class="panel-header">
+                    <h2 id="product-form-title"><i class="fas fa-plus-circle"></i> Add New Product</h2>
+                    <button class="btn btn-outline btn-sm" id="cancelEditBtn" onclick="cancelProductEdit()" style="display:none">
+                        <i class="fas fa-times"></i> Cancel Edit
+                    </button>
+                </div>
+                <div class="panel-body">
+                    <form class="admin-form" id="productForm" onsubmit="saveProduct(event)">
+                        <input type="hidden" id="productEditId" value="" />
+
+                        <div class="form-row cols-2">
+                            <div>
+                                <label>Product Name *</label>
+                                <input type="text" id="productName" placeholder="e.g. Chia Seeds" required />
+                            </div>
+                            <div>
+                                <label>Category *</label>
+                                <select id="productCategory" required>
+                                    <option value="">Select category...</option>
+                                    <option value="Seeds & Grains">Seeds &amp; Grains</option>
+                                    <option value="Spices">Spices</option>
+                                    <option value="Nuts">Nuts</option>
+                                    <option value="Specialty">Specialty</option>
+                                    <option value="Wood & Timber">Wood &amp; Timber</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div>
+                                <label>Short Description *</label>
+                                <textarea id="productDesc" rows="3" placeholder="Brief product description (1–2 sentences)" required></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-row cols-2">
+                            <div>
+                                <label>Image URL</label>
+                                <input type="url" id="productImage" placeholder="https://images.unsplash.com/photo-..." oninput="previewImage(this.value)" />
+                                <p class="field-hint"><i class="fas fa-info-circle"></i> Paste an Unsplash or any direct image URL</p>
+                            </div>
+                            <div>
+                                <label>Image Preview</label>
+                                <div style="border:2px dashed var(--border);border-radius:8px;height:100px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--light-bg)">
+                                    <img id="imgPreviewBox" src="" alt="Preview" style="max-height:96px;max-width:100%;border-radius:6px;display:none" />
+                                    <span id="imgPreviewPlaceholder" style="color:var(--text-mid);font-size:12px"><i class="fas fa-image" style="display:block;text-align:center;font-size:22px;margin-bottom:6px;opacity:.3"></i>Preview</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary" id="productSubmitBtn">
+                                <i class="fas fa-save"></i> Save Product
+                            </button>
+                            <button type="reset" class="btn btn-outline" onclick="resetProductForm()">
+                                <i class="fas fa-redo"></i> Reset
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Products List -->
+            <div class="panel">
+                <div class="panel-header">
+                    <h2><i class="fas fa-list"></i> All Products <span id="products-count" class="badge badge-read" style="margin-left:8px">0</span></h2>
+                    <div style="display:flex;gap:10px;align-items:center">
+                        <div class="search-bar">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="productSearch" placeholder="Search products..." oninput="renderProductsList()" />
+                        </div>
+                        <div class="view-toggle">
+                            <button class="view-btn active" id="gridViewBtn" onclick="setProductView('grid')" title="Grid view"><i class="fas fa-th"></i></button>
+                            <button class="view-btn" id="listViewBtn" onclick="setProductView('list')" title="List view"><i class="fas fa-list"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grid View -->
+                <div class="panel-body" id="products-grid-view">
+                    <div class="products-grid" id="products-grid">
+                        <div class="empty-state" style="grid-column:1/-1">
+                            <i class="fas fa-seedling"></i>
+                            <p>No products added yet. Use the form above to add your first product.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- List View -->
+                <div id="products-list-view" style="display:none;padding:0">
+                    <table class="admin-table" id="products-table">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Product Name</th>
+                                <th>Category</th>
+                                <th>Description</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="products-table-body">
+                            <tr>
+                                <td colspan="5" style="text-align:center;padding:40px;color:var(--text-mid)">No products yet.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Confirm Delete -->
+<div class="confirm-overlay" id="confirmOverlay">
+    <div class="confirm-box">
+        <div class="confirm-icon"><i class="fas fa-trash-alt"></i></div>
+        <h3>Delete Product?</h3>
+        <p>This product will be permanently deleted from the admin panel.</p>
+        <div class="confirm-actions">
+            <button class="btn btn-outline" onclick="closeConfirm()">Cancel</button>
+            <button class="btn btn-danger" id="confirmDeleteBtn">Delete</button>
+        </div>
+    </div>
+</div>
+
+<div class="toast-container" id="toastContainer"></div>
+
+<script src="admin.js"></script>
+<script>
+    let productView = 'grid';
+
+    function setProductView(view) {
+        productView = view;
+        document.getElementById('products-grid-view').style.display = (view === 'grid') ? 'block' : 'none';
+        document.getElementById('products-list-view').style.display = (view === 'list') ? 'block' : 'none';
+        document.getElementById('gridViewBtn').classList.toggle('active', view === 'grid');
+        document.getElementById('listViewBtn').classList.toggle('active', view === 'list');
+        renderProductsList();
+    }
+
+    function previewImage(url) {
+        const img = document.getElementById('imgPreviewBox');
+        const ph  = document.getElementById('imgPreviewPlaceholder');
+        if (url && url.startsWith('http')) {
+            img.src = url;
+            img.style.display = 'block';
+            ph.style.display  = 'none';
+        } else {
+            img.style.display = 'none';
+            ph.style.display  = 'block';
+        }
+    }
+
+    function cancelProductEdit() {
+        resetProductForm();
+        document.getElementById('productEditId').value = '';
+        document.getElementById('product-form-title').innerHTML = '<i class="fas fa-plus-circle"></i> Add New Product';
+        document.getElementById('productSubmitBtn').innerHTML = '<i class="fas fa-save"></i> Save Product';
+        document.getElementById('cancelEditBtn').style.display = 'none';
+    }
+
+    function resetProductForm() {
+        document.getElementById('productForm').reset();
+        document.getElementById('imgPreviewBox').style.display = 'none';
+        document.getElementById('imgPreviewPlaceholder').style.display = 'block';
+    }
+
+    renderProductsPage();
+</script>
+</body>
+</html>
