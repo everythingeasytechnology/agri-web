@@ -1,15 +1,26 @@
 <?php
 require_once __DIR__ . '/admin/db.php';
 
-$slug = isset($_GET['slug']) ? trim($_GET['slug']) : '';
-if ($slug === '') {
-    header('Location: news ');
-    exit;
+$post = null;
+
+// Try slug first, then fall back to numeric id
+$slug = trim($_GET['slug'] ?? '');
+$id   = (int)($_GET['id'] ?? 0);
+
+if ($slug !== '') {
+    try {
+        $post = db_fetch("SELECT * FROM blogs WHERE slug = ? AND status = 'published'", [$slug]);
+    } catch (Exception $e) {
+        $post = null;
+    }
 }
 
-$post = db_fetch("SELECT * FROM blogs WHERE slug = ? AND status = 'published'", [$slug]);
+if (!$post && $id > 0) {
+    $post = db_fetch("SELECT * FROM blogs WHERE id = ? AND status = 'published'", [$id]);
+}
+
 if (!$post) {
-    header('Location: news ');
+    header('Location: news.php');
     exit;
 }
 
@@ -445,7 +456,7 @@ $formatted_date = date('F j, Y', strtotime($post['created_at']));
                                 $rn = $ri % 3 + 1;
                                 $r_img = $r['image_url'] ?: "assets/images/blog/blog-v1-img{$rn}.jpg";
                             ?>
-                            <a href="blog-post ?slug=<?php echo urlencode($r['slug']); ?>" class="blog-sidebar__card">
+                            <a href="<?php echo !empty($r['slug']) ? 'blog-post.php?slug=' . urlencode($r['slug']) : 'blog-post.php?id=' . $r['id']; ?>" class="blog-sidebar__card">
                                 <img src="<?php echo html_escape($r_img); ?>"
                                      alt="<?php echo html_escape($r['title']); ?>"
                                      class="blog-sidebar__card-img" />

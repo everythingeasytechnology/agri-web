@@ -898,7 +898,9 @@ function reel_embed_url(string $url): string {
               $n     = $i % 3 + 1;
               $delay = $i % 3 * 300;
               $img   = $b['image_url'] ?: "assets/images/blog/blog-v1-img{$n}.jpg";
-              $link  = 'blog-post ?slug=' . urlencode($b['slug']);
+              $link  = !empty($b['slug'])
+                ? 'blog-post.php?slug=' . urlencode($b['slug'])
+                : 'blog-post.php?id=' . $b['id'];
             ?>
             <div
               class="col-xl-4 col-lg-4 wow fadeInLeft"
