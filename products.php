@@ -1,3 +1,15 @@
+<?php
+require_once __DIR__ . '/admin/db.php';
+$all_products = db_fetch_all('SELECT * FROM products ORDER BY category ASC, created_at ASC');
+
+// Group by category
+$grouped = [];
+foreach ($all_products as $p) {
+    $grouped[$p['category']][] = $p;
+}
+
+$icons = ['fa-seedling', 'fa-leaf', 'fa-chart-line', 'fa-box-open'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -211,210 +223,62 @@
             </div>
         </section>
 
-        <!-- ==================== SEEDS & GRAINS ==================== -->
+        <?php if (empty($grouped)): ?>
+        <!-- No products in DB yet -->
         <section class="services-one">
-            <div class="services-one__bg wow slideInDown" data-wow-delay="100ms" data-wow-duration="2500ms"></div>
             <div class="container">
-                <div class="sec-title text-center">
-                    <h3 class="sec-title__title" style="font-size:28px;">Seeds &amp; Grains</h3>
-                </div>
-                <div class="row">
-                    <div class="col-xl-3 col-lg-6 wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1000ms">
-                        <div class="services-one__single">
-                            <div class="services-one__single-img">
-                                <div class="services-one__single-img-inner"><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=280&fit=crop&auto=format&q=80" alt="Chia Seeds" /></div>
-                            </div>
-                            <div class="services-one__single-content text-center">
-                                <div class="services-one__single-img-icon"><i class="fas fa-seedling" style="font-size:38px"></i></div>
-                                <h3>Chia Seeds</h3>
-                                <p>Nutrient-rich ancient seeds valued for their versatility and natural wellness benefits.</p>
-                                <a href="contact.php" class="read-more-btn"><i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-6 wow fadeInLeft" data-wow-delay="100ms" data-wow-duration="1000ms">
-                        <div class="services-one__single">
-                            <div class="services-one__single-img">
-                                <div class="services-one__single-img-inner"><img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&h=280&fit=crop&auto=format&q=80" alt="Quinoa Seeds" /></div>
-                            </div>
-                            <div class="services-one__single-content text-center">
-                                <div class="services-one__single-img-icon"><i class="fas fa-leaf" style="font-size:38px"></i></div>
-                                <h3>Quinoa Seeds</h3>
-                                <p>Premium protein-rich grains known for their exceptional nutritional profile.</p>
-                                <a href="contact.php" class="read-more-btn"><i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-6 wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1000ms">
-                        <div class="services-one__single">
-                            <div class="services-one__single-img">
-                                <div class="services-one__single-img-inner"><img src="https://images.unsplash.com/photo-1610725664285-7c57e6eeac3f?w=400&h=280&fit=crop&auto=format&q=80" alt="Flaxseeds" /></div>
-                            </div>
-                            <div class="services-one__single-content text-center">
-                                <div class="services-one__single-img-icon"><i class="fas fa-chart-line" style="font-size:38px"></i></div>
-                                <h3>Flaxseeds</h3>
-                                <p>Naturally rich seeds widely appreciated for their nutritional value and diverse applications.</p>
-                                <a href="contact.php" class="read-more-btn"><i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-6 wow fadeInRight" data-wow-delay="100ms" data-wow-duration="1000ms">
-                        <div class="services-one__single">
-                            <div class="services-one__single-img">
-                                <div class="services-one__single-img-inner"><img src="https://images.unsplash.com/photo-1601648764658-cf37e8c89b70?w=400&h=280&fit=crop&auto=format&q=80" alt="Pumpkin Seeds" /></div>
-                            </div>
-                            <div class="services-one__single-content text-center">
-                                <div class="services-one__single-img-icon"><i class="fas fa-box-open" style="font-size:38px"></i></div>
-                                <h3>Pumpkin Seeds</h3>
-                                <p>Carefully sourced seeds offering a rich taste and excellent nutritional content.</p>
-                                <a href="contact.php" class="read-more-btn"><i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-6 wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1000ms">
-                        <div class="services-one__single">
-                            <div class="services-one__single-img">
-                                <div class="services-one__single-img-inner"><img src="https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?w=400&h=280&fit=crop&auto=format&q=80" alt="Sunflower Seeds" /></div>
-                            </div>
-                            <div class="services-one__single-content text-center">
-                                <div class="services-one__single-img-icon"><i class="fas fa-seedling" style="font-size:38px"></i></div>
-                                <h3>Sunflower Seeds</h3>
-                                <p>High-quality seeds recognized for their mild flavor and wide range of uses.</p>
-                                <a href="contact.php" class="read-more-btn"><i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-6 wow fadeInLeft" data-wow-delay="100ms" data-wow-duration="1000ms">
-                        <div class="services-one__single">
-                            <div class="services-one__single-img">
-                                <div class="services-one__single-img-inner"><img src="https://images.unsplash.com/photo-1551462147-37885acc36f1?w=400&h=280&fit=crop&auto=format&q=80" alt="Sesame Seeds" /></div>
-                            </div>
-                            <div class="services-one__single-content text-center">
-                                <div class="services-one__single-img-icon"><i class="fas fa-leaf" style="font-size:38px"></i></div>
-                                <h3>Sesame Seeds</h3>
-                                <p>Premium-grade seeds prized for their distinctive aroma, flavor, and versatility.</p>
-                                <a href="contact.php" class="read-more-btn"><i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-6 wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1000ms">
-                        <div class="services-one__single">
-                            <div class="services-one__single-img">
-                                <div class="services-one__single-img-inner"><img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&h=280&fit=crop&auto=format&q=80" alt="Soyabean Seeds" /></div>
-                            </div>
-                            <div class="services-one__single-content text-center">
-                                <div class="services-one__single-img-icon"><i class="fas fa-chart-line" style="font-size:38px"></i></div>
-                                <h3>Soyabean Seeds</h3>
-                                <p>Globally demanded agricultural commodity known for its extensive industrial and food applications.</p>
-                                <a href="contact.php" class="read-more-btn"><i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-6 wow fadeInRight" data-wow-delay="100ms" data-wow-duration="1000ms">
-                        <div class="services-one__single">
-                            <div class="services-one__single-img">
-                                <div class="services-one__single-img-inner"><img src="https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=400&h=280&fit=crop&auto=format&q=80" alt="Rice" /></div>
-                            </div>
-                            <div class="services-one__single-content text-center">
-                                <div class="services-one__single-img-icon"><i class="fas fa-box-open" style="font-size:38px"></i></div>
-                                <h3>Rice</h3>
-                                <p>Carefully sourced rice varieties delivering quality, consistency, and global appeal.</p>
-                                <a href="contact.php" class="read-more-btn"><i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <p style="text-align:center;color:#888;padding:60px 0;font-size:16px;">
+                    No products found. Add products from the <a href="admin/products.php">admin panel</a>.
+                </p>
             </div>
         </section>
 
-        <!-- ==================== SPICES & SPECIALTY ==================== -->
-        <section class="services-one" style="background: #f5f5f5;">
+        <?php else:
+            $section_index = 0;
+            foreach ($grouped as $category => $products):
+                $bg = $section_index % 2 === 1 ? ' style="background:#f5f5f5;"' : '';
+                $show_bg_bar = $section_index === 0;
+        ?>
+        <!-- ==================== <?= html_escape(strtoupper($category)) ?> ==================== -->
+        <section class="services-one"<?= $bg ?>>
+            <?php if ($show_bg_bar): ?>
+            <div class="services-one__bg wow slideInDown" data-wow-delay="100ms" data-wow-duration="2500ms"></div>
+            <?php endif; ?>
             <div class="container">
                 <div class="sec-title text-center">
-                    <h3 class="sec-title__title" style="font-size:28px;">Spices, Nuts &amp; Specialty</h3>
+                    <h3 class="sec-title__title" style="font-size:28px;"><?= html_escape($category) ?></h3>
                 </div>
                 <div class="row">
-                    <div class="col-xl-3 col-lg-6 wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1000ms">
+                    <?php foreach ($products as $pi => $p):
+                        $icon  = $icons[$pi % 4];
+                        $anim  = ($pi % 4 < 2) ? 'fadeInLeft' : 'fadeInRight';
+                        $delay = ($pi % 2) * 100;
+                        $img   = $p['image_url'] ?: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=280&fit=crop&auto=format&q=80';
+                    ?>
+                    <div class="col-xl-3 col-lg-6 wow <?= $anim ?>" data-wow-delay="<?= $delay ?>ms" data-wow-duration="1000ms">
                         <div class="services-one__single">
                             <div class="services-one__single-img">
-                                <div class="services-one__single-img-inner"><img src="https://images.unsplash.com/photo-1536304929831-ee1ca9d44906?w=400&h=280&fit=crop&auto=format&q=80" alt="Raw Cashew Nuts" /></div>
+                                <div class="services-one__single-img-inner">
+                                    <img src="<?= html_escape($img) ?>" alt="<?= html_escape($p['name']) ?>" />
+                                </div>
                             </div>
                             <div class="services-one__single-content text-center">
-                                <div class="services-one__single-img-icon"><i class="fas fa-seedling" style="font-size:38px"></i></div>
-                                <h3>Raw Cashew Nuts</h3>
-                                <p>Carefully sourced raw cashews selected for quality, freshness, and consistency.</p>
+                                <div class="services-one__single-img-icon"><i class="fas <?= $icon ?>" style="font-size:38px"></i></div>
+                                <h3><?= html_escape($p['name']) ?></h3>
+                                <p><?= html_escape($p['description']) ?></p>
                                 <a href="contact.php" class="read-more-btn"><i class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-lg-6 wow fadeInLeft" data-wow-delay="100ms" data-wow-duration="1000ms">
-                        <div class="services-one__single">
-                            <div class="services-one__single-img">
-                                <div class="services-one__single-img-inner"><img src="https://images.unsplash.com/photo-1541123437800-1bb1317badc2?w=400&h=280&fit=crop&auto=format&q=80" alt="Ivory Teakwood" /></div>
-                            </div>
-                            <div class="services-one__single-content text-center">
-                                <div class="services-one__single-img-icon"><i class="fas fa-leaf" style="font-size:38px"></i></div>
-                                <h3>Ivory Teakwood</h3>
-                                <p>Premium hardwood renowned for its durability, strength, and natural elegance.</p>
-                                <a href="contact.php" class="read-more-btn"><i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-6 wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1000ms">
-                        <div class="services-one__single">
-                            <div class="services-one__single-img">
-                                <div class="services-one__single-img-inner"><img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=400&h=280&fit=crop&auto=format&q=80" alt="Cloves" /></div>
-                            </div>
-                            <div class="services-one__single-content text-center">
-                                <div class="services-one__single-img-icon"><i class="fas fa-chart-line" style="font-size:38px"></i></div>
-                                <h3>Cloves</h3>
-                                <p>Aromatic spice celebrated for its rich flavor, fragrance, and culinary value.</p>
-                                <a href="contact.php" class="read-more-btn"><i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-6 wow fadeInRight" data-wow-delay="100ms" data-wow-duration="1000ms">
-                        <div class="services-one__single">
-                            <div class="services-one__single-img">
-                                <div class="services-one__single-img-inner"><img src="https://images.unsplash.com/photo-1615485500704-8e990f9900f7?w=400&h=280&fit=crop&auto=format&q=80" alt="Turmeric Powder" /></div>
-                            </div>
-                            <div class="services-one__single-content text-center">
-                                <div class="services-one__single-img-icon"><i class="fas fa-box-open" style="font-size:38px"></i></div>
-                                <h3>Turmeric Powder</h3>
-                                <p>Finely processed turmeric known for its vibrant color and authentic quality.</p>
-                                <a href="contact.php" class="read-more-btn"><i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-6 wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1000ms">
-                        <div class="services-one__single">
-                            <div class="services-one__single-img">
-                                <div class="services-one__single-img-inner"><img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=400&h=280&fit=crop&auto=format&q=80" alt="Cumin Seed" /></div>
-                            </div>
-                            <div class="services-one__single-content text-center">
-                                <div class="services-one__single-img-icon"><i class="fas fa-seedling" style="font-size:38px"></i></div>
-                                <h3>Cumin Seed</h3>
-                                <p>Premium cumin seeds valued for their distinctive aroma and bold flavor profile.</p>
-                                <a href="contact.php" class="read-more-btn"><i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-6 wow fadeInLeft" data-wow-delay="100ms" data-wow-duration="1000ms">
-                        <div class="services-one__single">
-                            <div class="services-one__single-img">
-                                <div class="services-one__single-img-inner"><img src="https://images.unsplash.com/photo-1599940824399-b87987ceb72a?w=400&h=280&fit=crop&auto=format&q=80" alt="Coriander Seed" /></div>
-                            </div>
-                            <div class="services-one__single-content text-center">
-                                <div class="services-one__single-img-icon"><i class="fas fa-leaf" style="font-size:38px"></i></div>
-                                <h3>Coriander Seed</h3>
-                                <p>Naturally aromatic seeds widely used in culinary and food processing industries.</p>
-                                <a href="contact.php" class="read-more-btn"><i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </section>
+        <?php
+                $section_index++;
+            endforeach;
+        endif;
+        ?>
 
         <!-- ==================== CTA ==================== -->
         <section class="cta-one" style="background-image: url(assets/images/backgrounds/cta-v1-bg.jpg);">
