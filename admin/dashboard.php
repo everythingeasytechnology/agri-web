@@ -23,19 +23,19 @@
 
         <nav class="sidebar-nav">
             <div class="nav-section-label">Main</div>
-            <a href="dashboard.html" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
-            <a href="queries.html"><i class="fas fa-envelope-open-text"></i> Contact Queries <span id="unread-badge" style="margin-left:auto;background:var(--danger);color:#fff;font-size:10px;padding:1px 7px;border-radius:10px">3</span></a>
+            <a href="dashboard.php" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <a href="queries.php"><i class="fas fa-envelope-open-text"></i> Contact Queries <span id="unread-badge" style="margin-left:auto;background:var(--danger);color:#fff;font-size:10px;padding:1px 7px;border-radius:10px">3</span></a>
 
             <div class="nav-section-label" style="margin-top:12px">Content</div>
-            <a href="products.html"><i class="fas fa-seedling"></i> Products</a>
-            <a href="blogs.html"><i class="fas fa-blog"></i> Blog Posts</a>
+            <a href="products.php"><i class="fas fa-seedling"></i> Products</a>
+            <a href="blogs.php"><i class="fas fa-blog"></i> Blog Posts</a>
 
             <div class="nav-section-label" style="margin-top:12px">Site</div>
-            <a href="../index.html" target="_blank"><i class="fas fa-external-link-alt"></i> View Website</a>
+            <a href="../index.php" target="_blank"><i class="fas fa-external-link-alt"></i> View Website</a>
         </nav>
 
         <div class="sidebar-footer">
-            <a href="index.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            <a href="index.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
         </div>
     </aside>
 
@@ -97,7 +97,7 @@
             <div class="panel">
                 <div class="panel-header">
                     <h2><i class="fas fa-envelope-open-text"></i> Recent Contact Queries</h2>
-                    <a href="queries.html" class="btn btn-outline btn-sm">View All</a>
+                    <a href="queries.php" class="btn btn-outline btn-sm">View All</a>
                 </div>
                 <div class="panel-body" style="padding:0">
                     <table class="admin-table" id="recent-queries-table">
@@ -131,7 +131,7 @@
                 <div class="panel">
                     <div class="panel-header">
                         <h2><i class="fas fa-seedling"></i> Products</h2>
-                        <a href="products.html" class="btn btn-outline btn-sm">Manage</a>
+                        <a href="products.php" class="btn btn-outline btn-sm">Manage</a>
                     </div>
                     <div class="panel-body" id="recent-products-list" style="padding:0">
                         <div style="text-align:center;padding:30px;color:var(--text-mid);font-size:13px">
@@ -145,7 +145,7 @@
                 <div class="panel">
                     <div class="panel-header">
                         <h2><i class="fas fa-blog"></i> Blog Posts</h2>
-                        <a href="blogs.html" class="btn btn-outline btn-sm">Manage</a>
+                        <a href="blogs.php" class="btn btn-outline btn-sm">Manage</a>
                     </div>
                     <div class="panel-body" id="recent-blogs-list" style="padding:0">
                         <div style="text-align:center;padding:30px;color:var(--text-mid);font-size:13px">

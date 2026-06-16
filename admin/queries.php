@@ -19,16 +19,16 @@
         </div>
         <nav class="sidebar-nav">
             <div class="nav-section-label">Main</div>
-            <a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
-            <a href="queries.html" class="active"><i class="fas fa-envelope-open-text"></i> Contact Queries</a>
+            <a href="dashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <a href="queries.php" class="active"><i class="fas fa-envelope-open-text"></i> Contact Queries</a>
             <div class="nav-section-label" style="margin-top:12px">Content</div>
-            <a href="products.html"><i class="fas fa-seedling"></i> Products</a>
-            <a href="blogs.html"><i class="fas fa-blog"></i> Blog Posts</a>
+            <a href="products.php"><i class="fas fa-seedling"></i> Products</a>
+            <a href="blogs.php"><i class="fas fa-blog"></i> Blog Posts</a>
             <div class="nav-section-label" style="margin-top:12px">Site</div>
-            <a href="../index.html" target="_blank"><i class="fas fa-external-link-alt"></i> View Website</a>
+            <a href="../index.php" target="_blank"><i class="fas fa-external-link-alt"></i> View Website</a>
         </nav>
         <div class="sidebar-footer">
-            <a href="index.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            <a href="index.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
         </div>
     </aside>
 

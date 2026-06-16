@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Us | Ficus International</title>
+    <title>Our Products | Ficus International</title>
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png" />
     <link rel="manifest" href="assets/images/favicons/site.webmanifest" />
-    <meta name="description" content="Ficus International is a global agro commodity sourcing and supply company committed to delivering quality products from origin to markets worldwide." />
+    <meta name="description" content="Explore Ficus International's range of premium agro commodities sourced directly from their countries of origin." />
     <link rel="preconnect" href="https://fonts.gstatic.com/">
     <link href="https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Shadows+Into+Light&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/vendors/bootstrap/css/bootstrap.min.css" />
@@ -32,8 +32,32 @@
     <link rel="stylesheet" id="jssMode" href="assets/css/modes/agriox-light.css">
     <link rel="stylesheet" href="assets/vendors/toolbar/css/toolbar.css">
     <style>
-        .services-one__single-img-icon { display:flex !important; align-items:center; justify-content:center; }
-        .providing-quality-one__content-box-list-item .icon i { color:#f1cf69; font-size:32px; }
+        /* Center arrow icon inside read-more-btn circle */
+        .services-one__single-content .read-more-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .services-one__single-content .read-more-btn i {
+            color: var(--agriox-primary, #334b35);
+            font-size: 18px;
+            line-height: 1;
+            transition: color 200ms linear;
+        }
+        .services-one__single-content .read-more-btn:hover i { color: #fff; }
+        /* Center icons inside services icon circle */
+        .services-one__single-img-icon {
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+        }
+        /* Interested in Our Products CTA icon */
+        .cta-one__left-icon {
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: center;
+        }
+        .cta-one__left-icon i { color: var(--agriox-base, #f1cf69); font-size: 52px; }
         .mobile-nav__contact li > i {
             font-size: 15px !important;
             flex-shrink: 0 !important;
@@ -118,7 +142,7 @@
                                     <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
                                     <div class="stricky-one-logo">
                                         <div class="logo">
-                                            <a href="index.html">
+                                            <a href="index.php">
                                                 <img class="dark-logo" src="assets/images/logo.jpeg" alt="Ficus International">
                                                 <img class="light-logo" src="assets/images/logo.jpeg" alt="Ficus International">
                                             </a>
@@ -126,18 +150,18 @@
                                     </div>
                                     <div class="main-header--one__bottom-left">
                                         <ul class="main-menu__list">
-                                            <li><a href="index.html">Home</a></li>
-                                            <li class="current"><a href="about.html">About</a></li>
-                                            <li><a href="products.html">Products</a></li>
-                                            <li><a href="news.html">Blog</a></li>
-                                            <li><a href="contact.html">Contact</a></li>
+                                            <li><a href="index.php">Home</a></li>
+                                            <li><a href="about.php">About</a></li>
+                                            <li class="current"><a href="products.php">Products</a></li>
+                                            <li><a href="news.php">Blog</a></li>
+                                            <li><a href="contact.php">Contact</a></li>
                                         </ul>
                                     </div>
                                 </div>
                             </nav>
                             <div class="main-header--one__bottom-middel">
                                 <div class="logo">
-                                    <a href="index.html">
+                                    <a href="index.php">
                                         <img class="dark-logo" src="assets/images/logo.jpeg" alt="Ficus International">
                                         <img class="light-logo" src="assets/images/logo.jpeg" alt="Ficus International">
                                     </a>
@@ -167,163 +191,224 @@
             <div class="container">
                 <div class="page-header__inner text-center clearfix">
                     <ul class="thm-breadcrumb">
-                        <li><a href="index.html">Home</a></li>
-                        <li>About</li>
+                        <li><a href="index.php">Home</a></li>
+                        <li>Products</li>
                     </ul>
-                    <h2>About Us</h2>
+                    <h2>Our Products</h2>
                 </div>
             </div>
         </section>
 
-        <!-- ==================== ABOUT COMPANY ==================== -->
-        <section class="about-three">
-            <div class="about-three__shape"></div>
+        <!-- ==================== PRODUCTS INTRO ==================== -->
+        <section class="about-one" style="padding-bottom: 0;">
             <div class="container">
-                <div class="row">
-                    <div class="col-xl-6 col-lg-7">
-                        <div class="about-three__content-box">
-                            <div class="sec-title">
-                                <div class="icon"><img src="assets/images/resources/sec-title-icon1.png" alt=""></div>
-                                <span class="sec-title__tagline">Who We Are</span>
-                                <h2 class="sec-title__title">About Ficus International</h2>
-                            </div>
-                            <div class="about-three__content-box-inner">
-                                <h2>A Global Agro Commodity Company</h2>
-                                <p>Ficus International is a global agro commodity sourcing and supply company committed to delivering quality products from their origin to markets worldwide. Through strategic procurement, efficient logistics, and a customer-focused approach, we ensure a dependable supply chain that creates value for businesses across the globe.</p>
-                                <div class="about-three__products-list">
-                                    <ul>
-                                        <li>
-                                            <div class="icon"><i class="fas fa-hand-holding-usd" style="font-size:38px"></i></div>
-                                            <h3><a href="#">Strategic Procurement</a></h3>
-                                            <p>Carefully sourcing the finest agro commodities directly from their countries of origin.</p>
-                                        </li>
-                                        <li>
-                                            <div class="icon"><i class="fas fa-leaf" style="font-size:38px"></i></div>
-                                            <h3><a href="#">Efficient Logistics</a></h3>
-                                            <p>Seamless supply chain management from origin to final destination worldwide.</p>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="about-three__content-box-btn">
-                                <a href="products.html" class="thm-btn">Explore Products</a>
-                            </div>
-                            <div class="about-three__arrow float-bob-y"></div>
-                        </div>
-                    </div>
-
-                    <div class="col-xl-6 col-lg-5">
-                        <div class="about-three__img-box">
-                            <div class="about-three__img-box-img">
-                                <div class="about-three__img-box-img-inner">
-                                    <img src="assets/images/about/about-v1-img1.jpg" alt="Ficus International" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="sec-title text-center">
+                    <div class="icon"><img src="assets/images/resources/sec-title-icon1.png" alt=""></div>
+                    <span class="sec-title__tagline">Origin-Sourced Quality</span>
+                    <h2 class="sec-title__title">Premium Agro Commodities</h2>
+                    <p style="max-width:700px; margin: 0 auto 10px; font-size:16px; line-height:1.8;">Every product we offer is carefully sourced directly from its country of origin, ensuring the highest standards of quality, freshness, and authenticity. We supply businesses across international markets with a comprehensive range of agro commodities.</p>
                 </div>
             </div>
         </section>
 
-        <!-- ==================== OUR DIRECTOR ==================== -->
-        <section class="providing-quality-one clearfix">
-            <div class="providing-quality-one__bg"><img src="assets/images/backgrounds/providing-quality-one-bg.png" alt="" /></div>
-            <div class="providing-quality-one__shape"></div>
-            <div class="container-fullwidth">
-                <div class="row">
-                    <div class="col-xl-6 providing-quality-one__image-block clearfix">
-                        <div class="providing-quality-one__image__line float-bob-y"></div>
-                        <img src="assets/images/resources/providing-quality-v1-img.jpg" alt="">
-                        <div class="providing-quality-one__logo">
-                            <img src="assets/images/resources/providing-quality.png" alt="" />
-                        </div>
-                    </div>
-                    <div class="col-xl-6">
-                        <div class="providing-quality-one__content-box">
-                            <div class="sec-title">
-                                <div class="icon"><img src="assets/images/resources/sec-title-icon2.png" alt=""></div>
-                                <span class="sec-title__tagline">Our Leadership</span>
-                                <h2 class="sec-title__title">About Our <br>Company Director</h2>
-                            </div>
-                            <h3 style="margin-bottom: 12px; color: #fff;">Ritu Lather</h3>
-                            <p style="margin-bottom: 20px; color: #dbe6d2;">As a Food Technologist with roots in a farming family, our founder brings together agricultural heritage and technical expertise. Her commitment to quality, sustainability, and trusted sourcing drives Ficus International's mission to deliver premium agricultural products to customers worldwide.</p>
-                            <ul class="providing-quality-one__content-box-list">
-                                <li class="providing-quality-one__content-box-list-item">
-                                    <div class="icon"><i class="fas fa-seedling" style="font-size:32px;color:#f1cf69;"></i></div>
-                                    <div class="text">
-                                        <h3>Agricultural Heritage</h3>
-                                        <p>Deep-rooted family farming background combined with formal food technology expertise.</p>
-                                    </div>
-                                </li>
-                                <li class="providing-quality-one__content-box-list-item">
-                                    <div class="icon" style="display:flex;align-items:center;justify-content:center;"><i class="fas fa-tractor" style="font-size:32px;color:#f1cf69;"></i></div>
-                                    <div class="text">
-                                        <h3>Commitment to Sustainability</h3>
-                                        <p>Driven by a vision of quality, sustainability, and trusted sourcing at every stage.</p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==================== OUR VALUES ==================== -->
+        <!-- ==================== SEEDS & GRAINS ==================== -->
         <section class="services-one">
             <div class="services-one__bg wow slideInDown" data-wow-delay="100ms" data-wow-duration="2500ms"></div>
             <div class="container">
                 <div class="sec-title text-center">
-                    <div class="icon"><img src="assets/images/resources/sec-title-icon1.png" alt=""></div>
-                    <span class="sec-title__tagline">What Drives Us</span>
-                    <h2 class="sec-title__title">Our Core Values</h2>
+                    <h3 class="sec-title__title" style="font-size:28px;">Seeds &amp; Grains</h3>
                 </div>
                 <div class="row">
                     <div class="col-xl-3 col-lg-6 wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1000ms">
                         <div class="services-one__single">
                             <div class="services-one__single-img">
-                                <div class="services-one__single-img-inner"><img src="assets/images/services/services-v1-img1.jpg" alt="" /></div>
+                                <div class="services-one__single-img-inner"><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=280&fit=crop&auto=format&q=80" alt="Chia Seeds" /></div>
                             </div>
                             <div class="services-one__single-content text-center">
                                 <div class="services-one__single-img-icon"><i class="fas fa-seedling" style="font-size:38px"></i></div>
-                                <h3><a href="#">Quality</a></h3>
-                                <p>Every product is carefully selected to meet strict quality standards and customer expectations.</p>
+                                <h3>Chia Seeds</h3>
+                                <p>Nutrient-rich ancient seeds valued for their versatility and natural wellness benefits.</p>
+                                <a href="contact.php" class="read-more-btn"><i class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-3 col-lg-6 wow fadeInLeft" data-wow-delay="100ms" data-wow-duration="1000ms">
                         <div class="services-one__single">
                             <div class="services-one__single-img">
-                                <div class="services-one__single-img-inner"><img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&h=280&fit=crop&auto=format&q=80" alt="Reliability" /></div>
+                                <div class="services-one__single-img-inner"><img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&h=280&fit=crop&auto=format&q=80" alt="Quinoa Seeds" /></div>
                             </div>
                             <div class="services-one__single-content text-center">
                                 <div class="services-one__single-img-icon"><i class="fas fa-leaf" style="font-size:38px"></i></div>
-                                <h3><a href="#">Reliability</a></h3>
-                                <p>Dependable delivery and consistent supply chain performance trusted by businesses worldwide.</p>
+                                <h3>Quinoa Seeds</h3>
+                                <p>Premium protein-rich grains known for their exceptional nutritional profile.</p>
+                                <a href="contact.php" class="read-more-btn"><i class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-3 col-lg-6 wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1000ms">
                         <div class="services-one__single">
                             <div class="services-one__single-img">
-                                <div class="services-one__single-img-inner"><img src="assets/images/services/services-v1-img3.jpg" alt="" /></div>
+                                <div class="services-one__single-img-inner"><img src="https://images.unsplash.com/photo-1610725664285-7c57e6eeac3f?w=400&h=280&fit=crop&auto=format&q=80" alt="Flaxseeds" /></div>
                             </div>
                             <div class="services-one__single-content text-center">
                                 <div class="services-one__single-img-icon"><i class="fas fa-chart-line" style="font-size:38px"></i></div>
-                                <h3><a href="#">Efficiency</a></h3>
-                                <p>Managing procurement, supply, and logistics under one roof for a streamlined experience.</p>
+                                <h3>Flaxseeds</h3>
+                                <p>Naturally rich seeds widely appreciated for their nutritional value and diverse applications.</p>
+                                <a href="contact.php" class="read-more-btn"><i class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-3 col-lg-6 wow fadeInRight" data-wow-delay="100ms" data-wow-duration="1000ms">
                         <div class="services-one__single">
                             <div class="services-one__single-img">
-                                <div class="services-one__single-img-inner"><img src="assets/images/services/services-v1-img4.jpg" alt="" /></div>
+                                <div class="services-one__single-img-inner"><img src="https://images.unsplash.com/photo-1601648764658-cf37e8c89b70?w=400&h=280&fit=crop&auto=format&q=80" alt="Pumpkin Seeds" /></div>
                             </div>
                             <div class="services-one__single-content text-center">
                                 <div class="services-one__single-img-icon"><i class="fas fa-box-open" style="font-size:38px"></i></div>
-                                <h3><a href="#">Global Reach</a></h3>
-                                <p>Serving businesses across international markets with origin-sourced agro commodities.</p>
+                                <h3>Pumpkin Seeds</h3>
+                                <p>Carefully sourced seeds offering a rich taste and excellent nutritional content.</p>
+                                <a href="contact.php" class="read-more-btn"><i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1000ms">
+                        <div class="services-one__single">
+                            <div class="services-one__single-img">
+                                <div class="services-one__single-img-inner"><img src="https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?w=400&h=280&fit=crop&auto=format&q=80" alt="Sunflower Seeds" /></div>
+                            </div>
+                            <div class="services-one__single-content text-center">
+                                <div class="services-one__single-img-icon"><i class="fas fa-seedling" style="font-size:38px"></i></div>
+                                <h3>Sunflower Seeds</h3>
+                                <p>High-quality seeds recognized for their mild flavor and wide range of uses.</p>
+                                <a href="contact.php" class="read-more-btn"><i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 wow fadeInLeft" data-wow-delay="100ms" data-wow-duration="1000ms">
+                        <div class="services-one__single">
+                            <div class="services-one__single-img">
+                                <div class="services-one__single-img-inner"><img src="https://images.unsplash.com/photo-1551462147-37885acc36f1?w=400&h=280&fit=crop&auto=format&q=80" alt="Sesame Seeds" /></div>
+                            </div>
+                            <div class="services-one__single-content text-center">
+                                <div class="services-one__single-img-icon"><i class="fas fa-leaf" style="font-size:38px"></i></div>
+                                <h3>Sesame Seeds</h3>
+                                <p>Premium-grade seeds prized for their distinctive aroma, flavor, and versatility.</p>
+                                <a href="contact.php" class="read-more-btn"><i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1000ms">
+                        <div class="services-one__single">
+                            <div class="services-one__single-img">
+                                <div class="services-one__single-img-inner"><img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&h=280&fit=crop&auto=format&q=80" alt="Soyabean Seeds" /></div>
+                            </div>
+                            <div class="services-one__single-content text-center">
+                                <div class="services-one__single-img-icon"><i class="fas fa-chart-line" style="font-size:38px"></i></div>
+                                <h3>Soyabean Seeds</h3>
+                                <p>Globally demanded agricultural commodity known for its extensive industrial and food applications.</p>
+                                <a href="contact.php" class="read-more-btn"><i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 wow fadeInRight" data-wow-delay="100ms" data-wow-duration="1000ms">
+                        <div class="services-one__single">
+                            <div class="services-one__single-img">
+                                <div class="services-one__single-img-inner"><img src="https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=400&h=280&fit=crop&auto=format&q=80" alt="Rice" /></div>
+                            </div>
+                            <div class="services-one__single-content text-center">
+                                <div class="services-one__single-img-icon"><i class="fas fa-box-open" style="font-size:38px"></i></div>
+                                <h3>Rice</h3>
+                                <p>Carefully sourced rice varieties delivering quality, consistency, and global appeal.</p>
+                                <a href="contact.php" class="read-more-btn"><i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SPICES & SPECIALTY ==================== -->
+        <section class="services-one" style="background: #f5f5f5;">
+            <div class="container">
+                <div class="sec-title text-center">
+                    <h3 class="sec-title__title" style="font-size:28px;">Spices, Nuts &amp; Specialty</h3>
+                </div>
+                <div class="row">
+                    <div class="col-xl-3 col-lg-6 wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1000ms">
+                        <div class="services-one__single">
+                            <div class="services-one__single-img">
+                                <div class="services-one__single-img-inner"><img src="https://images.unsplash.com/photo-1536304929831-ee1ca9d44906?w=400&h=280&fit=crop&auto=format&q=80" alt="Raw Cashew Nuts" /></div>
+                            </div>
+                            <div class="services-one__single-content text-center">
+                                <div class="services-one__single-img-icon"><i class="fas fa-seedling" style="font-size:38px"></i></div>
+                                <h3>Raw Cashew Nuts</h3>
+                                <p>Carefully sourced raw cashews selected for quality, freshness, and consistency.</p>
+                                <a href="contact.php" class="read-more-btn"><i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 wow fadeInLeft" data-wow-delay="100ms" data-wow-duration="1000ms">
+                        <div class="services-one__single">
+                            <div class="services-one__single-img">
+                                <div class="services-one__single-img-inner"><img src="https://images.unsplash.com/photo-1541123437800-1bb1317badc2?w=400&h=280&fit=crop&auto=format&q=80" alt="Ivory Teakwood" /></div>
+                            </div>
+                            <div class="services-one__single-content text-center">
+                                <div class="services-one__single-img-icon"><i class="fas fa-leaf" style="font-size:38px"></i></div>
+                                <h3>Ivory Teakwood</h3>
+                                <p>Premium hardwood renowned for its durability, strength, and natural elegance.</p>
+                                <a href="contact.php" class="read-more-btn"><i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1000ms">
+                        <div class="services-one__single">
+                            <div class="services-one__single-img">
+                                <div class="services-one__single-img-inner"><img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=400&h=280&fit=crop&auto=format&q=80" alt="Cloves" /></div>
+                            </div>
+                            <div class="services-one__single-content text-center">
+                                <div class="services-one__single-img-icon"><i class="fas fa-chart-line" style="font-size:38px"></i></div>
+                                <h3>Cloves</h3>
+                                <p>Aromatic spice celebrated for its rich flavor, fragrance, and culinary value.</p>
+                                <a href="contact.php" class="read-more-btn"><i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 wow fadeInRight" data-wow-delay="100ms" data-wow-duration="1000ms">
+                        <div class="services-one__single">
+                            <div class="services-one__single-img">
+                                <div class="services-one__single-img-inner"><img src="https://images.unsplash.com/photo-1615485500704-8e990f9900f7?w=400&h=280&fit=crop&auto=format&q=80" alt="Turmeric Powder" /></div>
+                            </div>
+                            <div class="services-one__single-content text-center">
+                                <div class="services-one__single-img-icon"><i class="fas fa-box-open" style="font-size:38px"></i></div>
+                                <h3>Turmeric Powder</h3>
+                                <p>Finely processed turmeric known for its vibrant color and authentic quality.</p>
+                                <a href="contact.php" class="read-more-btn"><i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1000ms">
+                        <div class="services-one__single">
+                            <div class="services-one__single-img">
+                                <div class="services-one__single-img-inner"><img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=400&h=280&fit=crop&auto=format&q=80" alt="Cumin Seed" /></div>
+                            </div>
+                            <div class="services-one__single-content text-center">
+                                <div class="services-one__single-img-icon"><i class="fas fa-seedling" style="font-size:38px"></i></div>
+                                <h3>Cumin Seed</h3>
+                                <p>Premium cumin seeds valued for their distinctive aroma and bold flavor profile.</p>
+                                <a href="contact.php" class="read-more-btn"><i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 wow fadeInLeft" data-wow-delay="100ms" data-wow-duration="1000ms">
+                        <div class="services-one__single">
+                            <div class="services-one__single-img">
+                                <div class="services-one__single-img-inner"><img src="https://images.unsplash.com/photo-1599940824399-b87987ceb72a?w=400&h=280&fit=crop&auto=format&q=80" alt="Coriander Seed" /></div>
+                            </div>
+                            <div class="services-one__single-content text-center">
+                                <div class="services-one__single-img-icon"><i class="fas fa-leaf" style="font-size:38px"></i></div>
+                                <h3>Coriander Seed</h3>
+                                <p>Naturally aromatic seeds widely used in culinary and food processing industries.</p>
+                                <a href="contact.php" class="read-more-btn"><i class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -340,12 +425,12 @@
                             <div class="cta-one__left">
                                 <div class="cta-one__left-icon" style="display:inline-flex;align-items:center;justify-content:center;"><i class="fas fa-tractor" style="font-size:52px;color:#f1cf69;"></i></div>
                                 <div class="cta-one__left-title">
-                                    <h2>Partner with Ficus International Today</h2>
+                                    <h2>Interested in Our Products? Get a Quote</h2>
                                 </div>
                             </div>
                             <div class="cta-one__right">
                                 <div class="cta-one__right-btn">
-                                    <a href="contact.html" class="thm-btn">Contact Us</a>
+                                    <a href="contact.php" class="thm-btn">Contact Us</a>
                                 </div>
                             </div>
                         </div>
@@ -366,7 +451,7 @@
                                     <div class="col-xl-4 col-lg-6 col-md-6 wow animated fadeInUp" data-wow-delay="0.1s">
                                         <div class="footer-widget__column footer-widget__about">
                                             <div class="footer-widget__about-logo">
-                                                <a href="index.html" style="text-decoration:none;"><span style="font-family:'Reey',cursive,sans-serif;font-size:28px;color:#f1cf69;letter-spacing:0.5px;line-height:1.2;display:inline-block;">Ficus<br><span style="font-size:14px;color:#fff;letter-spacing:3px;font-family:'DM Sans',sans-serif;font-weight:600;text-transform:uppercase;">International</span></span></a>
+                                                <a href="index.php" style="text-decoration:none;"><span style="font-family:'Reey',cursive,sans-serif;font-size:28px;color:#f1cf69;letter-spacing:0.5px;line-height:1.2;display:inline-block;">Ficus<br><span style="font-size:14px;color:#fff;letter-spacing:3px;font-family:'DM Sans',sans-serif;font-weight:600;text-transform:uppercase;">International</span></span></a>
                                             </div>
                                             <p class="footer-widget__about-text">Ficus International — global agro commodity sourcing and supply, delivering quality from origin to markets worldwide.</p>
                                             <div class="footer-widget__about-contact-box">
@@ -380,11 +465,11 @@
                                         <div class="footer-widget__column footer-widget__explore">
                                             <h2 class="footer-widget__title">Quick Links</h2>
                                             <ul class="footer-widget__explore-list">
-                                                <li class="footer-widget__explore-list-item"><a href="index.html">Home</a></li>
-                                                <li class="footer-widget__explore-list-item"><a href="about.html">About Us</a></li>
-                                                <li class="footer-widget__explore-list-item"><a href="products.html">Products</a></li>
-                                                <li class="footer-widget__explore-list-item"><a href="news.html">Blog</a></li>
-                                                <li class="footer-widget__explore-list-item"><a href="contact.html">Contact</a></li>
+                                                <li class="footer-widget__explore-list-item"><a href="index.php">Home</a></li>
+                                                <li class="footer-widget__explore-list-item"><a href="about.php">About Us</a></li>
+                                                <li class="footer-widget__explore-list-item"><a href="products.php">Products</a></li>
+                                                <li class="footer-widget__explore-list-item"><a href="news.php">Blog</a></li>
+                                                <li class="footer-widget__explore-list-item"><a href="contact.php">Contact</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -392,11 +477,11 @@
                                         <div class="footer-widget__column footer-widget__explore">
                                             <h2 class="footer-widget__title">Our Products</h2>
                                             <ul class="footer-widget__explore-list">
-                                                <li class="footer-widget__explore-list-item"><a href="products.html">Seeds &amp; Grains</a></li>
-                                                <li class="footer-widget__explore-list-item"><a href="products.html">Spices</a></li>
-                                                <li class="footer-widget__explore-list-item"><a href="products.html">Raw Nuts</a></li>
-                                                <li class="footer-widget__explore-list-item"><a href="products.html">Timber</a></li>
-                                                <li class="footer-widget__explore-list-item"><a href="products.html">Rice</a></li>
+                                                <li class="footer-widget__explore-list-item"><a href="products.php">Seeds &amp; Grains</a></li>
+                                                <li class="footer-widget__explore-list-item"><a href="products.php">Spices</a></li>
+                                                <li class="footer-widget__explore-list-item"><a href="products.php">Raw Nuts</a></li>
+                                                <li class="footer-widget__explore-list-item"><a href="products.php">Timber</a></li>
+                                                <li class="footer-widget__explore-list-item"><a href="products.php">Rice</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -448,7 +533,7 @@
         <div class="mobile-nav__content">
             <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
             <div class="logo-box">
-                <a href="index.html" aria-label="logo image"><img src="assets/images/logo.jpeg" width="155" alt="" /></a>
+                <a href="index.php" aria-label="logo image"><img src="assets/images/logo.jpeg" width="155" alt="" /></a>
             </div>
             <div class="mobile-nav__container"></div>
             <ul class="mobile-nav__contact list-unstyled">
@@ -478,7 +563,6 @@
     <script src="assets/vendors/swiper/swiper.min.js"></script>
     <script src="assets/vendors/wow/wow.js"></script>
     <script src="assets/vendors/owl-carousel/owl.carousel.min.js"></script>
-    <script src="assets/vendors/parallax/parallax.min.js"></script>
     <script src="assets/js/agriox.js"></script>
     <script src="assets/vendors/toolbar/js/js.cookie.min.js"></script>
     <script src="assets/vendors/toolbar/js/jQuery.style.switcher.min.js"></script>

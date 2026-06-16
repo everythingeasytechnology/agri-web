@@ -230,7 +230,7 @@
 
                     <div class="stricky-one-logo">
                       <div class="logo">
-                        <a href="index.html">
+                        <a href="index.php">
                           <img
                             class="dark-logo"
                             src="assets/images/logo.jpeg"
@@ -247,11 +247,11 @@
 
                     <div class="main-header--one__bottom-left">
                       <ul class="main-menu__list">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="products.html">Products</a></li>
-                        <li><a href="news.html">Blog</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="about.php">About</a></li>
+                        <li><a href="products.php">Products</a></li>
+                        <li><a href="news.php">Blog</a></li>
+                        <li><a href="contact.php">Contact</a></li>
                       </ul>
                     </div>
                   </div>
@@ -259,7 +259,7 @@
 
                 <div class="main-header--one__bottom-middel">
                   <div class="logo">
-                    <a href="index.html">
+                    <a href="index.php">
                       <img
                         class="dark-logo"
                         src="assets/images/logo.jpeg"
@@ -352,7 +352,7 @@
                             alt=""
                           />
                         </div>
-                        <a href="products.html" class="thm-btn"
+                        <a href="products.php" class="thm-btn"
                           >Explore Products</a
                         >
                       </div>
@@ -401,7 +401,7 @@
                             alt=""
                           />
                         </div>
-                        <a href="about.html" class="thm-btn">About Us</a>
+                        <a href="about.php" class="thm-btn">About Us</a>
                       </div>
                     </div>
                   </div>
@@ -448,7 +448,7 @@
                             alt=""
                           />
                         </div>
-                        <a href="contact.html" class="thm-btn">Get in Touch</a>
+                        <a href="contact.php" class="thm-btn">Get in Touch</a>
                       </div>
                     </div>
                   </div>
@@ -582,7 +582,7 @@
                   class="about-one__content-video-box"
                   style="margin-top: 30px"
                 >
-                  <a href="products.html" class="thm-btn"
+                  <a href="products.php" class="thm-btn"
                     >Explore Our Products</a
                   >
                 </div>
@@ -609,7 +609,7 @@
                     </h3>
                   </div>
                 </div>
-                <a href="about.html" class="features-one__single__more"
+                <a href="about.php" class="features-one__single__more"
                   ><i class="fas fa-arrow-right"></i
                 ></a>
               </div>
@@ -628,7 +628,7 @@
                     </h3>
                   </div>
                 </div>
-                <a href="about.html" class="features-one__single__more"
+                <a href="about.php" class="features-one__single__more"
                   ><i class="fas fa-arrow-right"></i
                 ></a>
               </div>
@@ -654,7 +654,7 @@
                   </h3>
                 </div>
                 <div class="button">
-                  <a href="products.html" class="thm-btn">Discover More</a>
+                  <a href="products.php" class="thm-btn">Discover More</a>
                 </div>
               </div>
             </div>
@@ -700,7 +700,7 @@
                     to businesses across international markets.
                   </p>
                   <div class="video-one__btn" style="margin-top: 25px">
-                    <a href="contact.html" class="thm-btn">Get in Touch</a>
+                    <a href="contact.php" class="thm-btn">Get in Touch</a>
                   </div>
                 </div>
               </div>
@@ -743,7 +743,7 @@
                   <div class="services-one__single-img-icon">
                     <i class="fas fa-seedling" style="font-size: 38px"></i>
                   </div>
-                  <h3><a href="products.html">Chia Seeds</a></h3>
+                  <h3><a href="products.php">Chia Seeds</a></h3>
                   <p>
                     Nutrient-rich ancient seeds valued for their versatility and
                     natural wellness benefits.
@@ -770,7 +770,7 @@
                   <div class="services-one__single-img-icon">
                     <i class="fas fa-leaf" style="font-size: 38px"></i>
                   </div>
-                  <h3><a href="products.html">Quinoa Seeds</a></h3>
+                  <h3><a href="products.php">Quinoa Seeds</a></h3>
                   <p>
                     Premium protein-rich grains known for their exceptional
                     nutritional profile.
@@ -797,7 +797,7 @@
                   <div class="services-one__single-img-icon">
                     <i class="fas fa-chart-line" style="font-size: 38px"></i>
                   </div>
-                  <h3><a href="products.html">Flaxseeds</a></h3>
+                  <h3><a href="products.php">Flaxseeds</a></h3>
                   <p>
                     Naturally rich seeds widely appreciated for their
                     nutritional value and diverse applications.
@@ -824,7 +824,7 @@
                   <div class="services-one__single-img-icon">
                     <i class="fas fa-box-open" style="font-size: 38px"></i>
                   </div>
-                  <h3><a href="products.html">Pumpkin Seeds</a></h3>
+                  <h3><a href="products.php">Pumpkin Seeds</a></h3>
                   <p>
                     Carefully sourced seeds offering a rich taste and excellent
                     nutritional content.
@@ -851,7 +851,7 @@
                   <div class="services-one__single-img-icon">
                     <i class="fas fa-seedling" style="font-size: 38px"></i>
                   </div>
-                  <h3><a href="products.html">Sunflower Seeds</a></h3>
+                  <h3><a href="products.php">Sunflower Seeds</a></h3>
                   <p>
                     High-quality seeds recognized for their mild flavor and wide
                     range of uses.
@@ -878,7 +878,7 @@
                   <div class="services-one__single-img-icon">
                     <i class="fas fa-leaf" style="font-size: 38px"></i>
                   </div>
-                  <h3><a href="products.html">Sesame Seeds</a></h3>
+                  <h3><a href="products.php">Sesame Seeds</a></h3>
                   <p>
                     Premium-grade seeds prized for their distinctive aroma,
                     flavor, and versatility.
@@ -905,7 +905,7 @@
                   <div class="services-one__single-img-icon">
                     <i class="fas fa-chart-line" style="font-size: 38px"></i>
                   </div>
-                  <h3><a href="products.html">Soyabean Seeds</a></h3>
+                  <h3><a href="products.php">Soyabean Seeds</a></h3>
                   <p>
                     Globally demanded agricultural commodity known for its
                     extensive industrial and food applications.
@@ -932,7 +932,7 @@
                   <div class="services-one__single-img-icon">
                     <i class="fas fa-box-open" style="font-size: 38px"></i>
                   </div>
-                  <h3><a href="products.html">Raw Cashew Nuts</a></h3>
+                  <h3><a href="products.php">Raw Cashew Nuts</a></h3>
                   <p>
                     Carefully sourced raw cashews selected for quality,
                     freshness, and consistency.
@@ -959,7 +959,7 @@
                   <div class="services-one__single-img-icon">
                     <i class="fas fa-seedling" style="font-size: 38px"></i>
                   </div>
-                  <h3><a href="products.html">Ivory Teakwood</a></h3>
+                  <h3><a href="products.php">Ivory Teakwood</a></h3>
                   <p>
                     Premium hardwood renowned for its durability, strength, and
                     natural elegance.
@@ -986,7 +986,7 @@
                   <div class="services-one__single-img-icon">
                     <i class="fas fa-leaf" style="font-size: 38px"></i>
                   </div>
-                  <h3><a href="products.html">Cloves</a></h3>
+                  <h3><a href="products.php">Cloves</a></h3>
                   <p>
                     Aromatic spice celebrated for its rich flavor, fragrance,
                     and culinary value.
@@ -1013,7 +1013,7 @@
                   <div class="services-one__single-img-icon">
                     <i class="fas fa-chart-line" style="font-size: 38px"></i>
                   </div>
-                  <h3><a href="products.html">Turmeric Powder</a></h3>
+                  <h3><a href="products.php">Turmeric Powder</a></h3>
                   <p>
                     Finely processed turmeric known for its vibrant color and
                     authentic quality.
@@ -1040,7 +1040,7 @@
                   <div class="services-one__single-img-icon">
                     <i class="fas fa-box-open" style="font-size: 38px"></i>
                   </div>
-                  <h3><a href="products.html">Cumin Seed</a></h3>
+                  <h3><a href="products.php">Cumin Seed</a></h3>
                   <p>
                     Premium cumin seeds valued for their distinctive aroma and
                     bold flavor profile.
@@ -1067,7 +1067,7 @@
                   <div class="services-one__single-img-icon">
                     <i class="fas fa-seedling" style="font-size: 38px"></i>
                   </div>
-                  <h3><a href="products.html">Coriander Seed</a></h3>
+                  <h3><a href="products.php">Coriander Seed</a></h3>
                   <p>
                     Naturally aromatic seeds widely used in culinary and food
                     processing industries.
@@ -1094,7 +1094,7 @@
                   <div class="services-one__single-img-icon">
                     <i class="fas fa-leaf" style="font-size: 38px"></i>
                   </div>
-                  <h3><a href="products.html">Rice</a></h3>
+                  <h3><a href="products.php">Rice</a></h3>
                   <p>
                     Carefully sourced rice varieties delivering quality,
                     consistency, and global appeal.
@@ -1105,7 +1105,7 @@
           </div>
 
           <div class="text-center" style="margin-top: 40px">
-            <a href="products.html" class="thm-btn">View All Products</a>
+            <a href="products.php" class="thm-btn">View All Products</a>
           </div>
         </div>
       </section>
@@ -1226,7 +1226,7 @@
                 <div class="blog-one__single-img">
                   <img src="assets/images/blog/blog-v1-img1.jpg" alt="" />
                   <div class="overlay-icon">
-                    <a href="news-details.html"><i class="fas fa-plus"></i></a>
+                    <a href="news-details.php"><i class="fas fa-plus"></i></a>
                   </div>
                 </div>
                 <div class="blog-one__single-content">
@@ -1239,7 +1239,7 @@
                     </li>
                   </ul>
                   <h2>
-                    <a href="news-details.html"
+                    <a href="news-details.php"
                       >Why Sourcing Agro Commodities from the Country of Origin
                       Matters</a
                     >
@@ -1263,7 +1263,7 @@
                 <div class="blog-one__single-img">
                   <img src="assets/images/blog/blog-v1-img2.jpg" alt="" />
                   <div class="overlay-icon">
-                    <a href="news-details.html"><i class="fas fa-plus"></i></a>
+                    <a href="news-details.php"><i class="fas fa-plus"></i></a>
                   </div>
                 </div>
                 <div class="blog-one__single-content">
@@ -1276,7 +1276,7 @@
                     </li>
                   </ul>
                   <h2>
-                    <a href="news-details.html"
+                    <a href="news-details.php"
                       >How International Logistics Affects Commodity Pricing</a
                     >
                   </h2>
@@ -1299,7 +1299,7 @@
                 <div class="blog-one__single-img">
                   <img src="assets/images/blog/blog-v1-img3.jpg" alt="" />
                   <div class="overlay-icon">
-                    <a href="news-details.html"><i class="fas fa-plus"></i></a>
+                    <a href="news-details.php"><i class="fas fa-plus"></i></a>
                   </div>
                 </div>
                 <div class="blog-one__single-content">
@@ -1312,7 +1312,7 @@
                     </li>
                   </ul>
                   <h2>
-                    <a href="news-details.html"
+                    <a href="news-details.php"
                       >What Businesses Should Know Before Importing Agro
                       Commodities</a
                     >
@@ -1496,7 +1496,7 @@
                     >
                       <div class="footer-widget__column footer-widget__about">
                         <div class="footer-widget__about-logo">
-                          <a href="index.html" style="text-decoration:none;">
+                          <a href="index.php" style="text-decoration:none;">
                             <span style="font-family:'Reey',cursive,sans-serif;font-size:28px;color:#f1cf69;letter-spacing:0.5px;line-height:1.2;display:inline-block;">Ficus<br><span style="font-size:14px;color:#fff;letter-spacing:3px;font-family:'DM Sans',sans-serif;font-weight:600;text-transform:uppercase;">International</span></span>
                           </a>
                         </div>
@@ -1538,19 +1538,19 @@
                         <h2 class="footer-widget__title">Quick Links</h2>
                         <ul class="footer-widget__explore-list">
                           <li class="footer-widget__explore-list-item">
-                            <a href="index.html">Home</a>
+                            <a href="index.php">Home</a>
                           </li>
                           <li class="footer-widget__explore-list-item">
-                            <a href="about.html">About Us</a>
+                            <a href="about.php">About Us</a>
                           </li>
                           <li class="footer-widget__explore-list-item">
-                            <a href="products.html">Products</a>
+                            <a href="products.php">Products</a>
                           </li>
                           <li class="footer-widget__explore-list-item">
-                            <a href="news.html">Blog</a>
+                            <a href="news.php">Blog</a>
                           </li>
                           <li class="footer-widget__explore-list-item">
-                            <a href="contact.html">Contact</a>
+                            <a href="contact.php">Contact</a>
                           </li>
                         </ul>
                       </div>
@@ -1564,19 +1564,19 @@
                         <h2 class="footer-widget__title">Our Products</h2>
                         <ul class="footer-widget__explore-list">
                           <li class="footer-widget__explore-list-item">
-                            <a href="products.html">Seeds &amp; Grains</a>
+                            <a href="products.php">Seeds &amp; Grains</a>
                           </li>
                           <li class="footer-widget__explore-list-item">
-                            <a href="products.html">Spices</a>
+                            <a href="products.php">Spices</a>
                           </li>
                           <li class="footer-widget__explore-list-item">
-                            <a href="products.html">Raw Nuts</a>
+                            <a href="products.php">Raw Nuts</a>
                           </li>
                           <li class="footer-widget__explore-list-item">
-                            <a href="products.html">Timber</a>
+                            <a href="products.php">Timber</a>
                           </li>
                           <li class="footer-widget__explore-list-item">
-                            <a href="products.html">Rice</a>
+                            <a href="products.php">Rice</a>
                           </li>
                         </ul>
                       </div>
@@ -1695,7 +1695,7 @@
           ><i class="fa fa-times"></i
         ></span>
         <div class="logo-box">
-          <a href="index.html" aria-label="logo image"
+          <a href="index.php" aria-label="logo image"
             ><img
               src="assets/images/logo.jpeg"
               width="155"
