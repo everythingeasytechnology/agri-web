@@ -2,6 +2,39 @@
 require_once __DIR__ . '/auth.php';
 require_admin_login();
 
+function handle_product_image(): ?string {
+    $image_type = $_POST['image_type'] ?? 'url';
+
+    if ($image_type === 'upload' && !empty($_FILES['image_file']['name'])) {
+        $file     = $_FILES['image_file'];
+        $allowed  = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
+        $finfo    = new finfo(FILEINFO_MIME_TYPE);
+        $mime     = $finfo->file($file['tmp_name']);
+
+        if (!in_array($mime, $allowed)) {
+            flash_set('Invalid image type. Only JPG, PNG, WEBP, GIF allowed.', 'error');
+            return null;
+        }
+        if ($file['size'] > 5 * 1024 * 1024) {
+            flash_set('Image too large. Max 5MB allowed.', 'error');
+            return null;
+        }
+
+        $ext      = pathinfo($file['name'], PATHINFO_EXTENSION);
+        $filename = uniqid('prod_', true) . '.' . strtolower($ext);
+        $dest     = __DIR__ . '/../assets/images/products/' . $filename;
+
+        if (!move_uploaded_file($file['tmp_name'], $dest)) {
+            flash_set('Failed to upload image.', 'error');
+            return null;
+        }
+        return '../assets/images/products/' . $filename;
+    }
+
+    $url = trim($_POST['image_url'] ?? '');
+    return $url ?: null;
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $action = $_POST['action'] ?? '';
 
@@ -9,11 +42,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $name     = trim($_POST['name'] ?? '');
         $category = trim($_POST['category'] ?? '');
         $desc     = trim($_POST['description'] ?? '');
-        $image    = trim($_POST['image_url'] ?? '');
+        $image    = handle_product_image();
         if ($name && $category && $desc) {
             db_query(
                 'INSERT INTO products (name, category, description, image_url) VALUES (?, ?, ?, ?)',
-                [$name, $category, $desc, $image ?: null]
+                [$name, $category, $desc, $image]
             );
             flash_set('Product added successfully!');
         } else {
@@ -28,12 +61,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $name     = trim($_POST['name'] ?? '');
         $category = trim($_POST['category'] ?? '');
         $desc     = trim($_POST['description'] ?? '');
-        $image    = trim($_POST['image_url'] ?? '');
+        $image    = handle_product_image();
         if ($id && $name && $category && $desc) {
-            db_query(
-                'UPDATE products SET name=?, category=?, description=?, image_url=? WHERE id=?',
-                [$name, $category, $desc, $image ?: null, $id]
-            );
+            if ($image !== null) {
+                db_query(
+                    'UPDATE products SET name=?, category=?, description=?, image_url=? WHERE id=?',
+                    [$name, $category, $desc, $image, $id]
+                );
+            } else {
+                db_query(
+                    'UPDATE products SET name=?, category=?, description=? WHERE id=?',
+                    [$name, $category, $desc, $id]
+                );
+            }
             flash_set('Product updated successfully!');
         }
         header('Location: products.php');
@@ -143,7 +183,7 @@ $categories = ['Seeds & Grains', 'Spices', 'Nuts', 'Specialty', 'Wood & Timber',
                     <?php endif; ?>
                 </div>
                 <div class="panel-body">
-                    <form class="admin-form" method="post" action="products.php">
+                    <form class="admin-form" method="post" action="products.php" enctype="multipart/form-data">
                         <input type="hidden" name="action" value="<?= $edit_product ? 'edit' : 'add' ?>" />
                         <?php if ($edit_product): ?>
                         <input type="hidden" name="id" value="<?= $edit_product['id'] ?>" />
@@ -176,15 +216,43 @@ $categories = ['Seeds & Grains', 'Spices', 'Nuts', 'Specialty', 'Wood & Timber',
                             </div>
                         </div>
 
-                        <div class="form-row cols-2">
+                        <!-- Image Type Toggle -->
+                        <div class="form-row">
                             <div>
-                                <label>Image URL</label>
-                                <input type="url" name="image_url" id="productImage"
-                                    placeholder="https://images.unsplash.com/photo-..."
-                                    value="<?= html_escape($edit_product['image_url'] ?? '') ?>"
-                                    oninput="previewImage(this.value)" />
-                                <p class="field-hint"><i class="fas fa-info-circle"></i> Paste an Unsplash or any direct image URL</p>
+                                <label>Image</label>
+                                <div style="display:flex;gap:16px;margin-bottom:12px">
+                                    <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-weight:500">
+                                        <input type="radio" name="image_type" value="url" id="imgTypeUrl"
+                                            onchange="switchImageType('url')"
+                                            <?= empty($edit_product['image_url']) || str_starts_with($edit_product['image_url'] ?? '', 'http') ? 'checked' : '' ?> />
+                                        <i class="fas fa-link"></i> URL se
+                                    </label>
+                                    <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-weight:500">
+                                        <input type="radio" name="image_type" value="upload" id="imgTypeUpload"
+                                            onchange="switchImageType('upload')"
+                                            <?= !empty($edit_product['image_url']) && !str_starts_with($edit_product['image_url'] ?? '', 'http') ? 'checked' : '' ?> />
+                                        <i class="fas fa-upload"></i> Upload karo
+                                    </label>
+                                </div>
+
+                                <!-- URL Input -->
+                                <div id="imgUrlSection">
+                                    <input type="url" name="image_url" id="productImage"
+                                        placeholder="https://images.unsplash.com/photo-..."
+                                        value="<?= html_escape($edit_product['image_url'] ?? '') ?>"
+                                        oninput="previewImage(this.value)" />
+                                    <p class="field-hint"><i class="fas fa-info-circle"></i> Koi bhi direct image URL paste karein</p>
+                                </div>
+
+                                <!-- File Upload Input -->
+                                <div id="imgUploadSection" style="display:none">
+                                    <input type="file" name="image_file" id="imageFile"
+                                        accept="image/jpeg,image/png,image/webp,image/gif"
+                                        onchange="previewUploadedFile(this)" />
+                                    <p class="field-hint"><i class="fas fa-info-circle"></i> JPG, PNG, WEBP, GIF — max 5MB</p>
+                                </div>
                             </div>
+
                             <div>
                                 <label>Image Preview</label>
                                 <div style="border:2px dashed var(--border);border-radius:8px;height:100px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--light-bg)">
@@ -328,6 +396,12 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('listViewBtn').classList.toggle('active', view === 'list');
     }
 
+    function switchImageType(type) {
+        document.getElementById('imgUrlSection').style.display    = type === 'url'    ? 'block' : 'none';
+        document.getElementById('imgUploadSection').style.display = type === 'upload' ? 'block' : 'none';
+        resetImgPreview();
+    }
+
     function previewImage(url) {
         const img = document.getElementById('imgPreviewBox');
         const ph  = document.getElementById('imgPreviewPlaceholder');
@@ -341,10 +415,31 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    function previewUploadedFile(input) {
+        const img = document.getElementById('imgPreviewBox');
+        const ph  = document.getElementById('imgPreviewPlaceholder');
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
+            reader.onload = e => {
+                img.src = e.target.result;
+                img.style.display = 'block';
+                ph.style.display  = 'none';
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
     function resetImgPreview() {
         document.getElementById('imgPreviewBox').style.display = 'none';
         document.getElementById('imgPreviewPlaceholder').style.display = 'block';
+        document.getElementById('imageFile').value = '';
     }
+
+    // Page load pe correct section dikhao
+    document.addEventListener('DOMContentLoaded', () => {
+        const checked = document.querySelector('input[name="image_type"]:checked');
+        if (checked) switchImageType(checked.value);
+    });
 </script>
 </body>
 </html>
