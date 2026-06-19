@@ -3,7 +3,7 @@ require_once __DIR__ . '/admin/db.php';
 $home_products   = db_fetch_all('SELECT * FROM products ORDER BY created_at ASC LIMIT 8');
 $home_blogs      = db_fetch_all("SELECT * FROM blogs WHERE status = 'published' ORDER BY created_at DESC LIMIT 3");
 $contact_status  = $_GET['status'] ?? '';
-$home_reels      = db_fetch_all('SELECT * FROM instagram_reels ORDER BY sort_order ASC, id ASC LIMIT 4');
+$home_reels      = db_fetch_all('SELECT * FROM instagram_reels ORDER BY sort_order ASC, id ASC');
 
 function reel_embed_url(string $url): string {
     if (preg_match('#instagram\.com/(?:reel|p)/([A-Za-z0-9_-]+)#', $url, $m)) {
@@ -171,149 +171,7 @@ function reel_embed_url(string $url): string {
 
     <div class="page-wrapper">
       <!-- ==================== HEADER ==================== -->
-      <header class="main-header main-header--one clearfix">
-        <div class="main-header--one__wrapper">
-          <div class="main-header--one__top clearfix">
-            <div class="auto-container">
-              <div class="main-header--one__top-left">
-                <div class="text">
-                  <p>Global Agro Commodity Sourcing &amp; Supply</p>
-                </div>
-                <div class="social-link clearfix">
-                  <ul>
-                    <li>
-                      <a href="https://x.com/FicusIntl" target="_blank"
-                        ><i class="fab fa-twitter"></i
-                      ></a>
-                    </li>
-                    <li>
-                      <a
-                        href="https://www.facebook.com/share/1JcoEmGGfT/"
-                        target="_blank"
-                        ><i class="fab fa-facebook"></i
-                      ></a>
-                    </li>
-                    <li>
-                      <a
-                        href="https://www.linkedin.com/company/ficus-international/"
-                        target="_blank"
-                        ><i class="fab fa-linkedin"></i
-                      ></a>
-                    </li>
-                    <li>
-                      <a
-                        href="https://www.instagram.com/ficusinternational?igsh=MXA5dHowOXFjYnBlcg=="
-                        target="_blank"
-                        ><i class="fab fa-instagram"></i
-                      ></a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div class="main-header--one__top-right clearfix">
-                <ul>
-                  <li>
-                    <div class="icon"><i class="fa fa-envelope"></i></div>
-                    <div class="text">
-                      <p>
-                        <a href="mailto:contact@ficusinternational.com"
-                          >contact@ficusinternational.com</a
-                        >
-                      </p>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="icon"><i class="fa fa-phone"></i></div>
-                    <div class="text">
-                      <p><a href="tel:+919653530361">+91 96535 30361</a></p>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="main-header--one__bottom clearfix">
-            <div class="auto-container">
-              <div class="main-header--one__bottom-inner">
-                <nav class="main-menu main-menu--1">
-                  <div class="main-menu__inner">
-                    <a href="#" class="mobile-nav__toggler"
-                      ><i class="fa fa-bars"></i
-                    ></a>
-
-                    <div class="stricky-one-logo">
-                      <div class="logo">
-                        <a href="index.php">
-                          <img
-                            class="dark-logo"
-                            src="assets/images/logo.jpeg"
-                            alt="Ficus International"
-                          />
-                          <img
-                            class="light-logo"
-                            src="assets/images/logo.jpeg"
-                            alt="Ficus International"
-                          />
-                        </a>
-                      </div>
-                    </div>
-
-                    <div class="main-header--one__bottom-left">
-                      <ul class="main-menu__list">
-                        <li><a href="index.php">Home</a></li>
-                        <li><a href="about.php">About</a></li>
-                        <li><a href="products.php">Products</a></li>
-                        <li><a href="news.php">Blog</a></li>
-                        <li><a href="contact.php">Contact</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </nav>
-
-                <div class="main-header--one__bottom-middel">
-                  <div class="logo">
-                    <a href="index.php">
-                      <img
-                        class="dark-logo"
-                        src="assets/images/logo.jpeg"
-                        alt="Ficus International"
-                      />
-                      <img
-                        class="light-logo"
-                        src="assets/images/logo.jpeg"
-                        alt="Ficus International"
-                      />
-                    </a>
-                  </div>
-                </div>
-
-                <div class="main-header--one__bottom-right clearfix">
-                  <div class="contact-box">
-                    <div
-                      class="icon"
-                      style="
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                      "
-                    >
-                      <i
-                        class="fas fa-phone-alt"
-                        style="color: #fff; font-size: 20px"
-                      ></i>
-                    </div>
-                    <div class="text">
-                      <p>Call Anytime</p>
-                      <a href="tel:+919653530361">+91 96535 30361</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
+<?php include 'header.php'; ?>
 
       <div class="stricky-header stricked-menu main-menu">
         <div class="sticky-header__content"></div>
@@ -800,23 +658,23 @@ function reel_embed_url(string $url): string {
                 src="assets/images/resources/providing-quality-v1-img.jpg"
                 alt=""
               />
-              <div class="providing-quality-one__logo">
+              <!-- <div class="providing-quality-one__logo">
                 <img
                   src="assets/images/resources/providing-quality.png"
                   alt=""
                 />
-              </div>
+              </div> -->
             </div>
 
             <div class="col-xl-6">
               <div class="providing-quality-one__content-box">
                 <div class="sec-title">
-                  <div class="icon">
+                  <!-- <div class="icon">
                     <img
                       src="assets/images/resources/sec-title-icon2.png"
                       alt=""
                     />
-                  </div>
+                  </div> -->
                   <span class="sec-title__tagline">Our Commitment</span>
                   <h2 class="sec-title__title">
                     Quality Begins <br />at the Source
@@ -930,7 +788,8 @@ function reel_embed_url(string $url): string {
       </section>
 
       <!-- ==================== INSTAGRAM REELS ==================== -->
-      <!-- <section class="insta-reels-section" style="padding: 80px 0; background: #f8faf3;">
+      <?php if (!empty($home_reels)): ?>
+      <section class="insta-reels-section" style="padding: 80px 0; background: #f8faf3;">
         <div class="container">
 
           <div class="sec-title text-center" style="margin-bottom: 48px;">
@@ -942,80 +801,37 @@ function reel_embed_url(string $url): string {
             </p>
           </div>
 
-          <?php
-          $placeholder_gradients = [
-            'linear-gradient(160deg,#2d5a1b,#5a9e2f,#f1cf69)',
-            'linear-gradient(160deg,#1a3a0d,#3d7a1a,#88b04b)',
-            'linear-gradient(160deg,#3a2a0a,#8b6914,#f1cf69)',
-            'linear-gradient(160deg,#0d2b1a,#1e6b3a,#4caf74)',
-          ];
-          $placeholder_labels = ['Agro Insights','Sourcing Journey','Global Trade','Farm to Export'];
-          $placeholder_icons  = ['fa-seedling','fa-leaf','fa-globe','fa-tractor'];
-          $delays = [0, 150, 300, 450];
-
-          
-          $show_reels   = !empty($home_reels) ? $home_reels : [];
-          $total_cards  = max(count($show_reels), 4);
-          $total_cards  = min($total_cards, 4);
-          ?>
-
           <div class="row justify-content-center">
-            <?php for ($ci = 0; $ci < $total_cards; $ci++):
-              $reel  = $show_reels[$ci] ?? null;
-              $label = $reel ? html_escape($reel['label']) : $placeholder_labels[$ci];
-              $grad  = $placeholder_gradients[$ci];
-              $icon  = $placeholder_icons[$ci];
-              $delay = $delays[$ci];
-
-             
+            <?php foreach ($home_reels as $i => $reel):
               $reel_id = '';
-              if ($reel && preg_match('#instagram\.com/(?:reel|p)/([A-Za-z0-9_-]+)#', $reel['reel_url'], $rm)) {
-                  $reel_id = $rm[1];
+              if (preg_match('#instagram\.com/(?:reel|p)/([A-Za-z0-9_-]+)#', $reel['reel_url'], $rm)) {
+                $reel_id = $rm[1];
               }
+              if (!$reel_id) continue;
+              $delay = ($i % 4) * 150;
             ?>
             <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 wow fadeInUp" data-wow-delay="<?= $delay ?>ms" data-wow-duration="1000ms">
               <div class="insta-reel-card">
-
-                <?php if ($reel_id): ?>
-             
-                <div class="insta-reel-card__official">
-                  <blockquote
-                    class="instagram-media"
-                    data-instgrm-permalink="https://www.instagram.com/reel/<?= html_escape($reel_id) ?>/"
-                    data-instgrm-version="14"
-                    style="background:#fff;border:0;border-radius:12px;box-shadow:none;margin:0;padding:0;width:100%;min-width:100%;">
-                  </blockquote>
+                <div class="insta-reel-card__iframe-wrap">
+                  <iframe
+                    src="https://www.instagram.com/reel/<?= html_escape($reel_id) ?>/embed/"
+                    allowtransparency="true"
+                    allowfullscreen="true"
+                    frameborder="0"
+                    scrolling="no"
+                    loading="lazy"
+                  ></iframe>
                 </div>
-
-                <?php else: ?>
-               
-                <div class="insta-reel-card__thumb" style="background:<?= $grad ?>;">
-                  <div class="insta-reel-card__play">
-                    <i class="fab fa-instagram" style="font-size:38px;opacity:0.35;position:absolute;top:16px;right:16px;color:#fff;"></i>
-                    <a href="https://www.instagram.com/ficusinternational/" target="_blank" rel="noopener" class="insta-reel-card__play-btn">
-                      <i class="fas fa-play"></i>
-                    </a>
-                  </div>
-                  <div class="insta-reel-card__label"><i class="fas <?= $icon ?>"></i> <?= $label ?></div>
-                </div>
-                <?php endif; ?>
-
                 <div class="insta-reel-card__footer">
                   <span class="insta-reel-card__handle"><i class="fab fa-instagram"></i> @ficusinternational</span>
-                  <a href="<?= $reel ? html_escape($reel['reel_url']) : 'https://www.instagram.com/ficusinternational/' ?>"
-                     target="_blank" rel="noopener" class="insta-reel-card__watch">
-                    <?= $reel_id ? 'Open' : 'Follow' ?> <i class="fas fa-external-link-alt"></i>
+                  <a href="<?= html_escape($reel['reel_url']) ?>" target="_blank" rel="noopener" class="insta-reel-card__watch">
+                    <?= html_escape($reel['label']) ?> <i class="fas fa-external-link-alt"></i>
                   </a>
                 </div>
-
               </div>
             </div>
-            <?php endfor; ?>
+            <?php endforeach; ?>
           </div>
-
-          <?php if (!empty($show_reels)): ?>
-          <script async src="//www.instagram.com/embed.js"></script>
-          <?php endif; ?>
 
           <div class="text-center" style="margin-top: 40px;">
             <a href="https://www.instagram.com/ficusinternational/" target="_blank" rel="noopener"
@@ -1026,27 +842,20 @@ function reel_embed_url(string $url): string {
           </div>
 
         </div>
-      </section> -->
+      </section>
 
       <style>
         .insta-reel-card { border-radius:16px; overflow:hidden; background:#fff; box-shadow:0 4px 24px rgba(0,0,0,0.10); margin-bottom:24px; transition:transform 0.25s, box-shadow 0.25s; }
         .insta-reel-card:hover { transform:translateY(-6px); box-shadow:0 12px 36px rgba(0,0,0,0.16); }
-        /* official embed container — let Instagram widget render naturally */
-        .insta-reel-card__official { width:100%; overflow:hidden; }
-        .insta-reel-card__official .instagram-media { max-width:100% !important; min-width:unset !important; width:100% !important; margin:0 !important; border-radius:0 !important; box-shadow:none !important; }
-        /* placeholder card */
-        .insta-reel-card__thumb { position:relative; width:100%; aspect-ratio:9/16; display:flex; align-items:center; justify-content:center; min-height:300px; }
-        .insta-reel-card__play { display:flex; align-items:center; justify-content:center; width:100%; height:100%; }
-        .insta-reel-card__play-btn { width:64px; height:64px; background:rgba(255,255,255,0.22); border:2px solid rgba(255,255,255,0.7); border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff; font-size:22px; text-decoration:none; transition:background 0.2s, transform 0.2s; backdrop-filter:blur(4px); padding-left:4px; }
-        .insta-reel-card__play-btn:hover { background:rgba(255,255,255,0.38); transform:scale(1.12); color:#fff; text-decoration:none; }
-        .insta-reel-card__label { position:absolute; bottom:14px; left:14px; background:rgba(0,0,0,0.45); color:#fff; font-size:12px; font-weight:700; padding:5px 12px; border-radius:20px; display:flex; align-items:center; gap:6px; backdrop-filter:blur(4px); }
+        .insta-reel-card__iframe-wrap { position:relative; width:100%; aspect-ratio:9/16; overflow:hidden; background:#000; }
+        .insta-reel-card__iframe-wrap iframe { position:absolute; top:0; left:0; width:100%; height:100%; border:none; display:block; }
         .insta-reel-card__footer { display:flex; align-items:center; justify-content:space-between; padding:12px 16px; background:#fff; border-top:1px solid #f0f0f0; }
         .insta-reel-card__handle { font-size:13px; color:#555; display:flex; align-items:center; gap:6px; }
         .insta-reel-card__handle .fab { background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045); -webkit-background-clip:text; -webkit-text-fill-color:transparent; font-size:16px; }
-        .insta-reel-card__watch { font-size:12px; font-weight:700; color:#88b04b; text-decoration:none; display:flex; align-items:center; gap:4px; }
+        .insta-reel-card__watch { font-size:12px; font-weight:700; color:#88b04b; text-decoration:none; display:flex; align-items:center; gap:4px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:120px; }
         .insta-reel-card__watch:hover { color:#5a8a2a; text-decoration:none; }
-        @media(max-width:576px){ .insta-reel-card__thumb { min-height:220px; } }
       </style>
+      <?php endif; ?>
 
       <!-- ==================== CONTACT SECTION ==================== -->
       <section class="contact-one" id="contact">
@@ -1208,214 +1017,7 @@ function reel_embed_url(string $url): string {
       </section>
 
       <!-- ==================== FOOTER ==================== -->
-      <footer class="footer-one">
-        <div class="footer-one__top">
-          <div class="container">
-            <div class="row">
-              <div class="col-xl-12">
-                <div class="footer-one__top-wrapper">
-                  <div class="footer-one__bg">
-                    <img
-                      src="assets/images/backgrounds/footer-one-bg.png"
-                      alt=""
-                    />
-                  </div>
-                  <div class="row">
-                    <div
-                      class="col-xl-4 col-lg-6 col-md-6 wow animated fadeInUp"
-                      data-wow-delay="0.1s"
-                    >
-                      <div class="footer-widget__column footer-widget__about">
-                        <div class="footer-widget__about-logo">
-                          <a href="index.php" style="text-decoration:none;">
-                            <span style="font-family:'Reey',cursive,sans-serif;font-size:28px;color:#f1cf69;letter-spacing:0.5px;line-height:1.2;display:inline-block;">Ficus<br><span style="font-size:14px;color:#fff;letter-spacing:3px;font-family:'DM Sans',sans-serif;font-weight:600;text-transform:uppercase;">International</span></span>
-                          </a>
-                        </div>
-                        <p class="footer-widget__about-text">
-                          Ficus International — global agro commodity sourcing
-                          and supply, delivering quality from origin to markets
-                          worldwide.
-                        </p>
-                        <div class="footer-widget__about-contact-box">
-                          <p class="phone">
-                            <a href="tel:+919653530361"
-                              ><i class="fas fa-phone-square-alt"></i>+91 96535
-                              30361</a
-                            >
-                          </p>
-                          <p>
-                            <a href="mailto:contact@ficusinternational.com"
-                              ><i class="fa fa-envelope"></i
-                              >contact@ficusinternational.com</a
-                            >
-                          </p>
-                          <p class="text">
-                            <i class="fas fa-map-marker-alt"></i>Karnal,
-                            Haryana, India
-                          </p>
-                          <p class="text">
-                            <i class="fas fa-map-marker-alt"></i>Plateux Vallon,
-                            Abidjan, Cote d'Ivoire
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div
-                      class="col-xl-2 col-lg-6 col-md-6 wow animated fadeInUp"
-                      data-wow-delay="0.3s"
-                    >
-                      <div class="footer-widget__column footer-widget__explore">
-                        <h2 class="footer-widget__title">Quick Links</h2>
-                        <ul class="footer-widget__explore-list">
-                          <li class="footer-widget__explore-list-item">
-                            <a href="index.php">Home</a>
-                          </li>
-                          <li class="footer-widget__explore-list-item">
-                            <a href="about.php">About Us</a>
-                          </li>
-                          <li class="footer-widget__explore-list-item">
-                            <a href="products.php">Products</a>
-                          </li>
-                          <li class="footer-widget__explore-list-item">
-                            <a href="news.php">Blog</a>
-                          </li>
-                          <li class="footer-widget__explore-list-item">
-                            <a href="contact.php">Contact</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-
-                    <div
-                      class="col-xl-3 col-lg-6 col-md-6 wow animated fadeInUp"
-                      data-wow-delay="0.5s"
-                    >
-                      <div class="footer-widget__column footer-widget__explore">
-                        <h2 class="footer-widget__title">Our Products</h2>
-                        <ul class="footer-widget__explore-list">
-                          <li class="footer-widget__explore-list-item">
-                            <a href="products.php">Seeds &amp; Grains</a>
-                          </li>
-                          <li class="footer-widget__explore-list-item">
-                            <a href="products.php">Spices</a>
-                          </li>
-                          <li class="footer-widget__explore-list-item">
-                            <a href="products.php">Raw Nuts</a>
-                          </li>
-                          <li class="footer-widget__explore-list-item">
-                            <a href="products.php">Timber</a>
-                          </li>
-                          <li class="footer-widget__explore-list-item">
-                            <a href="products.php">Rice</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-
-                    <div
-                      class="col-xl-3 col-lg-6 col-md-6 wow animated fadeInUp"
-                      data-wow-delay="0.7s"
-                    >
-                      <div
-                        class="footer-widget__column footer-widget__newletter"
-                      >
-                        <h2 class="footer-widget__title">Follow Us</h2>
-                        <p class="footer-widget__newletter-text">
-                          Stay connected with Ficus International on social
-                          media
-                        </p>
-                        <div
-                          style="
-                            display: flex;
-                            gap: 12px;
-                            margin-top: 15px;
-                            flex-wrap: wrap;
-                          "
-                        >
-                          <a
-                            href="https://www.facebook.com/share/1JcoEmGGfT/"
-                            target="_blank"
-                            style="font-size: 28px; color: #fff"
-                            ><i class="fab fa-facebook-square"></i
-                          ></a>
-                          <a
-                            href="https://www.instagram.com/ficusinternational?igsh=MXA5dHowOXFjYnBlcg=="
-                            target="_blank"
-                            style="font-size: 28px; color: #fff"
-                            ><i class="fab fa-instagram"></i
-                          ></a>
-                          <a
-                            href="https://www.linkedin.com/company/ficus-international/"
-                            target="_blank"
-                            style="font-size: 28px; color: #fff"
-                            ><i class="fab fa-linkedin"></i
-                          ></a>
-                          <a
-                            href="https://x.com/FicusIntl"
-                            target="_blank"
-                            style="font-size: 28px; color: #fff"
-                            ><i class="fab fa-twitter"></i
-                          ></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="footer-one__bottom">
-          <div class="container">
-            <div class="row">
-              <div class="col-xl-12">
-                <div class="footer-one__bottom-inner">
-                  <div class="footer-one__bottom-text">
-                    <p>
-                      &copy; Copyright Ficus International &mdash; Propelled by
-                      <a href="https://www.rccsglobal.com" target="_blank"
-                        >Royal Crown Consultancy Services</a
-                      >
-                    </p>
-                  </div>
-                  <div class="footer-one__bottom-social-links">
-                    <ul>
-                      <li>
-                        <a href="https://x.com/FicusIntl" target="_blank"
-                          ><i class="fab fa-twitter"></i
-                        ></a>
-                      </li>
-                      <li>
-                        <a
-                          href="https://www.facebook.com/share/1JcoEmGGfT/"
-                          target="_blank"
-                          ><i class="fab fa-facebook"></i
-                        ></a>
-                      </li>
-                      <li>
-                        <a
-                          href="https://www.linkedin.com/company/ficus-international/"
-                          target="_blank"
-                          ><i class="fab fa-linkedin"></i
-                        ></a>
-                      </li>
-                      <li>
-                        <a
-                          href="https://www.instagram.com/ficusinternational?igsh=MXA5dHowOXFjYnBlcg=="
-                          target="_blank"
-                          ><i class="fab fa-instagram"></i
-                        ></a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+  <?php include 'footer.php'; ?>
     </div>
     <!-- /.page-wrapper -->
 

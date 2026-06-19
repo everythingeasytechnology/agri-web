@@ -70,7 +70,7 @@ if ($search) {
     $products = db_fetch_all('SELECT * FROM products ORDER BY created_at DESC');
 }
 
-$categories = ['Seeds & Grains', 'Spices', 'Nuts', 'Specialty', 'Wood & Timber', 'Other'];
+$categories = ['Seeds & Grains', 'Spices', 'Nuts', 'Specialty', 'Wood & Timber', 'Other' ,'Products'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -101,7 +101,7 @@ $categories = ['Seeds & Grains', 'Spices', 'Nuts', 'Specialty', 'Wood & Timber',
             <div class="nav-section-label" style="margin-top:12px">Content</div>
             <a href="products.php" class="active"><i class="fas fa-seedling"></i> Products</a>
             <a href="blogs.php"><i class="fas fa-blog"></i> Blog Posts</a>
-            <!-- <a href="reels.php"><i class="fab fa-instagram"></i> Instagram Reels</a> -->
+            <a href="reels.php"><i class="fab fa-instagram"></i> Instagram Reels</a>
             <div class="nav-section-label" style="margin-top:12px">Site</div>
             <a href="../index.php" target="_blank"><i class="fas fa-external-link-alt"></i> View Website</a>
         </nav>

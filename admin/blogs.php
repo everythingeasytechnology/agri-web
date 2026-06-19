@@ -191,6 +191,7 @@ $image_is_upload  = $current_image && strpos($current_image, 'http') !== 0;
             <div class="nav-section-label" style="margin-top:12px">Content</div>
             <a href="products.php"><i class="fas fa-seedling"></i> Products</a>
             <a href="blogs.php" class="active"><i class="fas fa-blog"></i> Blog Posts</a>
+            <a href="reels.php"><i class="fab fa-instagram"></i> Instagram Reels</a>
             <div class="nav-section-label" style="margin-top:12px">Site</div>
             <a href="../index.php" target="_blank"><i class="fas fa-external-link-alt"></i> View Website</a>
         </nav>

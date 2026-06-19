@@ -3887,6 +3887,16 @@ button {
   z-index: 1;
 }
 
+.blog-one .row {
+  align-items: stretch;
+}
+
+.blog-one .col-xl-4,
+.blog-one .col-lg-4 {
+  display: flex;
+  flex-direction: column;
+}
+
 .blog-one__shape::before {
   content: '';
   width: 150px;
@@ -3915,6 +3925,13 @@ button {
           animation: float-bob-y 10s linear 0s infinite;
 }
 
+@media (max-width: 1199px) {
+  .blog-one__shape::before,
+  .blog-one__shape::after {
+    display: none;
+  }
+}
+
 .blog-one__bg {
   position: absolute;
   top: 0;
@@ -3933,7 +3950,9 @@ button {
 
 .blog-one__single {
   position: relative;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   margin-bottom: 30px;
 }
 
@@ -3944,10 +3963,13 @@ button {
   border-top-right-radius: 10px;
   overflow: hidden;
   z-index: 1;
+  height: 240px;
 }
 
 .blog-one__single-img img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
   -webkit-transform: scale(1);
           transform: scale(1);
   -webkit-transition-delay: .1s;
@@ -3992,6 +4014,7 @@ button {
 .blog-one__single:hover .blog-one__single-img::before {
   -webkit-transform: scaleY(1);
           transform: scaleY(1);
+          
 }
 
 .blog-one__single-img .date-box {
@@ -4058,6 +4081,7 @@ button {
 .blog-one__single-content {
   position: relative;
   display: block;
+  flex: 1;
   background: #ffffff;
   -webkit-box-shadow: 0px 10px 60px 0px rgba(0, 0, 0, 0.05);
           box-shadow: 0px 10px 60px 0px rgba(0, 0, 0, 0.05);
@@ -4172,15 +4196,15 @@ button {
 }
 
 .blog-one__single:hover .blog-one__single-content:not(.blog-details) .meta-info li a {
-  color: #b3c5b5;
+  color: #ffffff;
 }
 
 .blog-one__single:hover .blog-one__single-content:not(.blog-details) .meta-info li a i::before {
-  color: var(--agriox-base, #f1cf69);
+  color: #ffffff;
 }
 
 .blog-one__single:hover .blog-one__single-content:not(.blog-details) h2 a {
-  color: #fff;
+  color: #ffffff;
 }
 
 .blog-one__single:hover .blog-one__single-content:not(.blog-details)::before {
@@ -4188,6 +4212,12 @@ button {
           transform: scale(1, 1);
   -webkit-transform-origin: left center;
           transform-origin: left center;
+}
+
+.blog-one__single:hover .blog-one__single-content:not(.blog-details) p {
+  color: #ffffff;
+  -webkit-transition: color 200ms linear;
+  transition: color 200ms linear;
 }
 
 /***

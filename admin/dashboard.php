@@ -8,6 +8,7 @@ $total_queries  = db_fetch('SELECT COUNT(*) AS c FROM contact_queries')['c'] ?? 
 $unread_count   = db_fetch('SELECT COUNT(*) AS c FROM contact_queries WHERE status = ?', ['new'])['c'] ?? 0;
 $total_products = db_fetch('SELECT COUNT(*) AS c FROM products')['c'] ?? 0;
 $total_blogs    = db_fetch('SELECT COUNT(*) AS c FROM blogs')['c'] ?? 0;
+$total_reels    = db_fetch('SELECT COUNT(*) AS c FROM instagram_reels')['c'] ?? 0;
 $recent_queries  = db_fetch_all('SELECT * FROM contact_queries ORDER BY created_at DESC LIMIT 5');
 $recent_products = db_fetch_all('SELECT * FROM products ORDER BY created_at DESC LIMIT 5');
 $recent_blogs    = db_fetch_all('SELECT * FROM blogs ORDER BY created_at DESC LIMIT 5');
@@ -44,7 +45,7 @@ $recent_blogs    = db_fetch_all('SELECT * FROM blogs ORDER BY created_at DESC LI
             <div class="nav-section-label" style="margin-top:12px">Content</div>
             <a href="products.php"><i class="fas fa-seedling"></i> Products</a>
             <a href="blogs.php"><i class="fas fa-blog"></i> Blog Posts</a>
-            <!-- <a href="reels.php"><i class="fab fa-instagram"></i> Instagram Reels</a> -->
+            <a href="reels.php"><i class="fab fa-instagram"></i> Instagram Reels</a>
             <div class="nav-section-label" style="margin-top:12px">Site</div>
             <a href="../index.php" target="_blank"><i class="fas fa-external-link-alt"></i> View Website</a>
         </nav>
@@ -97,6 +98,13 @@ $recent_blogs    = db_fetch_all('SELECT * FROM blogs ORDER BY created_at DESC LI
                     <div class="stat-info">
                         <div class="stat-value"><?= $total_blogs ?></div>
                         <div class="stat-label">Blog Posts</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fab fa-instagram" style="background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);-webkit-background-clip:text;-webkit-text-fill-color:transparent;"></i></div>
+                    <div class="stat-info">
+                        <div class="stat-value"><?= $total_reels ?></div>
+                        <div class="stat-label">Instagram Reels</div>
                     </div>
                 </div>
             </div>
