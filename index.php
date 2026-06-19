@@ -610,8 +610,8 @@ function reel_embed_url(string $url): string {
                     ? (strpos($p['image_url'], 'http') === 0 ? $p['image_url'] : $p['image_url'])
                     : '';
             ?>
-            <div class="col-xl-3 col-lg-6 wow <?= $anim ?>" data-wow-delay="<?= $dly ?>" data-wow-duration="1000ms">
-              <div class="services-one__single">
+            <div class="col-xl-3 col-lg-6 wow <?= $anim ?>" data-wow-delay="<?= $dly ?>" data-wow-duration="1000ms" style="display:flex;flex-direction:column;">
+              <div class="services-one__single" style="height:100%;display:flex;flex-direction:column;">
                 <div class="services-one__single-img">
                   <div class="services-one__single-img-inner">
                     <?php if ($img): ?>
@@ -623,7 +623,7 @@ function reel_embed_url(string $url): string {
                     <?php endif; ?>
                   </div>
                 </div>
-                <div class="services-one__single-content text-center">
+                <div class="services-one__single-content text-center" style="flex:1;">
                   <div class="services-one__single-img-icon">
                     <i class="fas <?= $icon ?>" style="font-size: 38px"></i>
                   </div>

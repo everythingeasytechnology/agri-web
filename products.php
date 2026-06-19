@@ -180,14 +180,14 @@ $icons = ['fa-seedling', 'fa-leaf', 'fa-chart-line', 'fa-box-open'];
                         $delay = ($pi % 2) * 100;
                         $img   = $p['image_url'] ?: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=280&fit=crop&auto=format&q=80';
                     ?>
-                    <div class="col-xl-3 col-lg-6 wow <?= $anim ?>" data-wow-delay="<?= $delay ?>ms" data-wow-duration="1000ms">
-                        <div class="services-one__single">
+                    <div class="col-xl-3 col-lg-6 wow <?= $anim ?>" data-wow-delay="<?= $delay ?>ms" data-wow-duration="1000ms" style="display:flex;flex-direction:column;">
+                        <div class="services-one__single" style="height:100%;display:flex;flex-direction:column;">
                             <div class="services-one__single-img">
                                 <div class="services-one__single-img-inner">
                                     <img src="<?= html_escape($img) ?>" alt="<?= html_escape($p['name']) ?>" />
                                 </div>
                             </div>
-                            <div class="services-one__single-content text-center">
+                            <div class="services-one__single-content text-center" style="flex:1;">
                                 <div class="services-one__single-img-icon"><i class="fas <?= $icon ?>" style="font-size:38px"></i></div>
                                 <h3><?= html_escape($p['name']) ?></h3>
                                 <p><?= html_escape($p['description']) ?></p>
