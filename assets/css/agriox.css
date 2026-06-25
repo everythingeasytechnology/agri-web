@@ -17,9 +17,9 @@
 # Common
 --------------------------------------------------------------*/
 :root {
-  --agriox-font: 'DM Sans', sans-serif;
-  --agriox-font-2: 'Averia Sans Libre', cursive;
-  --agriox-font-3: 'Shadows Into Light', cursive;
+  --agriox-font: 'Lato', sans-serif;
+  --agriox-font-2: 'Montserrat', sans-serif;
+  --agriox-font-3: 'Montserrat', sans-serif;
   --agriox-base: #f1cf69;
   --agriox-base-rgb: 241, 207, 105;
   --agriox-primary: #334b35;
