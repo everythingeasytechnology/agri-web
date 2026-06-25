@@ -165,7 +165,7 @@
                   <div class="footer-one__bottom-text">
                     <p>
                       &copy; Copyright Ficus International &mdash; Propelled by
-                      <a href="https://www.rccsglobal.com" target="_blank"
+                      <a href="https://www.rccsglobal.com" 
                         >Royal Crown Consultancy Services</a
                       >
                     </p>
