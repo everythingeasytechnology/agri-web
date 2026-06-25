@@ -44,8 +44,8 @@
                             Haryana, India
                           </p>
                           <p class="text">
-                            <i class="fas fa-map-marker-alt"></i>Plateux Vallon,
-                            Abidjan, Cote d'Ivoire
+                            <i class="fas fa-map-marker-alt"></i>2 Plateaux Vallon,
+                            Abidjan, Ivory Coast
                           </p>
                         </div>
                       </div>

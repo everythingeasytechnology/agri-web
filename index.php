@@ -894,8 +894,7 @@ function reel_embed_url(string $url): string {
                   </li>
                   <li>
                     <i class="fas fa-map-marker-alt"></i>
-                    <strong>Africa:</strong> Plateux Vallon, Abidjan, Cote
-                    d'Ivoire
+                    <strong>Africa:</strong> 2 Plateaux Vallon, Abidjan, Ivory Coast
                   </li>
                 </ul>
 
