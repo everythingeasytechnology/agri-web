@@ -205,7 +205,9 @@ function reel_embed_url(string $url): string {
                           Ficus
                           <span
                             ><span class="leaf"
-                            
+                              ><img
+                                src="assets/images/resources/leaf.png"
+                                alt="" /></span
                             >International</span
                           >
                         </h2>
