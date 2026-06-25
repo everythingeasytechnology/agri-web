@@ -142,7 +142,7 @@ $icons = ['fa-seedling', 'fa-leaf', 'fa-chart-line', 'fa-box-open'];
                 <div class="sec-title text-center">
                     <!-- <div class="icon"><img src="assets/images/resources/sec-title-icon1.png" alt=""></div> -->
                     <span class="sec-title__tagline">Origin-Sourced Quality</span>
-                    <h2 class="sec-title__title">Premium Agro Commodities</h2>
+                    <h2 class="sec-title__title"> Agro Commodities</h2>
                     <p style="max-width:700px; margin: 0 auto 10px; font-size:16px; line-height:1.8;">Every product we offer is carefully sourced directly from its country of origin, ensuring the highest standards of quality, freshness, and authenticity. We supply businesses across international markets with a comprehensive range of agro commodities.</p>
                 </div>
             </div>
