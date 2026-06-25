@@ -108,7 +108,7 @@
                     <div class="col-xl-6 col-lg-7">
                         <div class="about-three__content-box">
                             <div class="sec-title">
-                                <div class="icon"><img src="assets/images/resources/sec-title-icon1.png" alt=""></div>
+                                <!-- <div class="icon"><img src="assets/images/resources/sec-title-icon1.png" alt=""></div> -->
                                 <span class="sec-title__tagline">Who We Are</span>
                                 <h2 class="sec-title__title">About Ficus International</h2>
                             </div>
@@ -156,14 +156,14 @@
             <div class="providing-quality-one__shape"></div>
             <div class="container-fullwidth">
                 <div class="row">
-                    <div class="col-xl-6 providing-quality-one__image-block clearfix">
+                    <div class="col-xl-6 col-lg-6 providing-quality-one__image-block clearfix">
                         <div class="providing-quality-one__image__line float-bob-y"></div>
                         <img src="assets/images/resources/providing-quality-v1-img.jpg" alt="">
                         <!-- <div class="providing-quality-one__logo">
                             <img src="assets/images/resources/providing-quality.png" alt="" />
                         </div> -->
                     </div>
-                    <div class="col-xl-6">
+                    <div class="col-xl-6 col-lg-6">
                         <div class="providing-quality-one__content-box">
                             <div class="sec-title">
                                 <!-- <d`iv class="icon"><img src="assets/images/resources/sec-title-icon2.png" alt=""></div> -->
@@ -199,7 +199,7 @@
             <div class="services-one__bg wow slideInDown" data-wow-delay="100ms" data-wow-duration="2500ms"></div>
             <div class="container">
                 <div class="sec-title text-center">
-                    <div class="icon"><img src="assets/images/resources/sec-title-icon1.png" alt=""></div>
+                    <!-- <div class="icon"><img src="assets/images/resources/sec-title-icon1.png" alt=""></div> -->
                     <span class="sec-title__tagline">What Drives Us</span>
                     <h2 class="sec-title__title">Our Core Values</h2>
                 </div>

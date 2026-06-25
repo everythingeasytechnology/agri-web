@@ -3747,17 +3747,23 @@ button {
 
 .providing-quality-one__image-block {
   position: relative;
+  overflow: hidden;
 }
 
 .providing-quality-one__image-block img {
   max-width: 100%;
+  width: 100%;
   float: none;
+  display: block;
+  height: auto;
 }
 
 @media (min-width: 992px) {
   .providing-quality-one__image-block img {
-    float: left;
-    max-width: none;
+    float: none;
+    max-width: 100%;
+    width: 100%;
+    object-fit: cover;
   }
 }
 
@@ -9248,6 +9254,21 @@ Sidebar
   .providing-quality-one__logo {
     display: none;
   }
+  .providing-quality-one__image-block img {
+    width: 100%;
+    max-height: 420px;
+    object-fit: cover;
+  }
+  .providing-quality-one__content-box {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    padding-left: 30px;
+    max-width: 100%;
+  }
+  .providing-quality-one__content-box-list-item {
+    margin-top: 30px;
+    padding-bottom: 30px;
+  }
   /**Blog One**/
   .blog-one__single-content {
     padding: 20px 30px 32px;
@@ -9473,6 +9494,24 @@ Sidebar
   }
   .providing-quality-one__logo {
     display: none;
+  }
+  .providing-quality-one__image-block img {
+    width: 100%;
+    max-height: 380px;
+    object-fit: cover;
+  }
+  .providing-quality-one__content-box {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 20px;
+    max-width: 100%;
+  }
+  .providing-quality-one__content-box .sec-title__title {
+    font-size: 34px;
+  }
+  .providing-quality-one__content-box-list-item {
+    margin-top: 25px;
+    padding-bottom: 25px;
   }
   /**Blog One**/
   .blog-one__single {
@@ -9835,14 +9874,30 @@ Sidebar
   .providing-quality-one__logo {
     display: none;
   }
+  .providing-quality-one__image-block img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+  }
   .providing-quality-one__content-box {
-    padding-left: 45px;
+    padding-top: 45px;
+    padding-bottom: 45px;
+    padding-left: 20px;
+    max-width: 100%;
+  }
+  .providing-quality-one__content-box-list-item {
+    margin-top: 20px;
+    padding-bottom: 20px;
+  }
+  .providing-quality-one__content-box-list-item .icon {
+    width: 80px;
+    height: 80px;
   }
   .providing-quality-one__content-box-list-item .text {
-    padding-left: 25px;
+    padding-left: 15px;
   }
   .providing-quality-one__content-box .sec-title__title {
-    font-size: 38px;
+    font-size: 32px;
   }
   .providing-quality-one__content-box .sec-title__title br {
     display: none;
@@ -10198,6 +10253,26 @@ Sidebar
   .case-studies-one .container-fluid {
     padding-left: 15px;
     padding-right: 15px;
+  }
+  /**Providing Quality One**/
+  .providing-quality-one__content-box {
+    padding-top: 35px;
+    padding-bottom: 35px;
+    padding-left: 15px;
+  }
+  .providing-quality-one__image-block img {
+    max-height: 240px;
+  }
+  .providing-quality-one__content-box-list-item .icon {
+    width: 65px;
+    height: 65px;
+  }
+  .providing-quality-one__content-box .sec-title__title {
+    font-size: 28px;
+  }
+  .providing-quality-one__content-box-list-item .text h3 {
+    font-size: 18px;
+    line-height: 26px;
   }
 }
 

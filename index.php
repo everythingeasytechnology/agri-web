@@ -400,12 +400,12 @@ function reel_embed_url(string $url): string {
             <div class="col-xl-6">
               <div class="about-one__content">
                 <div class="sec-title">
-                  <div class="icon">
+                  <!-- <div class="icon">
                     <img
                       src="assets/images/resources/sec-title-icon1.png"
                       alt=""
                     />
-                  </div>
+                  </div> -->
                   <span class="sec-title__tagline">Why Choose Us</span>
                   <h2 class="sec-title__title">
                     Why Choose Ficus International
@@ -590,9 +590,9 @@ function reel_embed_url(string $url): string {
         ></div>
         <div class="container">
           <div class="sec-title text-center">
-            <div class="icon">
+            <!-- <div class="icon">
               <img src="assets/images/resources/sec-title-icon1.png" alt="" />
-            </div>
+            </div> -->
             <span class="sec-title__tagline">What we offer</span>
             <h2 class="sec-title__title">Our Products</h2>
           </div>
@@ -652,7 +652,7 @@ function reel_embed_url(string $url): string {
         <div class="providing-quality-one__shape"></div>
         <div class="container-fullwidth">
           <div class="row">
-            <div class="col-xl-6 providing-quality-one__image-block clearfix">
+            <div class="col-xl-6 col-lg-6 providing-quality-one__image-block clearfix">
               <div class="providing-quality-one__image__line float-bob-y"></div>
               <img
                 src="assets/images/resources/providing-quality-v1-img.jpg"
@@ -666,7 +666,7 @@ function reel_embed_url(string $url): string {
               </div> -->
             </div>
 
-            <div class="col-xl-6">
+            <div class="col-xl-6 col-lg-6">
               <div class="providing-quality-one__content-box">
                 <div class="sec-title">
                   <!-- <div class="icon">
@@ -732,7 +732,7 @@ function reel_embed_url(string $url): string {
       </section>
 
       <!-- ==================== BLOG SECTION ==================== -->
-      <section class="blog-one" id="blog">
+      <!-- <section class="blog-one" id="blog">
         <div
           class="blog-one__bg wow slideInDown"
           data-wow-delay="100ms"
@@ -785,7 +785,7 @@ function reel_embed_url(string $url): string {
             <?php endforeach; endif; ?>
           </div>
         </div>
-      </section>
+      </section> -->
 
       <!-- ==================== INSTAGRAM REELS ==================== -->
       <?php if (!empty($home_reels)): ?>
@@ -793,9 +793,9 @@ function reel_embed_url(string $url): string {
         <div class="container">
 
           <div class="sec-title text-center" style="margin-bottom: 48px;">
-            <div class="icon"><img src="assets/images/resources/sec-title-icon1.png" alt="" /></div>
+            <!-- <div class="icon"><img src="assets/images/resources/sec-title-icon1.png" alt="" /></div> -->
             <span class="sec-title__tagline">Follow Us</span>
-            <h2 class="sec-title__title">Watch Our Latest Reels</h2>
+            <h2 class="sec-title__title">Watch Our Latest Posts</h2>
             <p style="color:#777; font-size:15px; margin-top:10px; max-width:520px; margin-left:auto; margin-right:auto;">
               Stay connected with Ficus International on Instagram for updates, behind-the-scenes, and agro commodity insights.
             </p>
@@ -861,9 +861,9 @@ function reel_embed_url(string $url): string {
       <section class="contact-one" id="contact">
         <div class="container">
           <div class="sec-title text-center">
-            <div class="icon">
+            <!-- <div class="icon">
               <img src="assets/images/resources/sec-title-icon1.png" alt="" />
-            </div>
+            </div> -->
             <span class="sec-title__tagline">Contact With Us</span>
             <h2 class="sec-title__title">
               Get in Touch with <br />Ficus International
@@ -899,7 +899,7 @@ function reel_embed_url(string $url): string {
                   </li>
                 </ul>
 
-                <div style="margin-top: 30px">
+                <!-- <div style="margin-top: 30px">
                   <h4 style="margin-bottom: 15px">Follow Us</h4>
                   <div class="footer-one__bottom-social-links">
                     <ul
@@ -910,15 +910,15 @@ function reel_embed_url(string $url): string {
                         gap: 12px;
                       "
                     >
-                      <!-- <li>
+                 <li>
                         <a
                           href="https://www.facebook.com/share/1JcoEmGGfT/"
                           target="_blank"
                           style="font-size: 22px; color: #3b5998"
                           ><i class="fab fa-facebook-square"></i
                         ></a>
-                      </li> -->
-                      <!-- <li>
+                      </li> 
+                     <li>
                         <a
                           href="https://www.instagram.com/ficusinternational?igsh=MXA5dHowOXFjYnBlcg=="
                           target="_blank"
@@ -941,13 +941,13 @@ function reel_embed_url(string $url): string {
                           style="font-size: 22px; color: #1da1f2"
                           ><i class="fab fa-twitter"></i
                         ></a>
-                      </li> -->
+                      </li> 
                     </ul>
                   </div>
-                </div>
+                </div> -->
 
-                <div class="contact-one__images" style="margin-top: 30px">
-                  <!-- <div class="contact-one__images__shape"></div> -->
+                <!-- <div class="contact-one__images" style="margin-top: 30px">
+               
                   <img
                     src="assets/images/resources/contact-1-1.png"
                     alt=""
@@ -958,7 +958,7 @@ function reel_embed_url(string $url): string {
                     alt=""
                     class="contact-one__images-2"
                   />
-                </div>
+                </div> -->
               </div>
             </div>
             <div class="col-lg-6">

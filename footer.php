@@ -76,7 +76,7 @@
                         </ul>
                       </div>
                     </div>
-
+<!-- 
                     <div
                       class="col-xl-3 col-lg-6 col-md-6 wow animated fadeInUp"
                       data-wow-delay="0.5s"
@@ -101,7 +101,7 @@
                           </li>
                         </ul>
                       </div>
-                    </div>
+                    </div> -->
 
                     <div
                       class="col-xl-3 col-lg-6 col-md-6 wow animated fadeInUp"
