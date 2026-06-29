@@ -188,7 +188,7 @@ function reel_embed_url(string $url): string {
               <div
                 class="image-layer"
                 style="
-                  background-image: url(assets/images/backgrounds/main-slider-v1-1.jpg);
+                  background-image: url(assets/images/backgrounds/1.jpeg);
                 "
               ></div>
               <div class="image-layer-overlay"></div>
@@ -236,7 +236,7 @@ function reel_embed_url(string $url): string {
               <div
                 class="image-layer"
                 style="
-                  background-image: url(assets/images/backgrounds/main-slider-v1-2.jpg);
+                  background-image: url(assets/images/backgrounds/2.jpeg);
                 "
               ></div>
               <div class="image-layer-overlay"></div>
@@ -283,7 +283,7 @@ function reel_embed_url(string $url): string {
               <div
                 class="image-layer"
                 style="
-                  background-image: url(assets/images/backgrounds/main-slider-v1-3.jpg);
+                  background-image: url(assets/images/backgrounds/3.jpeg);
                 "
               ></div>
               <div class="image-layer-overlay"></div>

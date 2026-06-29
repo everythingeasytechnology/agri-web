@@ -136,7 +136,7 @@
                     <div class="col-xl-4 col-lg-4">
                         <div class="contact-page__left">
                             <div class="sec-title">
-                                <div class="icon"><img src="assets/images/resources/sec-title-icon1.png" alt=""></div>
+                                <!-- <div class="icon"><img src="assets/images/resources/sec-title-icon1.png" alt=""></div> -->
                                 <span class="sec-title__tagline">Reach Out</span>
                                 <h2 class="sec-title__title">Let's Discuss Your  <br>Requirements</h2>
                             </div>

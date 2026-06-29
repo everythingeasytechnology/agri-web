@@ -110,7 +110,7 @@ if ($search) {
     $products = db_fetch_all('SELECT * FROM products ORDER BY created_at DESC');
 }
 
-$categories = ['Seeds & Grains', 'Spices', 'Nuts', 'Specialty', 'Wood & Timber', 'Other' ,'Products'];
+$categories = ['Seeds & Grains', 'Spices', 'Nuts', 'Specialty', 'Wood & Timber', 'Africa/Ivory' ,'Products'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
