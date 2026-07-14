@@ -1066,11 +1066,13 @@ button {
   left: 0;
   width: 100vw;
   height: 100vh;
+  display: flex;
+  justify-content: flex-end;
   opacity: 0;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  -webkit-transform-origin: right center;
-          transform-origin: right center;
+  -webkit-transform: translateX(50%);
+          transform: translateX(50%);
+  -webkit-transform-origin: left center;
+          transform-origin: left center;
   -webkit-transition: opacity 500ms linear, visibility 500ms ease-in, -webkit-transform 500ms ease-in;
   transition: opacity 500ms linear, visibility 500ms ease-in, -webkit-transform 500ms ease-in;
   transition: transform 500ms ease-in, opacity 500ms linear, visibility 500ms ease-in;
