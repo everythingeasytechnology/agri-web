@@ -416,7 +416,7 @@ function reel_embed_url(string $url): string {
                   logistics under one roof, we provide our customers with a
                   reliable and efficient solution tailored to their needs.
                 </p>
-                <ul class="about-one__content-list">
+                <!-- <ul class="about-one__content-list">
                   <li>
                     <div class="icon">
                       <i class="fa fa-check-circle" aria-hidden="true"></i>
@@ -447,7 +447,7 @@ function reel_embed_url(string $url): string {
                       <p>Procurement, supply &amp; logistics under one roof</p>
                     </div>
                   </li>
-                </ul>
+                </ul> -->
                 <div
                   class="about-one__content-video-box"
                   style="margin-top: 30px"
@@ -640,7 +640,7 @@ function reel_embed_url(string $url): string {
       </section>
 
       <!-- ==================== QUALITY SECTION ==================== -->
-      <section class="providing-quality-one clearfix">
+      <!-- <section class="providing-quality-one clearfix">
         <div class="providing-quality-one__bg">
           <img
             src="assets/images/backgrounds/providing-quality-one-bg.png"
@@ -656,23 +656,13 @@ function reel_embed_url(string $url): string {
                 src="assets/images/resources/providing-quality-v1-img.jpg"
                 alt=""
               />
-              <!-- <div class="providing-quality-one__logo">
-                <img
-                  src="assets/images/resources/providing-quality.png"
-                  alt=""
-                />
-              </div> -->
+             
             </div>
 
             <div class="col-xl-6 col-lg-6">
               <div class="providing-quality-one__content-box">
                 <div class="sec-title">
-                  <!-- <div class="icon">
-                    <img
-                      src="assets/images/resources/sec-title-icon2.png"
-                      alt=""
-                    />
-                  </div> -->
+                 
                   <span class="sec-title__tagline">Our Commitment</span>
                   <h2 class="sec-title__title">
                     Quality Begins <br />at the Source
@@ -727,7 +717,7 @@ function reel_embed_url(string $url): string {
             </div>
           </div>
         </div>
-      </section>
+      </section> -->
 
       <!-- ==================== BLOG SECTION ==================== -->
       <!-- <section class="blog-one" id="blog">
@@ -792,8 +782,8 @@ function reel_embed_url(string $url): string {
 
           <div class="sec-title text-center" style="margin-bottom: 48px;">
             <!-- <div class="icon"><img src="assets/images/resources/sec-title-icon1.png" alt="" /></div> -->
-            <span class="sec-title__tagline">Follow Us</span>
-            <h2 class="sec-title__title">Watch Our Latest Posts</h2>
+            <!-- <span class="sec-title__tagline">Follow Us</span> -->
+            <h2 class="sec-title__title">Follow Us</h2>
             <p style="color:#777; font-size:15px; margin-top:10px; max-width:520px; margin-left:auto; margin-right:auto;">
               Stay connected with Ficus International on Instagram for updates, behind-the-scenes, and agro commodity insights.
             </p>
@@ -876,23 +866,29 @@ function reel_embed_url(string $url): string {
                   us through any of the channels below.
                 </p>
                 <ul class="list-unstyled ml-0 contact-one__lists">
-                  <li>
-                    <i class="fas fa-envelope"></i>
-                    <a href="mailto:contact@ficusinternational.com"
-                      >contact@ficusinternational.com</a
-                    >
+                  
+                     <li>
+                    <i class="fas fa-map-marker-alt"></i>
+                    <strong>India:</strong> Karnal, Haryana
                   </li>
                   <li>
                     <i class="fas fa-phone"></i>
                     <a href="tel:+919653530361">+91 96535 30361</a>
                   </li>
-                  <li>
-                    <i class="fas fa-map-marker-alt"></i>
-                    <strong>India:</strong> Karnal, Haryana
-                  </li>
+               
                   <li>
                     <i class="fas fa-map-marker-alt"></i>
                     <strong>Africa:</strong> 2 Plateaux Vallon, Abidjan, Ivory Coast
+                  </li>
+                   <li>
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:+919653530361">+91 96535 30361</a>
+                  </li>
+                  <li>
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:contact@ficusinternational.com"
+                      >contact@ficusinternational.com</a
+                    >
                   </li>
                 </ul>
 

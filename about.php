@@ -108,14 +108,14 @@
                     <div class="col-xl-6 col-lg-7">
                         <div class="about-three__content-box">
                             <div class="sec-title">
-                                <!-- <div class="icon"><img src="assets/images/resources/sec-title-icon1.png" alt=""></div> -->
+                               
                                 <span class="sec-title__tagline">Who We Are</span>
                                 <h2 class="sec-title__title">About Ficus International</h2>
                             </div>
                             <div class="about-three__content-box-inner">
                                 <h2>A Global Agro Commodity Company</h2>
                                 <p>Ficus International is a global agro commodity sourcing and supply company committed to delivering quality products from their origin to markets worldwide. Through strategic procurement, efficient logistics, and a customer-focused approach, we ensure a dependable supply chain that creates value for businesses across the globe.</p>
-                                <div class="about-three__products-list">
+                                <!-- <div class="about-three__products-list">
                                     <ul>
                                         <li>
                                             <div class="icon"><i class="fas fa-hand-holding-usd" style="font-size:38px"></i></div>
@@ -128,7 +128,7 @@
                                             <p>Seamless supply chain management from origin to final destination worldwide.</p>
                                         </li>
                                     </ul>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="about-three__content-box-btn">
                                 <a href="products.php" class="thm-btn">Explore Products</a>
@@ -151,7 +151,7 @@
         </section>
 
         <!-- ==================== OUR DIRECTOR ==================== -->
-        <section class="providing-quality-one clearfix">
+        <!-- <section class="providing-quality-one clearfix">
             <div class="providing-quality-one__bg"><img src="assets/images/backgrounds/providing-quality-one-bg.png" alt="" /></div>
             <div class="providing-quality-one__shape"></div>
             <div class="container-fullwidth">
@@ -159,14 +159,12 @@
                     <div class="col-xl-6 col-lg-6 providing-quality-one__image-block clearfix">
                         <div class="providing-quality-one__image__line float-bob-y"></div>
                         <img src="assets/images/resources/providing-quality-v1-img.jpg" alt="">
-                        <!-- <div class="providing-quality-one__logo">
-                            <img src="assets/images/resources/providing-quality.png" alt="" />
-                        </div> -->
+                       
                     </div>
                     <div class="col-xl-6 col-lg-6">
                         <div class="providing-quality-one__content-box">
                             <div class="sec-title">
-                                <!-- <d`iv class="icon"><img src="assets/images/resources/sec-title-icon2.png" alt=""></div> -->
+                              
                                 <span class="sec-title__tagline">Our Leadership</span>
                                 <h2 class="sec-title__title">About Our <br>Company Director</h2>
                             </div>
@@ -192,19 +190,19 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
 
         <!-- ==================== OUR VALUES ==================== -->
-        <section class="services-one">
+        <!-- <section class="services-one">
             <div class="services-one__bg wow slideInDown" data-wow-delay="100ms" data-wow-duration="2500ms"></div>
             <div class="container">
                 <div class="sec-title text-center">
-                    <!-- <div class="icon"><img src="assets/images/resources/sec-title-icon1.png" alt=""></div> -->
+                  
                     <span class="sec-title__tagline">What Drives Us</span>
                     <h2 class="sec-title__title">Our Core Values</h2>
                 </div>
                 <div class="row">
-                    <!-- <div class="col-xl-3 col-lg-6 wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1000ms">
+                    <div class="col-xl-3 col-lg-6 wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1000ms">
                         <div class="services-one__single">
                             <div class="services-one__single-img">
                                 <div class="services-one__single-img-inner"><img src="assets/images/services/services-v1-img1.jpg" alt="" /></div>
@@ -215,8 +213,8 @@
                                 <p>Every product is carefully selected to meet strict quality standards and customer expectations.</p>
                             </div>
                         </div>
-                    </div> -->
-                    <!-- <div class="col-xl-3 col-lg-6 wow fadeInLeft" data-wow-delay="100ms" data-wow-duration="1000ms">
+                    </div>
+                    <div class="col-xl-3 col-lg-6 wow fadeInLeft" data-wow-delay="100ms" data-wow-duration="1000ms">
                         <div class="services-one__single">
                             <div class="services-one__single-img">
                                 <div class="services-one__single-img-inner"><img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&h=280&fit=crop&auto=format&q=80" alt="Reliability" /></div>
@@ -227,7 +225,7 @@
                                 <p>Dependable delivery and consistent supply chain performance trusted by businesses worldwide.</p>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                     <div class="col-xl-3 col-lg-6 wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1000ms">
                         <div class="services-one__single">
                             <div class="services-one__single-img">
@@ -254,7 +252,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
 
         <!-- ==================== CTA ==================== -->
         <section class="cta-one" style="background-image: url(assets/images/backgrounds/cta-v1-bg.jpg);">

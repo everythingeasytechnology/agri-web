@@ -27,6 +27,22 @@
                           worldwide.
                         </p>
                         <div class="footer-widget__about-contact-box">
+                          
+                          
+                          <p class="text">
+                            <i class="fas fa-map-marker-alt"></i>Karnal,
+                            Haryana, India
+                          </p>
+                          <p class="phone">
+                            <a href="tel:+919653530361"
+                              ><i class="fas fa-phone-square-alt"></i>+91 96535
+                              30361</a
+                            >
+                          </p>
+                          <p class="text">
+                            <i class="fas fa-map-marker-alt"></i>2 Plateaux Vallon,
+                            Abidjan, Ivory Coast
+                          </p>
                           <p class="phone">
                             <a href="tel:+919653530361"
                               ><i class="fas fa-phone-square-alt"></i>+91 96535
@@ -38,14 +54,6 @@
                               ><i class="fa fa-envelope"></i
                               >contact@ficusinternational.com</a
                             >
-                          </p>
-                          <p class="text">
-                            <i class="fas fa-map-marker-alt"></i>Karnal,
-                            Haryana, India
-                          </p>
-                          <p class="text">
-                            <i class="fas fa-map-marker-alt"></i>2 Plateaux Vallon,
-                            Abidjan, Ivory Coast
                           </p>
                         </div>
                       </div>
@@ -81,26 +89,36 @@
                       class="col-xl-3 col-lg-6 col-md-6 wow animated fadeInUp"
                       data-wow-delay="0.5s"
                     >
-                      <div class="footer-widget__column footer-widget__explore">
-                        <h2 class="footer-widget__title">Our Products</h2>
-                        <ul class="footer-widget__explore-list">
-                          <li class="footer-widget__explore-list-item">
-                            <a href="products.php">Seeds &amp; Grains</a>
-                          </li>
-                          <li class="footer-widget__explore-list-item">
-                            <a href="products.php">Spices</a>
-                          </li>
-                          <li class="footer-widget__explore-list-item">
-                            <a href="products.php">Raw Nuts</a>
-                          </li>
-                          <li class="footer-widget__explore-list-item">
-                            <a href="products.php">Timber</a>
-                          </li>
-                          <li class="footer-widget__explore-list-item">
-                            <a href="products.php">Rice</a>
-                          </li>
-                        </ul>
-                      </div>
+                             <div class="footer-widget__about-contact-box">
+                          
+                          
+                          <p class="text">
+                            <i class="fas fa-map-marker-alt"></i>Karnal,
+                            Haryana, India
+                          </p>
+                          <p class="phone">
+                            <a href="tel:+919653530361"
+                              ><i class="fas fa-phone-square-alt"></i>+91 96535
+                              30361</a
+                            >
+                          </p>
+                          <p class="text">
+                            <i class="fas fa-map-marker-alt"></i>2 Plateaux Vallon,
+                            Abidjan, Ivory Coast
+                          </p>
+                          <p class="phone">
+                            <a href="tel:+919653530361"
+                              ><i class="fas fa-phone-square-alt"></i>+91 96535
+                              30361</a
+                            >
+                          </p>
+                          <p>
+                            <a href="mailto:contact@ficusinternational.com"
+                              ><i class="fa fa-envelope"></i
+                              >contact@ficusinternational.com</a
+                            >
+                          </p>
+                        </div>
                     </div> -->
 
                     <div
