@@ -882,7 +882,7 @@ function reel_embed_url(string $url): string {
                   </li>
                    <li>
                     <i class="fas fa-phone"></i>
-                    <a href="tel:+919653530361">+91 96535 30361</a>
+                    <a href="tel:+225 0150099753">+225 0150099753</a>
                   </li>
                   <li>
                     <i class="fas fa-envelope"></i>

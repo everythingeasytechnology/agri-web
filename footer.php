@@ -44,9 +44,8 @@
                             Abidjan, Ivory Coast
                           </p>
                           <p class="phone">
-                            <a href="tel:+919653530361"
-                              ><i class="fas fa-phone-square-alt"></i>+91 96535
-                              30361</a
+                            <a href="tel:+225 0150099753"
+                              ><i class="fas fa-phone-square-alt"></i>+225 0150099753</a
                             >
                           </p>
                           <p>
