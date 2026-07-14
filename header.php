@@ -68,6 +68,16 @@
                     <a href="#" class="mobile-nav__toggler"
                       ><i class="fa fa-bars"></i
                     ></a>
+                      <div class="main-header--one__bottom-left">
+                      <ul class="main-menu__list">
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="about.php">About</a></li>
+                        <li><a href="products.php">Products</a></li>
+                            <li><a href="contact.php">Contact</a></li>
+                        <li><a href="news.php">Blog</a></li>
+                    
+                      </ul>
+                    </div>
 
                     <div class="stricky-one-logo">
                       <div class="logo">
@@ -86,16 +96,7 @@
                       </div>
                     </div>
 
-                    <div class="main-header--one__bottom-left">
-                      <ul class="main-menu__list">
-                        <li><a href="index.php">Home</a></li>
-                        <li><a href="about.php">About</a></li>
-                        <li><a href="products.php">Products</a></li>
-                            <li><a href="contact.php">Contact</a></li>
-                        <li><a href="news.php">Blog</a></li>
-                    
-                      </ul>
-                    </div>
+                  
                   </div>
                 </nav>
 
