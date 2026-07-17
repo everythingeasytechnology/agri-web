@@ -4911,6 +4911,10 @@ button {
   color: var(--agriox-base, #f1cf69);
 }
 
+.footer-one__bottom-text-mobile-break {
+  display: none;
+}
+
 .footer-one__bottom-social-links {
   position: relative;
   display: block;
@@ -9949,6 +9953,9 @@ Sidebar
   .footer-one__bottom-inner {
     display: block;
     text-align: center;
+  }
+  .footer-one__bottom-text-mobile-break {
+    display: block;
   }
   .footer-one__bottom-social-links ul li {
     float: none;

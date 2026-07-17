@@ -181,9 +181,11 @@
                 <div class="footer-one__bottom-inner">
                   <div class="footer-one__bottom-text">
                     <p>
-                      &copy; Copyright Ficus International &mdash; Propelled by
-                      <a href="https://www.rccsglobal.com" 
-                        >Royal Crown Consultancy Services</a
+                      &copy; Copyright Ficus International &mdash;  
+                      <br class="footer-one__bottom-text-mobile-break" />
+                      Propelled by
+                      <a href="https://www.rccsglobal.com"
+                        >Royal Crown Consultancy Services & @rccsglobal</a
                       >
                     </p>
                   </div>
