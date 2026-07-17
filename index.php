@@ -236,7 +236,7 @@ function reel_embed_url(string $url): string {
               <div
                 class="image-layer"
                 style="
-                  background-image: url(assets/images/backgrounds/2.jpeg);
+                  background-image: url(assets/images/backgrounds/13.jpeg);
                 "
               ></div>
               <div class="image-layer-overlay"></div>
@@ -277,13 +277,13 @@ function reel_embed_url(string $url): string {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> 
 
             <div class="swiper-slide">
               <div
                 class="image-layer"
                 style="
-                  background-image: url(assets/images/backgrounds/3.jpeg);
+                  background-image: url(assets/images/backgrounds/11.jpeg);
                 "
               ></div>
               <div class="image-layer-overlay"></div>
