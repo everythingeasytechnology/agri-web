@@ -137,7 +137,7 @@
                         </div>
                     </div>
 
-                    <div class="col-xl-6 col-lg-5">
+                    <!-- <div class="col-xl-6 col-lg-5">
                         <div class="about-three__img-box">
                             <div class="about-three__img-box-img">
                                 <div class="about-three__img-box-img-inner">
@@ -145,7 +145,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </section>
@@ -305,7 +305,7 @@
         </div>
     </div>
 
-    <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fas fa-arrow-up"></i></a>
+    <!-- <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fas fa-arrow-up"></i></a> -->
 
     <script src="assets/vendors/jquery/jquery-3.5.1.min.js"></script>
     <script src="assets/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>

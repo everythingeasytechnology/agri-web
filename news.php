@@ -255,7 +255,7 @@
 
 
 
-    <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fas fa-arrow-up"></i></a>
+    <!-- <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fas fa-arrow-up"></i></a> -->
 
 
     <script src="assets/vendors/jquery/jquery-3.5.1.min.js"></script>
