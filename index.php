@@ -379,7 +379,7 @@ function reel_embed_url(string $url): string {
         </div>
         <div class="container">
           <div class="row">
-            <div class="col-xl-6">
+            <!-- <div class="col-xl-6">
               <div class="about-one__left">
                 <div class="about-one__left-img">
                   <div class="about-one__left-img-inner">
@@ -413,7 +413,7 @@ function reel_embed_url(string $url): string {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
 
             <div class="col-xl-6">
               <div class="about-one__content">
