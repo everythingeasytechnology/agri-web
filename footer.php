@@ -1,3 +1,53 @@
+    <style>
+      @media (max-width: 767px) {
+        .footer-one__top {
+          padding-top: 24px !important;
+          padding-bottom: 22px !important;
+        }
+        .footer-widget__about {
+          margin-top: 0 !important;
+        }
+        .footer-widget__about-logo {
+          margin-bottom: 12px !important;
+        }
+        .footer-widget__about-text {
+          padding-bottom: 14px !important;
+        }
+        .footer-widget__about-contact-box {
+          padding-top: 14px !important;
+        }
+        .footer-widget__about-contact-box p,
+        .footer-widget__about-contact-box .phone,
+        .footer-widget__about-contact-box .text {
+          line-height: 28px !important;
+        }
+        .footer-widget__explore,
+        .footer-widget__newletter,
+        .footer-widget__news {
+          margin-top: 28px !important;
+        }
+        .footer-widget__title {
+          margin-bottom: 14px !important;
+        }
+        .footer-widget__newletter-text {
+          line-height: 26px !important;
+        }
+        .footer-one__bottom {
+          padding-top: 7px !important;
+          padding-bottom: 7px !important;
+        }
+        .footer-one__bottom-text p {
+          font-size: 14px !important;
+          line-height: 20px !important;
+        }
+        .footer-one__bottom-social-links {
+          margin-top: 6px !important;
+        }
+        .footer-one__bottom-social-links ul li {
+          margin-left: 16px !important;
+        }
+      }
+    </style>
     <footer class="footer-one">
         <div class="footer-one__top">
           <div class="container">
