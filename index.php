@@ -648,11 +648,7 @@ function reel_embed_url(string $url): string {
                       line-height: 1.8;
                     "
                   >
-                    From origin sourcing to final delivery, Ficus International
-                    manages every stage of the export process with precision and
-                    professionalism. Our global capabilities and logistics
-                    expertise enable us to deliver agro commodities efficiently
-                    to businesses across international markets.
+                   Ficus International provides reliable end-to-end export solutions for agro commodities, ensuring seamless procurement, quality assurance, documentation, logistics, and timely delivery. With a strong global network and professional expertise, we help businesses source and receive premium agricultural products efficiently across international markets.
                   </p>
                   <div class="video-one__btn" style="margin-top: 25px">
                     <a href="contact.php" class="thm-btn">Get in Touch</a>
