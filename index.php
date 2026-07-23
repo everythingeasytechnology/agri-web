@@ -163,6 +163,48 @@ function reel_embed_url(string $url): string {
           -webkit-transition: none !important;
           transition: none !important;
         }
+        .main-slider-one,
+        .main-slider-one .swiper-container,
+        .main-slider-one .swiper-wrapper,
+        .main-slider-one .swiper-slide {
+          overflow: hidden;
+        }
+        .main-slider-one .image-layer {
+          width: 100%;
+          height: 100%;
+        }
+        .main-slider-one .swiper-wrapper,
+        .main-slider-one .swiper-slide {
+          -webkit-transition-duration: 0ms !important;
+          transition-duration: 0ms !important;
+        }
+        .main-slider-one .image-layer {
+          z-index: 1;
+        }
+        .main-slider-one .image-layer-overlay {
+          z-index: 2;
+        }
+        .main-slider-one .container {
+          z-index: 3;
+        }
+        .main-slider-one .main-slider-tagline,
+        .main-slider-one .main-slider__title,
+        .main-slider-one .main-slider__text,
+        .main-slider-one .main-slider__button-box {
+          opacity: 1 !important;
+          -webkit-transform: none !important;
+          transform: none !important;
+          -webkit-transition: none !important;
+          transition: none !important;
+          -webkit-transition-delay: 0s !important;
+          transition-delay: 0s !important;
+        }
+        .main-slider-one .main-slider-tagline::before {
+          -webkit-transition: none !important;
+          transition: none !important;
+          -webkit-transition-delay: 0s !important;
+          transition-delay: 0s !important;
+        }
         .home-product-toggle {
           border: 0;
           background: transparent;
@@ -208,7 +250,7 @@ function reel_embed_url(string $url): string {
       <section class="main-slider main-slider-one">
         <div
           class="swiper-container thm-swiper__slider"
-          data-swiper-options='{"slidesPerView": 1, "loop": true, "effect": "fade", "pagination": {"el": "#main-slider-pagination", "type": "bullets", "clickable": true}, "navigation": {"nextEl": "#main-slider__swiper-button-next", "prevEl": "#main-slider__swiper-button-prev"}, "autoplay": {"delay": 7000}}'
+          data-swiper-options='{"slidesPerView": 1, "loop": true, "effect": "fade", "speed": 0, "pagination": {"el": "#main-slider-pagination", "type": "bullets", "clickable": true}, "navigation": {"nextEl": "#main-slider__swiper-button-next", "prevEl": "#main-slider__swiper-button-prev"}, "autoplay": {"delay": 7000}}'
         >
           <div class="swiper-wrapper">
             <div class="swiper-slide">
