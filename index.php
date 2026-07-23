@@ -184,6 +184,9 @@ function reel_embed_url(string $url): string {
         .main-slider-one .image-layer-overlay {
           z-index: 2;
         }
+        .main-slider.main-slider-one .image-layer-overlay {
+          display: none !important;
+        }
         .main-slider-one .container {
           z-index: 3;
         }
