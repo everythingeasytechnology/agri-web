@@ -205,6 +205,42 @@ function reel_embed_url(string $url): string {
           -webkit-transition-delay: 0s !important;
           transition-delay: 0s !important;
         }
+        @media (max-width: 767px) {
+          .main-slider.main-slider-one,
+          .main-slider.main-slider-one .swiper-container,
+          .main-slider.main-slider-one .swiper-wrapper,
+          .main-slider.main-slider-one .swiper-slide {
+            height: 560px !important;
+            min-height: 560px !important;
+            overflow: hidden !important;
+          }
+          .main-slider.main-slider-one .swiper-slide {
+            position: relative !important;
+          }
+          .main-slider.main-slider-one .swiper-slide:not(.swiper-slide-active) {
+            opacity: 0 !important;
+            visibility: hidden !important;
+          }
+          .main-slider.main-slider-one .swiper-slide-active {
+            opacity: 1 !important;
+            visibility: visible !important;
+          }
+          .main-slider.main-slider-one .image-layer,
+          .main-slider.main-slider-one .image-layer-overlay {
+            top: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            left: 0 !important;
+            height: 100% !important;
+          }
+          .main-slider.main-slider-one .container {
+            height: 100%;
+            padding-top: 95px !important;
+            padding-bottom: 80px !important;
+            display: flex;
+            align-items: center;
+          }
+        }
         .home-product-toggle {
           border: 0;
           background: transparent;
