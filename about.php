@@ -102,7 +102,7 @@
 
         <!-- ==================== ABOUT COMPANY ==================== -->
         <section class="about-three">
-            <div class="about-three__shape"></div>
+            <!-- <div class="about-three__shape"></div> -->
             <div class="container">
                 <div class="row">
                     <div class="col-xl-6 col-lg-7">
