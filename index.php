@@ -208,13 +208,14 @@ function reel_embed_url(string $url): string {
           -webkit-transition-delay: 0s !important;
           transition-delay: 0s !important;
         }
+        .main-slider-one .main-slider__title,
         .main-slider-one .main-slider__text {
-          -webkit-text-stroke: 0.6px #000;
+          -webkit-text-stroke: 0.35px rgba(0, 0, 0, 0.55);
           text-shadow:
-            1px 1px 0 #000,
-            -1px 1px 0 #000,
-            1px -1px 0 #000,
-            -1px -1px 0 #000;
+            1px 1px 0 rgba(0, 0, 0, 0.45),
+            -1px 1px 0 rgba(0, 0, 0, 0.45),
+            1px -1px 0 rgba(0, 0, 0, 0.45),
+            -1px -1px 0 rgba(0, 0, 0, 0.45);
         }
         .home-why-choose {
           padding-top: 70px !important;
