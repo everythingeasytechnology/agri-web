@@ -156,6 +156,13 @@ function reel_embed_url(string $url): string {
         @media (max-width: 480px) {
             .logo img, .stricky-one-logo img { height: 38px; }
         }
+        .main-slider.main-slider-one .image-layer,
+        .main-slider.main-slider-one .swiper-slide-active .image-layer {
+          -webkit-transform: scale(1) !important;
+          transform: scale(1) !important;
+          -webkit-transition: none !important;
+          transition: none !important;
+        }
         .home-product-toggle {
           border: 0;
           background: transparent;
