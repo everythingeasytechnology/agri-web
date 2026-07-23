@@ -18,7 +18,7 @@
                       <div class="footer-widget__column footer-widget__about">
                         <div class="footer-widget__about-logo">
                           <a href="index.php" style="text-decoration:none;">
-                            <span>Ficus<br><span style="font-size:14px;color:#fff;letter-spacing:3px;font-family:'DM Sans',sans-serif;font-weight:600;text-transform:uppercase;">International</span></span>
+                            <span style="font-size:14px;color:#fff;letter-spacing:3px;font-family:'DM Sans',sans-serif;font-weight:600;text-transform:uppercase;">Ficus<br><span style="font-size:14px;color:#fff;letter-spacing:3px;font-family:'DM Sans',sans-serif;font-weight:600;text-transform:uppercase;">International</span></span>
                           </a>
                         </div>
                         <p class="footer-widget__about-text">
@@ -181,7 +181,7 @@
                 <div class="footer-one__bottom-inner">
                   <div class="footer-one__bottom-text">
                     <p >
-                      &copy; Copyright Ficus International &mdash;  
+                      &copy; Copyright Ficus International  
                       <br   class="footer-one__bottom-text-mobile-break " />
                       <span style=" font-size: x-small;" >Propelled by</span>
                       <a style=" font-size: x-small;" href="https://rccsglobal.com/"
