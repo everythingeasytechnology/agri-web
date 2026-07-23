@@ -156,6 +156,26 @@ function reel_embed_url(string $url): string {
         @media (max-width: 480px) {
             .logo img, .stricky-one-logo img { height: 38px; }
         }
+        .home-product-toggle {
+          border: 0;
+          background: transparent;
+          padding: 0;
+          color: inherit;
+          cursor: pointer;
+          font: inherit;
+          line-height: inherit;
+        }
+        .home-product-toggle:hover,
+        .home-product-toggle:focus {
+          color: var(--thm-primary);
+        }
+        .home-product-toggle:focus {
+          outline: 2px solid var(--thm-primary);
+          outline-offset: 4px;
+        }
+        .home-product-description[hidden] {
+          display: none !important;
+        }
     </style>
   </head>
 
@@ -463,7 +483,7 @@ function reel_embed_url(string $url): string {
       </section>
 
       <!-- ==================== THREE PILLARS ==================== -->
-      <section class="features-one clearfix">
+      <!-- <section class="features-one clearfix">
         <div class="container">
           <div class="row">
             <div class="col-xl-4 col-lg-4 wow fadeInUp animated">
@@ -530,7 +550,7 @@ function reel_embed_url(string $url): string {
             </div>
           </div>
         </div>
-      </section>
+      </section> -->
 
       <!-- ==================== GLOBAL EXPORT SOLUTION ==================== -->
       <section
@@ -604,6 +624,7 @@ function reel_embed_url(string $url): string {
                 $icon = $icons[$pos];
                 $anim = $animations[$pos];
                 $dly  = $delays[$pos];
+                $desc_id = 'home-product-desc-' . $i;
                 $img  = $p['image_url']
                     ? (strpos($p['image_url'], 'http') === 0 ? $p['image_url'] : $p['image_url'])
                     : '';
@@ -622,11 +643,18 @@ function reel_embed_url(string $url): string {
                   </div>
                 </div>
                 <div class="services-one__single-content text-center" style="flex:1;">
-                  <div class="services-one__single-img-icon">
+                  <!-- <div class="services-one__single-img-icon">
                     <i class="fas <?= $icon ?>" style="font-size: 38px"></i>
-                  </div>
-                  <h3><a href="products.php"><?= html_escape($p['name']) ?></a></h3>
-                  <p><?= html_escape($p['description']) ?></p>
+                  </div> -->
+                  <h3>
+                    <button
+                      type="button"
+                      class="home-product-toggle"
+                      aria-expanded="false"
+                      aria-controls="<?= $desc_id ?>"
+                    ><?= html_escape($p['name']) ?></button>
+                  </h3>
+                  <p id="<?= $desc_id ?>" class="home-product-description" hidden><?= html_escape($p['description']) ?></p>
                 </div>
               </div>
             </div>
@@ -1107,6 +1135,21 @@ function reel_embed_url(string $url): string {
 
     <!-- template js -->
     <script src="assets/js/agriox.js"></script>
+    <script>
+      document.querySelectorAll('.home-product-toggle').forEach(function (toggle) {
+        toggle.addEventListener('click', function () {
+          var description = document.getElementById(toggle.getAttribute('aria-controls'));
+          var isOpen = toggle.getAttribute('aria-expanded') === 'true';
+
+          if (!description) {
+            return;
+          }
+
+          toggle.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+          description.hidden = isOpen;
+        });
+      });
+    </script>
 
     <!-- toolbar js -->
     <script src="assets/vendors/toolbar/js/js.cookie.min.js"></script>

@@ -188,7 +188,7 @@ $icons = ['fa-seedling', 'fa-leaf', 'fa-chart-line', 'fa-box-open'];
                                 </div>
                             </div>
                             <div class="services-one__single-content text-center" style="flex:1;">
-                                <div class="services-one__single-img-icon"><i class="fas <?= $icon ?>" style="font-size:38px"></i></div>
+                                <!-- <div class="services-one__single-img-icon"><i class="fas <?= $icon ?>" style="font-size:38px"></i></div> -->
                                 <h3><?= html_escape($p['name']) ?></h3>
                                 <p><?= html_escape($p['description']) ?></p>
                                 <a href="contact.php" class="read-more-btn"><i class="fas fa-arrow-right"></i></a>
