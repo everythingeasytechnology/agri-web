@@ -205,18 +205,6 @@ function reel_embed_url(string $url): string {
           -webkit-transition-delay: 0s !important;
           transition-delay: 0s !important;
         }
-        @media (max-width: 767px) {
-          .about-one {
-            padding-top: 45px !important;
-            padding-bottom: 70px !important;
-          }
-          .about-one__content {
-            margin-top: 0 !important;
-          }
-          .about-one__bg {
-            display: none !important;
-          }
-        }
         .home-product-toggle {
           border: 0;
           background: transparent;
@@ -440,41 +428,7 @@ function reel_embed_url(string $url): string {
         </div>
         <div class="container">
           <div class="row">
-            <!-- <div class="col-xl-6">
-              <div class="about-one__left">
-                <div class="about-one__left-img">
-                  <div class="about-one__left-img-inner">
-                    <img src="assets/images/about/about-v1-img1.jpg" alt="" />
-                  </div>
-                </div>
-                <div
-                  class="about-one__left-overlay wow slideInLeft"
-                  data-wow-delay="100ms"
-                  data-wow-duration="1500ms"
-                >
-                  <div
-                    class="icon"
-                    style="
-                      display: flex;
-                      align-items: center;
-                      padding-right: 30px;
-                    "
-                  >
-                    <i
-                      class="fas fa-hand-holding-usd"
-                      style="
-                        font-size: 42px;
-                        color: var(--agriox-base, #f1cf69);
-                      "
-                    ></i>
-                  </div>
-                  <div class="title">
-                    <h2>Global</h2>
-                    <p>Agro Commodity Experts</p>
-                  </div>
-                </div>
-              </div>
-            </div> -->
+            
 
             <div class="col-xl-6">
               <div class="about-one__content">
