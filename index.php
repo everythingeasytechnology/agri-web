@@ -329,9 +329,9 @@ function reel_embed_url(string $url): string {
                           >
                         </h2>
                         <p class="main-slider__text">
-                          Sourcing premium agro commodities directly from
-                          their<br />
-                          countries of origin and delivering them worldwide.
+                         Welcome to Ficus International
+Delivering premium agro commodities with <br />reliability, efficiency, and excellence across international markets.
+                        
                         </p>
                       </div>
                       <div class="main-slider__button-box">
