@@ -54,6 +54,12 @@
         }
 
         /* Our Offices — clean 2-per-row CSS grid */
+        .contact-page__contact-info {
+            padding-bottom: 70px;
+        }
+        .contact-page__contact-info-wrapper {
+            margin-bottom: 0 !important;
+        }
         .contact-page__contact-info-list ul {
             display: grid !important;
             grid-template-columns: 1fr 1fr;
@@ -74,6 +80,12 @@
             padding-right: 0 !important;
         }
         @media (max-width: 640px) {
+            .contact-page__contact-info {
+                padding-bottom: 45px;
+            }
+            .contact-page__contact-info-wrapper {
+                padding: 35px 24px !important;
+            }
             .contact-page__contact-info-list ul {
                 grid-template-columns: 1fr;
             }
