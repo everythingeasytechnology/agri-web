@@ -294,6 +294,14 @@ function reel_embed_url(string $url): string {
           outline: 2px solid var(--thm-primary);
           outline-offset: 4px;
         }
+        #products .services-one__single-img::before,
+        #products .services-one__single-img-inner::before {
+          display: none !important;
+        }
+        #products .services-one__single:hover .services-one__single-img-inner img {
+          -webkit-transform: scale(1) !important;
+          transform: scale(1) !important;
+        }
         .home-product-toggle:hover,
         .home-product-toggle:focus {
           color: var(--thm-primary);
@@ -1238,12 +1246,12 @@ Delivering premium agro commodities with reliability, <br /> efficiency, and exc
         toggle.addEventListener('click', function () {
           var controls = toggle.getAttribute('aria-controls');
           var description = document.getElementById(controls);
-          var isOpen = toggle.getAttribute('aria-expanded') === 'true';
 
           if (!description) {
             return;
           }
 
+          var isOpen = !description.hidden;
           document.querySelectorAll('.home-product-toggle[aria-controls="' + controls + '"]').forEach(function (linkedToggle) {
             linkedToggle.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
           });
