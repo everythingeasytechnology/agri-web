@@ -4532,7 +4532,7 @@ button {
   position: relative;
   display: block;
   background: var(--agriox-primary, #334b35);
-  padding: 80px 0px 6%;
+  padding: 40px 0px 40px;
 }
 
 .footer-one__top-wrapper {
