@@ -106,6 +106,26 @@ $icons = ['fa-seedling', 'fa-leaf', 'fa-chart-line', 'fa-box-open'];
         @media (max-width: 480px) {
             .logo img, .stricky-one-logo img { height: 38px; }
         }
+        .product-description-toggle {
+            border: 0;
+            background: transparent;
+            padding: 0;
+            color: inherit;
+            cursor: pointer;
+            font: inherit;
+            line-height: inherit;
+        }
+        .product-description-toggle:hover,
+        .product-description-toggle:focus {
+            color: var(--thm-primary);
+        }
+        .product-description-toggle:focus {
+            outline: 2px solid var(--thm-primary);
+            outline-offset: 4px;
+        }
+        .product-card-description[hidden] {
+            display: none !important;
+        }
     </style>
 </head>
 <body>
@@ -178,6 +198,7 @@ $icons = ['fa-seedling', 'fa-leaf', 'fa-chart-line', 'fa-box-open'];
                         $icon  = $icons[$pi % 4];
                         $anim  = ($pi % 4 < 2) ? 'fadeInLeft' : 'fadeInRight';
                         $delay = ($pi % 2) * 100;
+                        $desc_id = 'product-desc-' . $section_index . '-' . $pi;
                         $img   = $p['image_url'] ?: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=280&fit=crop&auto=format&q=80';
                     ?>
                     <div class="col-xl-3 col-lg-6 wow <?= $anim ?>" data-wow-delay="<?= $delay ?>ms" data-wow-duration="1000ms" style="display:flex;flex-direction:column;">
@@ -189,8 +210,15 @@ $icons = ['fa-seedling', 'fa-leaf', 'fa-chart-line', 'fa-box-open'];
                             </div>
                             <div class="services-one__single-content text-center" style="flex:1;">
                                 <!-- <div class="services-one__single-img-icon"><i class="fas <?= $icon ?>" style="font-size:38px"></i></div> -->
-                                <h3><?= html_escape($p['name']) ?></h3>
-                                <p><?= html_escape($p['description']) ?></p>
+                                <h3>
+                                    <button
+                                        type="button"
+                                        class="product-description-toggle"
+                                        aria-expanded="false"
+                                        aria-controls="<?= $desc_id ?>"
+                                    ><?= html_escape($p['name']) ?></button>
+                                </h3>
+                                <p id="<?= $desc_id ?>" class="product-card-description" hidden><?= html_escape($p['description']) ?></p>
                                 <a href="contact.php" class="read-more-btn"><i class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
@@ -269,6 +297,21 @@ $icons = ['fa-seedling', 'fa-leaf', 'fa-chart-line', 'fa-box-open'];
     <script src="assets/vendors/wow/wow.js"></script>
     <script src="assets/vendors/owl-carousel/owl.carousel.min.js"></script>
     <script src="assets/js/agriox.js"></script>
+    <script>
+        document.querySelectorAll('.product-description-toggle').forEach(function (toggle) {
+            toggle.addEventListener('click', function () {
+                var description = document.getElementById(toggle.getAttribute('aria-controls'));
+                var isOpen = toggle.getAttribute('aria-expanded') === 'true';
+
+                if (!description) {
+                    return;
+                }
+
+                toggle.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+                description.hidden = isOpen;
+            });
+        });
+    </script>
     <script src="assets/vendors/toolbar/js/js.cookie.min.js"></script>
     <script src="assets/vendors/toolbar/js/jQuery.style.switcher.min.js"></script>
     <script src="assets/vendors/toolbar/js/toolbar.js"></script>
