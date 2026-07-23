@@ -205,6 +205,18 @@ function reel_embed_url(string $url): string {
           -webkit-transition-delay: 0s !important;
           transition-delay: 0s !important;
         }
+        @media (max-width: 767px) {
+          .about-one {
+            padding-top: 45px !important;
+            padding-bottom: 70px !important;
+          }
+          .about-one__content {
+            margin-top: 0 !important;
+          }
+          .about-one__bg {
+            display: none !important;
+          }
+        }
         .home-product-toggle {
           border: 0;
           background: transparent;
