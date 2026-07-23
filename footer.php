@@ -79,7 +79,7 @@
                       <div class="footer-widget__column footer-widget__about">
                         <div class="footer-widget__about-logo">
                           <a href="index.php" style="text-decoration:none;">
-                            <span style="font-size:14px;color:#fff;letter-spacing:3px;font-family:'DM Sans',sans-serif;font-weight:600;text-transform:uppercase;">Ficus<br><span style="font-size:14px;color:#fff;letter-spacing:3px;font-family:'DM Sans',sans-serif;font-weight:600;text-transform:uppercase;">International</span></span>
+                            <span style="font-size:14px;color:#fff;letter-spacing:3px;font-family:'DM Sans',sans-serif;font-weight:600;text-transform:uppercase;line-height:1.1;display:inline-block;">Ficus<br><span style="font-size:14px;color:#fff;letter-spacing:3px;font-family:'DM Sans',sans-serif;font-weight:600;text-transform:uppercase;line-height:1.1;">International</span></span>
                           </a>
                         </div>
                         <p class="footer-widget__about-text">
