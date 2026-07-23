@@ -356,8 +356,8 @@ function reel_embed_url(string $url): string {
                           >
                         </h2>
                         <p class="main-slider__text">
-                         Welcome to Ficus International
-Delivering premium agro commodities with <br />reliability, efficiency, and excellence across international markets.
+                        
+Delivering premium agro commodities with reliability, <br /> efficiency, and excellence across international markets.
                         
                         </p>
                       </div>
