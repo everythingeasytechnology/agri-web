@@ -214,8 +214,8 @@ function reel_embed_url(string $url): string {
           .main-slider.main-slider-one .swiper-container,
           .main-slider.main-slider-one .swiper-wrapper,
           .main-slider.main-slider-one .swiper-slide {
-            height: 460px !important;
-            min-height: 460px !important;
+            height: 560px !important;
+            min-height: 560px !important;
             overflow: hidden !important;
           }
           .main-slider.main-slider-one .swiper-slide {
@@ -237,16 +237,10 @@ function reel_embed_url(string $url): string {
             left: 0 !important;
             height: 100% !important;
           }
-          .main-slider.main-slider-one .image-layer {
-            background-size: contain !important;
-            background-position: center center !important;
-            background-repeat: no-repeat !important;
-            background-color: var(--agriox-primary, #334b35);
-          }
           .main-slider.main-slider-one .container {
             height: 100%;
-            padding-top: 65px !important;
-            padding-bottom: 50px !important;
+            padding-top: 95px !important;
+            padding-bottom: 80px !important;
             display: flex;
             align-items: center;
           }

@@ -47,6 +47,17 @@
           margin-left: 16px !important;
         }
       }
+      .footer-one__bottom-text {
+        position: relative;
+        z-index: 2;
+      }
+      .footer-credit-link {
+        display: inline-block;
+        position: relative;
+        z-index: 3;
+        pointer-events: auto;
+        font-size: small !important;
+      }
     </style>
     <footer class="footer-one">
         <div class="footer-one__top">
@@ -234,8 +245,18 @@
                       &copy; Copyright Ficus International  
                       <br   class="footer-one__bottom-text-mobile-break " />
                       <span style=" font-size: small;" >Propelled by :</span>
-                      <a style=" font-size: small;" href="https://rccsglobal.com/"
-                        >Royal Crown Consultancy Services &</a>  <a   href="https://www.instagram.com/rccsglobal?igsh=NnJuOHFyMXNkeXZz" style=" font-size: small;">RCCS Global</a>
+                      <a
+                        class="footer-credit-link"
+                        href="https://rccsglobal.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >Royal Crown Consultancy Services &amp;</a>
+                      <a
+                        class="footer-credit-link"
+                        href="https://www.instagram.com/rccsglobal/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >@RCCS Global</a>
                       
                       
                     </p>
