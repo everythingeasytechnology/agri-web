@@ -208,6 +208,7 @@ function reel_embed_url(string $url): string {
           -webkit-transition-delay: 0s !important;
           transition-delay: 0s !important;
         }
+        .main-slider-one .main-slider__title,
         .main-slider-one .main-slider__text {
           -webkit-text-stroke: 0.35px rgba(0, 0, 0, 0.55);
           text-shadow:
