@@ -214,8 +214,8 @@ function reel_embed_url(string $url): string {
           .main-slider.main-slider-one .swiper-container,
           .main-slider.main-slider-one .swiper-wrapper,
           .main-slider.main-slider-one .swiper-slide {
-            height: 560px !important;
-            min-height: 560px !important;
+            height: 460px !important;
+            min-height: 460px !important;
             overflow: hidden !important;
           }
           .main-slider.main-slider-one .swiper-slide {
@@ -237,10 +237,16 @@ function reel_embed_url(string $url): string {
             left: 0 !important;
             height: 100% !important;
           }
+          .main-slider.main-slider-one .image-layer {
+            background-size: contain !important;
+            background-position: center center !important;
+            background-repeat: no-repeat !important;
+            background-color: var(--agriox-primary, #334b35);
+          }
           .main-slider.main-slider-one .container {
             height: 100%;
-            padding-top: 95px !important;
-            padding-bottom: 80px !important;
+            padding-top: 65px !important;
+            padding-bottom: 50px !important;
             display: flex;
             align-items: center;
           }
@@ -300,7 +306,7 @@ function reel_embed_url(string $url): string {
       <section class="main-slider main-slider-one">
         <div
           class="swiper-container thm-swiper__slider"
-          data-swiper-options='{"slidesPerView": 1, "loop": true, "effect": "fade", "speed": 0, "pagination": {"el": "#main-slider-pagination", "type": "bullets", "clickable": true}, "navigation": {"nextEl": "#main-slider__swiper-button-next", "prevEl": "#main-slider__swiper-button-prev"}, "autoplay": {"delay": 7000}}'
+          data-swiper-options='{"slidesPerView": 1, "loop": true, "effect": "fade", "speed": 0, "pagination": {"el": "#main-slider-pagination", "type": "bullets", "clickable": true}, "navigation": {"nextEl": "#main-slider__swiper-button-next", "prevEl": "#main-slider__swiper-button-prev"}, "autoplay": {"delay": 3000, "disableOnInteraction": false}}'
         >
           <div class="swiper-wrapper">
             <div class="swiper-slide">
