@@ -208,7 +208,6 @@ function reel_embed_url(string $url): string {
           -webkit-transition-delay: 0s !important;
           transition-delay: 0s !important;
         }
-        .main-slider-one .main-slider__title,
         .main-slider-one .main-slider__text {
           -webkit-text-stroke: 0.35px rgba(0, 0, 0, 0.55);
           text-shadow:
@@ -216,6 +215,10 @@ function reel_embed_url(string $url): string {
             -1px 1px 0 rgba(0, 0, 0, 0.45),
             1px -1px 0 rgba(0, 0, 0, 0.45),
             -1px -1px 0 rgba(0, 0, 0, 0.45);
+        }
+        .main-slider-one .main-slider__title {
+          -webkit-text-stroke: 0 !important;
+          text-shadow: none !important;
         }
         .home-why-choose {
           padding-top: 70px !important;
@@ -369,7 +372,7 @@ Delivering premium agro commodities with reliability, <br /> efficiency, and exc
                           />
                         </div>
                         <a href="products.php" class="thm-btn"
-                          >Explore Products</a
+                          >Our Products</a
                         >
                       </div>
                     </div>
