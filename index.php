@@ -267,6 +267,21 @@ function reel_embed_url(string $url): string {
           font: inherit;
           line-height: inherit;
         }
+        .home-product-image-toggle {
+          display: block;
+          width: 100%;
+          border: 0;
+          background: transparent;
+          padding: 0;
+          cursor: pointer;
+        }
+        .home-product-image-toggle img {
+          width: 100%;
+        }
+        .home-product-image-toggle:focus {
+          outline: 2px solid var(--thm-primary);
+          outline-offset: 4px;
+        }
         .home-product-toggle:hover,
         .home-product-toggle:focus {
           color: var(--thm-primary);
@@ -695,17 +710,24 @@ Delivering premium agro commodities with <br />reliability, efficiency, and exce
             ?>
             <div class="col-xl-3 col-lg-6 wow <?= $anim ?>" data-wow-delay="<?= $dly ?>" data-wow-duration="1000ms" style="display:flex;flex-direction:column;">
               <div class="services-one__single" style="height:100%;display:flex;flex-direction:column;">
-                <div class="services-one__single-img">
-                  <div class="services-one__single-img-inner">
-                    <?php if ($img): ?>
-                    <img src="<?= html_escape($img) ?>" alt="<?= html_escape($p['name']) ?>" />
-                    <?php else: ?>
-                    <div style="width:100%;height:280px;display:flex;align-items:center;justify-content:center;background:#f0f5f0">
-                      <i class="fas <?= $icon ?>" style="font-size:64px;color:#9ab87a;opacity:.35"></i>
-                    </div>
-                    <?php endif; ?>
-                  </div>
-                </div>
+	                <div class="services-one__single-img">
+	                  <div class="services-one__single-img-inner">
+	                    <button
+	                      type="button"
+	                      class="home-product-toggle home-product-image-toggle"
+	                      aria-expanded="false"
+	                      aria-controls="<?= $desc_id ?>"
+	                    >
+	                    <?php if ($img): ?>
+	                    <img src="<?= html_escape($img) ?>" alt="<?= html_escape($p['name']) ?>" />
+	                    <?php else: ?>
+	                    <span style="width:100%;height:280px;display:flex;align-items:center;justify-content:center;background:#f0f5f0">
+	                      <i class="fas <?= $icon ?>" style="font-size:64px;color:#9ab87a;opacity:.35"></i>
+		                    </span>
+	                    <?php endif; ?>
+	                    </button>
+	                  </div>
+	                </div>
                 <div class="services-one__single-content text-center" style="flex:1;">
                   <!-- <div class="services-one__single-img-icon">
                     <i class="fas <?= $icon ?>" style="font-size: 38px"></i>
@@ -1202,14 +1224,17 @@ Delivering premium agro commodities with <br />reliability, efficiency, and exce
     <script>
       document.querySelectorAll('.home-product-toggle').forEach(function (toggle) {
         toggle.addEventListener('click', function () {
-          var description = document.getElementById(toggle.getAttribute('aria-controls'));
+          var controls = toggle.getAttribute('aria-controls');
+          var description = document.getElementById(controls);
           var isOpen = toggle.getAttribute('aria-expanded') === 'true';
 
           if (!description) {
             return;
           }
 
-          toggle.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+          document.querySelectorAll('.home-product-toggle[aria-controls="' + controls + '"]').forEach(function (linkedToggle) {
+            linkedToggle.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+          });
           description.hidden = isOpen;
         });
       });
