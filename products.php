@@ -219,7 +219,7 @@ $icons = ['fa-seedling', 'fa-leaf', 'fa-chart-line', 'fa-box-open'];
                                     ><?= html_escape($p['name']) ?></button>
                                 </h3>
                                 <p id="<?= $desc_id ?>" class="product-card-description" hidden><?= html_escape($p['description']) ?></p>
-                                <a href="contact.php" class="read-more-btn"><i class="fas fa-arrow-right"></i></a>
+                                <!-- <a href="contact.php" class="read-more-btn"><i class="fas fa-arrow-right"></i></a> -->
                             </div>
                         </div>
                     </div>
