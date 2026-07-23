@@ -205,6 +205,10 @@ function reel_embed_url(string $url): string {
           -webkit-transition-delay: 0s !important;
           transition-delay: 0s !important;
         }
+        .home-why-choose {
+          padding-top: 70px !important;
+          padding-bottom: 70px !important;
+        }
         @media (max-width: 767px) {
           .main-slider.main-slider-one,
           .main-slider.main-slider-one .swiper-container,
@@ -239,6 +243,16 @@ function reel_embed_url(string $url): string {
             padding-bottom: 80px !important;
             display: flex;
             align-items: center;
+          }
+          .home-why-choose {
+            padding-top: 35px !important;
+            padding-bottom: 45px !important;
+          }
+          .home-why-choose .about-one__content {
+            margin-top: 0 !important;
+          }
+          .home-why-choose .about-one__bg {
+            display: none !important;
           }
         }
         .home-product-toggle {
@@ -450,7 +464,7 @@ function reel_embed_url(string $url): string {
       </section>
 
       <!-- ==================== WHY CHOOSE FICUS INTERNATIONAL ==================== -->
-      <section class="about-one">
+      <section class="about-one home-why-choose">
         <div
           class="about-one__bg wow slideInRight"
           data-wow-delay="100ms"
