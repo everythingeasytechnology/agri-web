@@ -647,8 +647,8 @@ button {
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
   font-family: var(--agriox-font, "DM Sans", sans-serif);
-  padding-top: 38px;
-  padding-bottom: 38px;
+  padding-top: 25px;
+  padding-bottom: 25px;
   z-index: 1;
 }
 
