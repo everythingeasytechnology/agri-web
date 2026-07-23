@@ -334,8 +334,8 @@ function reel_embed_url(string $url): string {
                   <div class="col-lg-12">
                     <div class="main-slider-inner">
                       <div class="main-slider__content">
-                        <span class="main-slider-tagline"
-                          >From Origin to Global Markets</span
+                        <!-- <span class="main-slider-tagline"
+                          >From Origin to Global Markets</span -->
                         >
                         <h2 class="main-slider__title">
                           Welcome to <br />
@@ -382,9 +382,9 @@ Delivering premium agro commodities with <br />reliability, efficiency, and exce
                   <div class="col-lg-12">
                     <div class="main-slider-inner">
                       <div class="main-slider__content">
-                        <span class="main-slider-tagline"
+                        <!-- <span class="main-slider-tagline"
                           >Quality at the Source</span
-                        >
+                        > -->
                         <h2 class="main-slider__title">
                           Global <br />
                           Agro
@@ -429,9 +429,9 @@ Delivering premium agro commodities with <br />reliability, efficiency, and exce
                   <div class="col-lg-12">
                     <div class="main-slider-inner">
                       <div class="main-slider__content">
-                        <span class="main-slider-tagline"
+                        <!-- <span class="main-slider-tagline"
                           >Seamless Supply Experience</span
-                        >
+                        > -->
                         <h2 class="main-slider__title">
                           Trusted <br />
                           Agro
