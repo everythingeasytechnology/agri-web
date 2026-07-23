@@ -235,7 +235,7 @@
                       <br   class="footer-one__bottom-text-mobile-break " />
                       <span style=" font-size: small;" >Propelled by :</span>
                       <a style=" font-size: small;" href="https://rccsglobal.com/"
-                        >Royal Crown Consultancy Services &</a>  <a   href="https://www.instagram.com/rccsglobal?igsh=NnJuOHFyMXNkeXZz" style=" font-size: x-small;">RCCS Global</a>
+                        >Royal Crown Consultancy Services &</a>  <a   href="https://www.instagram.com/rccsglobal?igsh=NnJuOHFyMXNkeXZz" style=" font-size: small;">RCCS Global</a>
                       
                       
                     </p>
