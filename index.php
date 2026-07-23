@@ -208,7 +208,6 @@ function reel_embed_url(string $url): string {
           -webkit-transition-delay: 0s !important;
           transition-delay: 0s !important;
         }
-        .main-slider-one .main-slider__title,
         .main-slider-one .main-slider__text {
           -webkit-text-stroke: 0.35px rgba(0, 0, 0, 0.55);
           text-shadow:
@@ -345,7 +344,7 @@ function reel_embed_url(string $url): string {
                       <div class="main-slider__content">
                         <!-- <span class="main-slider-tagline"
                           >From Origin to Global Markets</span -->
-                        >
+                        
                         <h2 class="main-slider__title">
                           Welcome to <br />
                           Ficus
