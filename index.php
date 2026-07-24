@@ -650,7 +650,7 @@ function reel_embed_url(string $url): string {
               <div
                 class="image-layer hero-fit-image"
                 style="
-                  background-image: url(assets/images/backgrounds/11hero.jpeg);
+                  background-image: url(assets/images/backgrounds/123.jpeg);
                 "
               ></div>
               <!-- <div class="mobile-hero-overlay">
