@@ -593,7 +593,7 @@ function reel_embed_url(string $url): string {
               <div
                 class="image-layer"
                 style="
-                  background-image: url(assets/images/backgrounds/11.jpeg);
+                  background-image: url(assets/images/backgrounds/1.jpeg);
                 "
               ></div>
               <div class="image-layer-overlay"></div>
