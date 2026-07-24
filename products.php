@@ -142,6 +142,9 @@ $icons = ['fa-seedling', 'fa-leaf', 'fa-chart-line', 'fa-box-open'];
             -webkit-transform: scale(1) !important;
             transform: scale(1) !important;
         }
+        .product-card-row {
+            align-items: flex-start;
+        }
         .product-card-description[hidden] {
             display: none !important;
         }
@@ -212,7 +215,7 @@ $icons = ['fa-seedling', 'fa-leaf', 'fa-chart-line', 'fa-box-open'];
                 <div class="sec-title text-center">
                     <h3 class="sec-title__title" style="font-size:28px;"><?= html_escape($category) ?></h3>
                 </div>
-                <div class="row">
+                <div class="row product-card-row">
                     <?php foreach ($products as $pi => $p):
                         $icon  = $icons[$pi % 4];
                         $anim  = ($pi % 4 < 2) ? 'fadeInLeft' : 'fadeInRight';
@@ -220,8 +223,8 @@ $icons = ['fa-seedling', 'fa-leaf', 'fa-chart-line', 'fa-box-open'];
                         $desc_id = 'product-desc-' . $section_index . '-' . $pi;
                         $img   = $p['image_url'] ?: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=280&fit=crop&auto=format&q=80';
                     ?>
-                    <div class="col-xl-3 col-lg-6 wow <?= $anim ?>" data-wow-delay="<?= $delay ?>ms" data-wow-duration="1000ms" style="display:flex;flex-direction:column;">
-                        <div class="services-one__single" style="height:100%;display:flex;flex-direction:column;">
+                    <div class="col-xl-3 col-lg-6 wow <?= $anim ?>" data-wow-delay="<?= $delay ?>ms" data-wow-duration="1000ms">
+                        <div class="services-one__single">
                             <div class="services-one__single-img">
                                 <div class="services-one__single-img-inner">
                                     <button
@@ -234,7 +237,7 @@ $icons = ['fa-seedling', 'fa-leaf', 'fa-chart-line', 'fa-box-open'];
                                     </button>
                                 </div>
                             </div>
-                            <div class="services-one__single-content text-center" style="flex:1;">
+                            <div class="services-one__single-content text-center">
                                 <!-- <div class="services-one__single-img-icon"><i class="fas <?= $icon ?>" style="font-size:38px"></i></div> -->
                                 <h3>
                                     <button
