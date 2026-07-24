@@ -627,20 +627,19 @@ function reel_embed_url(string $url): string {
                           >Seamless Supply Experience</span
                         > -->
                         <h2 class="main-slider__title">
-                          Trusted <br />
-                          Agro
-                          <span
+                        Delivering Trust
+                          <!-- <span
                             ><span class="leaf"
                               ><img
                                 src="assets/images/resources/leaf.png"
                                 alt="" /></span
-                            >Sourcing</span
+                            >Sourcing</span -->
                           >
                         </h2>
-                        <p class="main-slider__text">
+                        <!-- <p class="main-slider__text">
                           Managing procurement, supply and logistics<br />
                           under one roof for your business needs.
-                        </p>
+                        </p> -->
                       </div>
                       <div class="main-slider__button-box">
                         <div class="arrow-icon">
