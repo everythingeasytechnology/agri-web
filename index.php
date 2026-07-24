@@ -526,15 +526,15 @@ function reel_embed_url(string $url): string {
                         </p>
                       </div>
                       <div class="main-slider__button-box">
-                        <div class="arrow-icon">
+                        <!-- <div class="arrow-icon">
                           <img
                             src="assets/images/icon/main-slider__button-arrow.png"
                             alt=""
                           />
-                        </div>
+                        </div> -->
                         <!-- <a href="products.php" class="thm-btn"
-                          >Our Products</a -->
-                        >
+                          >Our Products</a> -->
+                        
                       </div>
                     </div>
                   </div>
@@ -575,12 +575,12 @@ function reel_embed_url(string $url): string {
                         </p> -->
                       </div>
                       <div class="main-slider__button-box">
-                        <div class="arrow-icon">
+                        <!-- <div class="arrow-icon">
                           <img
                             src="assets/images/icon/main-slider__button-arrow.png"
                             alt=""
                           />
-                        </div>
+                        </div> -->
                         <!-- <a href="about.php" class="thm-btn">About Us</a> -->
                       </div>
                     </div>
