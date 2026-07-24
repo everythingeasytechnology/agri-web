@@ -163,6 +163,14 @@ function reel_embed_url(string $url): string {
           -webkit-transition: none !important;
           transition: none !important;
         }
+        .main-slider.main-slider-one,
+        .main-slider.main-slider-one .swiper-container,
+        .main-slider.main-slider-one .swiper-wrapper,
+        .main-slider.main-slider-one .swiper-slide {
+          height: calc(100vw * 0.41625) !important;
+          min-height: 560px !important;
+          max-height: 860px !important;
+        }
         .main-slider-one,
         .main-slider-one .swiper-container,
         .main-slider-one .swiper-wrapper,
@@ -175,7 +183,12 @@ function reel_embed_url(string $url): string {
         }
         .main-slider-one .hero-main-image {
           background-position: center center !important;
-          background-size: cover !important;
+          background-size: 100% 100% !important;
+        }
+        .main-slider.main-slider-one .swiper-container-initialized .swiper-slide:not(.swiper-slide-active) {
+          opacity: 0 !important;
+          visibility: hidden !important;
+          pointer-events: none;
         }
         .main-slider-one .swiper-wrapper,
         .main-slider-one .swiper-slide {
@@ -533,7 +546,7 @@ function reel_embed_url(string $url): string {
               <div
                 class="image-layer"
                 style="
-                  background-image: url(assets/images/backgrounds/13.jpeg);
+                  background-image: url(assets/images/backgrounds/2hero.jpeg);
                 "
               ></div>
               <div class="image-layer-overlay"></div>
