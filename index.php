@@ -490,8 +490,9 @@ function reel_embed_url(string $url): string {
                 <div class="row">
                   <div class="col-lg-12">
                     <div class="main-slider-inner">
-                      <!-- <div class="main-slider__content">
-                    
+                      <div class="main-slider__content">
+                        <!-- <span class="main-slider-tagline"
+                          >From Origin to Global Markets</span -->
                         
                         <h2 class="main-slider__title">
                           Welcome to <br />
@@ -507,7 +508,7 @@ function reel_embed_url(string $url): string {
 Delivering premium agro commodities with reliability, <br /> efficiency, and excellence across international markets.
                         
                         </p>
-                      </div> -->
+                      </div>
                       <div class="main-slider__button-box">
                         <div class="arrow-icon">
                           <img
@@ -1340,33 +1341,33 @@ Delivering premium agro commodities with reliability, <br /> efficiency, and exc
           </div>
         </div>
       </div>
-    </div>
+	    </div>
 
-    <div class="product-modal" id="homeProductModal" role="dialog" aria-modal="true" aria-labelledby="homeProductModalTitle" hidden>
-      <div class="product-modal__backdrop" data-product-modal-close></div>
-      <div class="product-modal__dialog">
-        <button type="button" class="product-modal__close" aria-label="Close product popup" data-product-modal-close>
-          <i class="fas fa-times"></i>
-        </button>
-        <div class="product-modal__body">
-          <div class="product-modal__content">
-            <span class="product-modal__category" id="homeProductModalCategory"></span>
-            <h2 class="product-modal__title" id="homeProductModalTitle"></h2>
-            <p class="product-modal__description" id="homeProductModalDescription"></p>
-          </div>
-          <div class="product-modal__media">
-            <img id="homeProductModalImage" alt="" />
-            <div class="product-modal__placeholder" id="homeProductModalPlaceholder" hidden>
-              <i class="fas fa-seedling"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+	    <div class="product-modal" id="homeProductModal" role="dialog" aria-modal="true" aria-labelledby="homeProductModalTitle" hidden>
+	      <div class="product-modal__backdrop" data-product-modal-close></div>
+	      <div class="product-modal__dialog">
+	        <button type="button" class="product-modal__close" aria-label="Close product popup" data-product-modal-close>
+	          <i class="fas fa-times"></i>
+	        </button>
+	        <div class="product-modal__body">
+	          <div class="product-modal__content">
+	            <span class="product-modal__category" id="homeProductModalCategory"></span>
+	            <h2 class="product-modal__title" id="homeProductModalTitle"></h2>
+	            <p class="product-modal__description" id="homeProductModalDescription"></p>
+	          </div>
+	          <div class="product-modal__media">
+	            <img id="homeProductModalImage" alt="" />
+	            <div class="product-modal__placeholder" id="homeProductModalPlaceholder" hidden>
+	              <i class="fas fa-seedling"></i>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
 
-    <div class="search-popup">
-      <div class="search-popup__overlay search-toggler"></div>
-      <div class="search-popup__content">
+	    <div class="search-popup">
+	      <div class="search-popup__overlay search-toggler"></div>
+	      <div class="search-popup__content">
         <form action="#">
           <label for="search" class="sr-only">search here</label>
           <input type="text" id="search" placeholder="Search Here..." />
@@ -1401,75 +1402,75 @@ Delivering premium agro commodities with reliability, <br /> efficiency, and exc
     <script src="assets/vendors/parallax/parallax.min.js"></script>
     <script src="assets/vendors/tilt.js/tilt.jquery.js"></script>
 
-    <!-- template js -->
-    <script src="assets/js/agriox.js"></script>
-    <script>
-      (function () {
-        var modal = document.getElementById('homeProductModal');
-        var modalTitle = document.getElementById('homeProductModalTitle');
-        var modalCategory = document.getElementById('homeProductModalCategory');
-        var modalDescription = document.getElementById('homeProductModalDescription');
-        var modalImage = document.getElementById('homeProductModalImage');
-        var modalPlaceholder = document.getElementById('homeProductModalPlaceholder');
-        var closeButton = modal ? modal.querySelector('.product-modal__close') : null;
-        var lastActiveTrigger = null;
+	    <!-- template js -->
+	    <script src="assets/js/agriox.js"></script>
+	    <script>
+	      (function () {
+	        var modal = document.getElementById('homeProductModal');
+	        var modalTitle = document.getElementById('homeProductModalTitle');
+	        var modalCategory = document.getElementById('homeProductModalCategory');
+	        var modalDescription = document.getElementById('homeProductModalDescription');
+	        var modalImage = document.getElementById('homeProductModalImage');
+	        var modalPlaceholder = document.getElementById('homeProductModalPlaceholder');
+	        var closeButton = modal ? modal.querySelector('.product-modal__close') : null;
+	        var lastActiveTrigger = null;
 
-        if (!modal || !modalTitle || !modalDescription || !modalImage || !modalPlaceholder || !closeButton) {
-          return;
-        }
+	        if (!modal || !modalTitle || !modalDescription || !modalImage || !modalPlaceholder || !closeButton) {
+	          return;
+	        }
 
-        function openProductModal(trigger) {
-          var imageUrl = trigger.getAttribute('data-product-image') || '';
+	        function openProductModal(trigger) {
+	          var imageUrl = trigger.getAttribute('data-product-image') || '';
 
-          lastActiveTrigger = trigger;
-          modalTitle.textContent = trigger.getAttribute('data-product-name') || '';
-          modalCategory.textContent = trigger.getAttribute('data-product-category') || '';
-          modalDescription.textContent = trigger.getAttribute('data-product-description') || '';
+	          lastActiveTrigger = trigger;
+	          modalTitle.textContent = trigger.getAttribute('data-product-name') || '';
+	          modalCategory.textContent = trigger.getAttribute('data-product-category') || '';
+	          modalDescription.textContent = trigger.getAttribute('data-product-description') || '';
 
-          if (imageUrl) {
-            modalImage.setAttribute('src', imageUrl);
-            modalImage.alt = trigger.getAttribute('data-product-name') || '';
-            modalImage.hidden = false;
-            modalPlaceholder.hidden = true;
-          } else {
-            modalImage.removeAttribute('src');
-            modalImage.alt = '';
-            modalImage.hidden = true;
-            modalPlaceholder.hidden = false;
-          }
+	          if (imageUrl) {
+	            modalImage.setAttribute('src', imageUrl);
+	            modalImage.alt = trigger.getAttribute('data-product-name') || '';
+	            modalImage.hidden = false;
+	            modalPlaceholder.hidden = true;
+	          } else {
+	            modalImage.removeAttribute('src');
+	            modalImage.alt = '';
+	            modalImage.hidden = true;
+	            modalPlaceholder.hidden = false;
+	          }
 
-          modal.hidden = false;
-          document.body.classList.add('product-modal-open');
-          closeButton.focus();
-        }
+	          modal.hidden = false;
+	          document.body.classList.add('product-modal-open');
+	          closeButton.focus();
+	        }
 
-        function closeProductModal() {
-          modal.hidden = true;
-          document.body.classList.remove('product-modal-open');
-          modalImage.removeAttribute('src');
+	        function closeProductModal() {
+	          modal.hidden = true;
+	          document.body.classList.remove('product-modal-open');
+	          modalImage.removeAttribute('src');
 
-          if (lastActiveTrigger) {
-            lastActiveTrigger.focus();
-          }
-        }
+	          if (lastActiveTrigger) {
+	            lastActiveTrigger.focus();
+	          }
+	        }
 
-        document.querySelectorAll('.home-product-modal-trigger').forEach(function (trigger) {
-          trigger.addEventListener('click', function () {
-            openProductModal(trigger);
-          });
-        });
+	        document.querySelectorAll('.home-product-modal-trigger').forEach(function (trigger) {
+	          trigger.addEventListener('click', function () {
+	            openProductModal(trigger);
+	          });
+	        });
 
-        modal.querySelectorAll('[data-product-modal-close]').forEach(function (closeTarget) {
-          closeTarget.addEventListener('click', closeProductModal);
-        });
+	        modal.querySelectorAll('[data-product-modal-close]').forEach(function (closeTarget) {
+	          closeTarget.addEventListener('click', closeProductModal);
+	        });
 
-        document.addEventListener('keydown', function (event) {
-          if (event.key === 'Escape' && !modal.hidden) {
-            closeProductModal();
-          }
-        });
-      })();
-    </script>
+	        document.addEventListener('keydown', function (event) {
+	          if (event.key === 'Escape' && !modal.hidden) {
+	            closeProductModal();
+	          }
+	        });
+	      })();
+	    </script>
 
     <!-- toolbar js -->
     <script src="assets/vendors/toolbar/js/js.cookie.min.js"></script>
