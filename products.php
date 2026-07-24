@@ -123,6 +123,25 @@ $icons = ['fa-seedling', 'fa-leaf', 'fa-chart-line', 'fa-box-open'];
             outline: 2px solid var(--thm-primary);
             outline-offset: 4px;
         }
+        .product-image-toggle {
+            display: block;
+            width: 100%;
+            border: 0;
+            background: transparent;
+            padding: 0;
+            cursor: pointer;
+        }
+        .product-image-toggle img {
+            width: 100%;
+        }
+        .services-one__single-img::before,
+        .services-one__single-img-inner::before {
+            display: none !important;
+        }
+        .services-one__single:hover .services-one__single-img-inner img {
+            -webkit-transform: scale(1) !important;
+            transform: scale(1) !important;
+        }
         .product-card-description[hidden] {
             display: none !important;
         }
@@ -205,7 +224,14 @@ $icons = ['fa-seedling', 'fa-leaf', 'fa-chart-line', 'fa-box-open'];
                         <div class="services-one__single" style="height:100%;display:flex;flex-direction:column;">
                             <div class="services-one__single-img">
                                 <div class="services-one__single-img-inner">
-                                    <img src="<?= html_escape($img) ?>" alt="<?= html_escape($p['name']) ?>" />
+                                    <button
+                                        type="button"
+                                        class="product-description-toggle product-image-toggle"
+                                        aria-expanded="false"
+                                        aria-controls="<?= $desc_id ?>"
+                                    >
+                                        <img src="<?= html_escape($img) ?>" alt="<?= html_escape($p['name']) ?>" />
+                                    </button>
                                 </div>
                             </div>
                             <div class="services-one__single-content text-center" style="flex:1;">
@@ -300,15 +326,29 @@ $icons = ['fa-seedling', 'fa-leaf', 'fa-chart-line', 'fa-box-open'];
     <script>
         document.querySelectorAll('.product-description-toggle').forEach(function (toggle) {
             toggle.addEventListener('click', function () {
-                var description = document.getElementById(toggle.getAttribute('aria-controls'));
-                var isOpen = toggle.getAttribute('aria-expanded') === 'true';
+                var controls = toggle.getAttribute('aria-controls');
+                var description = document.getElementById(controls);
 
                 if (!description) {
                     return;
                 }
 
-                toggle.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
-                description.hidden = isOpen;
+                var shouldOpen = description.hidden;
+
+                document.querySelectorAll('.product-card-description').forEach(function (item) {
+                    item.hidden = true;
+                });
+
+                document.querySelectorAll('.product-description-toggle').forEach(function (item) {
+                    item.setAttribute('aria-expanded', 'false');
+                });
+
+                if (shouldOpen) {
+                    description.hidden = false;
+                    document.querySelectorAll('.product-description-toggle[aria-controls="' + controls + '"]').forEach(function (linkedToggle) {
+                        linkedToggle.setAttribute('aria-expanded', 'true');
+                    });
+                }
             });
         });
     </script>
