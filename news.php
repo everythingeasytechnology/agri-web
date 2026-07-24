@@ -90,6 +90,35 @@
         @media (max-width: 480px) {
             .logo img, .stricky-one-logo img { height: 38px; }
         }
+        .blog-one--news .blog-one__single-img::before {
+            display: none !important;
+        }
+        .blog-one--news .blog-one__single-img .overlay-icon {
+            display: none !important;
+        }
+        .blog-one--news .blog-one__single:hover .blog-one__single-img img {
+            -webkit-transform: scale(1) !important;
+            transform: scale(1) !important;
+        }
+        .blog-one--news .blog-one__single:hover .blog-one__single-content:not(.blog-details) {
+            background-color: #fff;
+        }
+        .blog-one--news .blog-one__single:hover .blog-one__single-content:not(.blog-details) .meta-info li a {
+            color: var(--agriox-color-1, #687469);
+        }
+        .blog-one--news .blog-one__single:hover .blog-one__single-content:not(.blog-details) .meta-info li a i::before {
+            color: var(--agriox-secondary, #6d8c54);
+        }
+        .blog-one--news .blog-one__single:hover .blog-one__single-content:not(.blog-details) h2 a {
+            color: var(--agriox-primary, #334b35);
+        }
+        .blog-one--news .blog-one__single:hover .blog-one__single-content:not(.blog-details) p {
+            color: var(--agriox-color-1, #687469);
+        }
+        .blog-one--news .blog-one__single:hover .blog-one__single-content:not(.blog-details)::before {
+            -webkit-transform: scale(0, 1);
+            transform: scale(0, 1);
+        }
     </style>
 
 </head>
