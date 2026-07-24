@@ -270,7 +270,7 @@ function reel_embed_url(string $url): string {
             display: none !important;
           }
         }
-        .home-product-toggle {
+        .home-product-modal-trigger {
           border: 0;
           background: transparent;
           padding: 0;
@@ -288,6 +288,7 @@ function reel_embed_url(string $url): string {
           cursor: pointer;
         }
         .home-product-image-toggle img {
+          display: block;
           width: 100%;
         }
         .home-product-image-toggle:focus {
@@ -302,16 +303,152 @@ function reel_embed_url(string $url): string {
           -webkit-transform: scale(1) !important;
           transform: scale(1) !important;
         }
-        .home-product-toggle:hover,
-        .home-product-toggle:focus {
+        .home-product-modal-trigger:hover,
+        .home-product-modal-trigger:focus {
           color: var(--thm-primary);
         }
-        .home-product-toggle:focus {
+        .home-product-modal-trigger:focus {
           outline: 2px solid var(--thm-primary);
           outline-offset: 4px;
         }
-        .home-product-description[hidden] {
+        .product-modal[hidden],
+        .product-modal__placeholder[hidden],
+        .product-modal__media img[hidden] {
           display: none !important;
+        }
+        .product-modal {
+          position: fixed;
+          inset: 0;
+          z-index: 99999;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 24px;
+        }
+        .product-modal__backdrop {
+          position: absolute;
+          inset: 0;
+          background: rgba(31, 47, 33, 0.68);
+        }
+        .product-modal__dialog {
+          position: relative;
+          z-index: 1;
+          width: min(940px, 100%);
+          max-height: min(82vh, 760px);
+          overflow: hidden;
+          border-radius: 10px;
+          background: #ffffff;
+          box-shadow: 0 25px 80px rgba(0, 0, 0, 0.22);
+        }
+        .product-modal__close {
+          position: absolute;
+          top: 14px;
+          right: 14px;
+          z-index: 2;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 42px;
+          height: 42px;
+          border: 0;
+          border-radius: 50%;
+          background: #f6f4ec;
+          color: var(--agriox-primary, #334b35);
+          cursor: pointer;
+          transition: background 200ms linear, color 200ms linear;
+        }
+        .product-modal__close:hover,
+        .product-modal__close:focus {
+          background: var(--agriox-primary, #334b35);
+          color: #ffffff;
+        }
+        .product-modal__body {
+          display: grid;
+          grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+        }
+        .product-modal__content {
+          max-height: min(82vh, 760px);
+          overflow-y: auto;
+          padding: 52px 44px 46px;
+        }
+        .product-modal__category {
+          display: inline-block;
+          margin-bottom: 12px;
+          color: var(--agriox-secondary, #6d8c54);
+          font-size: 14px;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+        }
+        .product-modal__title {
+          margin-bottom: 18px;
+          color: var(--agriox-primary, #334b35);
+          font-size: 34px;
+          line-height: 1.2;
+        }
+        .product-modal__description {
+          margin-bottom: 0;
+          color: var(--agriox-color-1, #687469);
+          font-size: 17px;
+          line-height: 1.8;
+        }
+        .product-modal__media {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 380px;
+          padding: 34px;
+          background: #f6f4ec;
+        }
+        .product-modal__media img {
+          width: 100%;
+          max-height: 430px;
+          object-fit: contain;
+        }
+        .product-modal__placeholder {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          min-height: 260px;
+          background: #f0f5f0;
+        }
+        .product-modal__placeholder i {
+          color: #9ab87a;
+          font-size: 72px;
+          opacity: 0.45;
+        }
+        body.product-modal-open {
+          overflow: hidden;
+        }
+        @media (max-width: 767px) {
+          .product-modal {
+            align-items: flex-start;
+            padding: 16px;
+            overflow-y: auto;
+          }
+          .product-modal__dialog {
+            max-height: none;
+            margin: 24px 0;
+          }
+          .product-modal__body {
+            grid-template-columns: 1fr;
+          }
+          .product-modal__content {
+            max-height: none;
+            padding: 44px 24px 26px;
+          }
+          .product-modal__title {
+            font-size: 28px;
+          }
+          .product-modal__description {
+            font-size: 16px;
+            line-height: 1.7;
+          }
+          .product-modal__media {
+            min-height: 240px;
+            padding: 22px;
+          }
         }
     </style>
   </head>
@@ -723,31 +860,33 @@ Delivering premium agro commodities with reliability, <br /> efficiency, and exc
                 $icon = $icons[$pos];
                 $anim = $animations[$pos];
                 $dly  = $delays[$pos];
-                $desc_id = 'home-product-desc-' . $i;
                 $img  = $p['image_url']
                     ? (strpos($p['image_url'], 'http') === 0 ? $p['image_url'] : $p['image_url'])
                     : '';
             ?>
             <div class="col-xl-3 col-lg-6 wow <?= $anim ?>" data-wow-delay="<?= $dly ?>" data-wow-duration="1000ms" style="display:flex;flex-direction:column;">
               <div class="services-one__single" style="height:100%;display:flex;flex-direction:column;">
-	                <div class="services-one__single-img">
-	                  <div class="services-one__single-img-inner">
-	                    <button
-	                      type="button"
-	                      class="home-product-toggle home-product-image-toggle"
-	                      aria-expanded="false"
-	                      aria-controls="<?= $desc_id ?>"
-	                    >
-	                    <?php if ($img): ?>
-	                    <img src="<?= html_escape($img) ?>" alt="<?= html_escape($p['name']) ?>" />
-	                    <?php else: ?>
-	                    <span style="width:100%;height:280px;display:flex;align-items:center;justify-content:center;background:#f0f5f0">
-	                      <i class="fas <?= $icon ?>" style="font-size:64px;color:#9ab87a;opacity:.35"></i>
-		                    </span>
-	                    <?php endif; ?>
-	                    </button>
-	                  </div>
-	                </div>
+                <div class="services-one__single-img">
+                  <div class="services-one__single-img-inner">
+                    <button
+                      type="button"
+                      class="home-product-modal-trigger home-product-image-toggle"
+                      aria-haspopup="dialog"
+                      data-product-name="<?= html_escape($p['name']) ?>"
+                      data-product-description="<?= html_escape($p['description']) ?>"
+                      data-product-image="<?= html_escape($img) ?>"
+                      data-product-category="<?= html_escape($p['category'] ?? 'Product') ?>"
+                    >
+                    <?php if ($img): ?>
+                    <img src="<?= html_escape($img) ?>" alt="<?= html_escape($p['name']) ?>" />
+                    <?php else: ?>
+                    <span style="width:100%;height:280px;display:flex;align-items:center;justify-content:center;background:#f0f5f0">
+                      <i class="fas <?= $icon ?>" style="font-size:64px;color:#9ab87a;opacity:.35"></i>
+                    </span>
+                    <?php endif; ?>
+                    </button>
+                  </div>
+                </div>
                 <div class="services-one__single-content text-center" style="flex:1;">
                   <!-- <div class="services-one__single-img-icon">
                     <i class="fas <?= $icon ?>" style="font-size: 38px"></i>
@@ -755,12 +894,14 @@ Delivering premium agro commodities with reliability, <br /> efficiency, and exc
                   <h3>
                     <button
                       type="button"
-                      class="home-product-toggle"
-                      aria-expanded="false"
-                      aria-controls="<?= $desc_id ?>"
+                      class="home-product-modal-trigger"
+                      aria-haspopup="dialog"
+                      data-product-name="<?= html_escape($p['name']) ?>"
+                      data-product-description="<?= html_escape($p['description']) ?>"
+                      data-product-image="<?= html_escape($img) ?>"
+                      data-product-category="<?= html_escape($p['category'] ?? 'Product') ?>"
                     ><?= html_escape($p['name']) ?></button>
                   </h3>
-                  <p id="<?= $desc_id ?>" class="home-product-description" hidden><?= html_escape($p['description']) ?></p>
                 </div>
               </div>
             </div>
@@ -1202,6 +1343,28 @@ Delivering premium agro commodities with reliability, <br /> efficiency, and exc
       </div>
     </div>
 
+    <div class="product-modal" id="homeProductModal" role="dialog" aria-modal="true" aria-labelledby="homeProductModalTitle" hidden>
+      <div class="product-modal__backdrop" data-product-modal-close></div>
+      <div class="product-modal__dialog">
+        <button type="button" class="product-modal__close" aria-label="Close product popup" data-product-modal-close>
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="product-modal__body">
+          <div class="product-modal__content">
+            <span class="product-modal__category" id="homeProductModalCategory"></span>
+            <h2 class="product-modal__title" id="homeProductModalTitle"></h2>
+            <p class="product-modal__description" id="homeProductModalDescription"></p>
+          </div>
+          <div class="product-modal__media">
+            <img id="homeProductModalImage" alt="" />
+            <div class="product-modal__placeholder" id="homeProductModalPlaceholder" hidden>
+              <i class="fas fa-seedling"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="search-popup">
       <div class="search-popup__overlay search-toggler"></div>
       <div class="search-popup__content">
@@ -1242,22 +1405,71 @@ Delivering premium agro commodities with reliability, <br /> efficiency, and exc
     <!-- template js -->
     <script src="assets/js/agriox.js"></script>
     <script>
-      document.querySelectorAll('.home-product-toggle').forEach(function (toggle) {
-        toggle.addEventListener('click', function () {
-          var controls = toggle.getAttribute('aria-controls');
-          var description = document.getElementById(controls);
+      (function () {
+        var modal = document.getElementById('homeProductModal');
+        var modalTitle = document.getElementById('homeProductModalTitle');
+        var modalCategory = document.getElementById('homeProductModalCategory');
+        var modalDescription = document.getElementById('homeProductModalDescription');
+        var modalImage = document.getElementById('homeProductModalImage');
+        var modalPlaceholder = document.getElementById('homeProductModalPlaceholder');
+        var closeButton = modal ? modal.querySelector('.product-modal__close') : null;
+        var lastActiveTrigger = null;
 
-          if (!description) {
-            return;
+        if (!modal || !modalTitle || !modalDescription || !modalImage || !modalPlaceholder || !closeButton) {
+          return;
+        }
+
+        function openProductModal(trigger) {
+          var imageUrl = trigger.getAttribute('data-product-image') || '';
+
+          lastActiveTrigger = trigger;
+          modalTitle.textContent = trigger.getAttribute('data-product-name') || '';
+          modalCategory.textContent = trigger.getAttribute('data-product-category') || '';
+          modalDescription.textContent = trigger.getAttribute('data-product-description') || '';
+
+          if (imageUrl) {
+            modalImage.setAttribute('src', imageUrl);
+            modalImage.alt = trigger.getAttribute('data-product-name') || '';
+            modalImage.hidden = false;
+            modalPlaceholder.hidden = true;
+          } else {
+            modalImage.removeAttribute('src');
+            modalImage.alt = '';
+            modalImage.hidden = true;
+            modalPlaceholder.hidden = false;
           }
 
-          var isOpen = !description.hidden;
-          document.querySelectorAll('.home-product-toggle[aria-controls="' + controls + '"]').forEach(function (linkedToggle) {
-            linkedToggle.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+          modal.hidden = false;
+          document.body.classList.add('product-modal-open');
+          closeButton.focus();
+        }
+
+        function closeProductModal() {
+          modal.hidden = true;
+          document.body.classList.remove('product-modal-open');
+          modalImage.removeAttribute('src');
+
+          if (lastActiveTrigger) {
+            lastActiveTrigger.focus();
+          }
+        }
+
+        document.querySelectorAll('.home-product-modal-trigger').forEach(function (trigger) {
+          trigger.addEventListener('click', function () {
+            openProductModal(trigger);
           });
-          description.hidden = isOpen;
         });
-      });
+
+        modal.querySelectorAll('[data-product-modal-close]').forEach(function (closeTarget) {
+          closeTarget.addEventListener('click', closeProductModal);
+        });
+
+        document.addEventListener('keydown', function (event) {
+          if (event.key === 'Escape' && !modal.hidden) {
+            closeProductModal();
+          }
+        });
+      })();
     </script>
 
     <!-- toolbar js -->
