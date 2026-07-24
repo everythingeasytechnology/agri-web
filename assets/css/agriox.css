@@ -722,6 +722,11 @@ button {
           transform-origin: right center;
 }
 
+.main-menu .main-menu__list > li > a::before,
+.stricky-header .main-menu__list > li > a::before {
+  display: none;
+}
+
 .main-menu .main-menu__list li ul,
 .stricky-header .main-menu__list li ul {
   position: absolute;
