@@ -2,37 +2,73 @@
 require_once __DIR__ . '/auth.php';
 require_admin_login();
 
-function handle_product_image(): ?string {
+function is_external_product_image(?string $image_url): bool {
+    return (bool) preg_match('/^https?:\/\//i', (string) $image_url);
+}
+
+function product_upload_dir(): string {
+    $dir = __DIR__ . '/../assets/images/products/';
+    if (!is_dir($dir)) {
+        mkdir($dir, 0755, true);
+    }
+    return $dir;
+}
+
+function product_upload_error_message(int $error): string {
+    if ($error === UPLOAD_ERR_INI_SIZE || $error === UPLOAD_ERR_FORM_SIZE) {
+        return 'Image too large. Max 5MB allowed.';
+    }
+    return "Image upload failed (PHP error $error). Try again.";
+}
+
+function handle_product_image(?string $existing_image = null): array {
     $image_type = $_POST['image_type'] ?? 'url';
 
-    if ($image_type === 'upload' && !empty($_FILES['image_file']['name'])) {
+    if ($image_type === 'upload') {
+        if (empty($_FILES['image_file']['name'])) {
+            return ['ok' => true, 'image' => $existing_image ?: null];
+        }
+
         $file     = $_FILES['image_file'];
-        $allowed  = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
+        $extensions = [
+            'image/jpeg' => 'jpg',
+            'image/png'  => 'png',
+            'image/webp' => 'webp',
+            'image/gif'  => 'gif',
+        ];
+        $allowed  = array_keys($extensions);
+        $error    = $file['error'] ?? UPLOAD_ERR_NO_FILE;
+
+        if ($error !== UPLOAD_ERR_OK) {
+            flash_set(product_upload_error_message((int) $error), 'error');
+            return ['ok' => false, 'image' => $existing_image ?: null];
+        }
+
         $finfo    = new finfo(FILEINFO_MIME_TYPE);
-        $mime     = $finfo->file($file['tmp_name']);
+        $mime     = $finfo->file($file['tmp_name'] ?? '');
 
-        if (!in_array($mime, $allowed)) {
+        if (!in_array($mime, $allowed, true)) {
             flash_set('Invalid image type. Only JPG, PNG, WEBP, GIF allowed.', 'error');
-            return null;
+            return ['ok' => false, 'image' => $existing_image ?: null];
         }
-        if ($file['size'] > 5 * 1024 * 1024) {
+        if (($file['size'] ?? 0) > 5 * 1024 * 1024) {
             flash_set('Image too large. Max 5MB allowed.', 'error');
-            return null;
+            return ['ok' => false, 'image' => $existing_image ?: null];
         }
 
-        $ext      = pathinfo($file['name'], PATHINFO_EXTENSION);
-        $filename = uniqid('prod_', true) . '.' . strtolower($ext);
-        $dest     = __DIR__ . '/../assets/images/products/' . $filename;
+        $ext      = $extensions[$mime];
+        $filename = uniqid('prod_', true) . '.' . $ext;
+        $dest     = product_upload_dir() . $filename;
 
         if (!move_uploaded_file($file['tmp_name'], $dest)) {
             flash_set('Failed to upload image.', 'error');
-            return null;
+            return ['ok' => false, 'image' => $existing_image ?: null];
         }
-        return '../assets/images/products/' . $filename;
+        return ['ok' => true, 'image' => '../assets/images/products/' . $filename];
     }
 
     $url = trim($_POST['image_url'] ?? '');
-    return $url ?: null;
+    return ['ok' => true, 'image' => $url ?: ($existing_image ?: null)];
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -42,14 +78,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $name     = trim($_POST['name'] ?? '');
         $category = trim($_POST['category'] ?? '');
         $desc     = trim($_POST['description'] ?? '');
-        $image    = handle_product_image();
-        if ($name && $category && $desc) {
+        $image_result = handle_product_image();
+        $image        = $image_result['image'];
+        if ($image_result['ok'] && $name && $category && $desc) {
             db_query(
                 'INSERT INTO products (name, category, description, image_url) VALUES (?, ?, ?, ?)',
                 [$name, $category, $desc, $image]
             );
             flash_set('Product added successfully!');
-        } else {
+        } elseif ($image_result['ok']) {
             flash_set('Please fill in all required fields.', 'error');
         }
         header('Location: products.php');
@@ -61,20 +98,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $name     = trim($_POST['name'] ?? '');
         $category = trim($_POST['category'] ?? '');
         $desc     = trim($_POST['description'] ?? '');
-        $image    = handle_product_image();
-        if ($id && $name && $category && $desc) {
-            if ($image !== null) {
-                db_query(
-                    'UPDATE products SET name=?, category=?, description=?, image_url=? WHERE id=?',
-                    [$name, $category, $desc, $image, $id]
-                );
-            } else {
-                db_query(
-                    'UPDATE products SET name=?, category=?, description=? WHERE id=?',
-                    [$name, $category, $desc, $id]
-                );
-            }
+        $existing_image = trim($_POST['existing_image'] ?? '');
+        $image_result   = handle_product_image($existing_image ?: null);
+        $image          = $image_result['image'];
+
+        if ($image_result['ok'] && $id && $name && $category && $desc) {
+            db_query(
+                'UPDATE products SET name=?, category=?, description=?, image_url=? WHERE id=?',
+                [$name, $category, $desc, $image, $id]
+            );
             flash_set('Product updated successfully!');
+        } elseif ($image_result['ok'] && !$id) {
+            flash_set('Product not found.', 'error');
+        } elseif ($image_result['ok']) {
+            flash_set('Please fill in all required fields.', 'error');
         }
         header('Location: products.php');
         exit;
@@ -111,6 +148,8 @@ if ($search) {
 }
 
 $categories = ['Seeds & Grains', 'Spices', 'Nuts', 'Specialty', 'Wood & Timber', 'Africa/Ivory' ,'Products'];
+$current_image = $edit_product['image_url'] ?? '';
+$current_image_is_url = is_external_product_image($current_image);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -187,6 +226,7 @@ $categories = ['Seeds & Grains', 'Spices', 'Nuts', 'Specialty', 'Wood & Timber',
                         <input type="hidden" name="action" value="<?= $edit_product ? 'edit' : 'add' ?>" />
                         <?php if ($edit_product): ?>
                         <input type="hidden" name="id" value="<?= $edit_product['id'] ?>" />
+                        <input type="hidden" name="existing_image" value="<?= html_escape($current_image) ?>" />
                         <?php endif; ?>
 
                         <div class="form-row cols-2">
@@ -224,13 +264,13 @@ $categories = ['Seeds & Grains', 'Spices', 'Nuts', 'Specialty', 'Wood & Timber',
                                     <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-weight:500">
                                         <input type="radio" name="image_type" value="url" id="imgTypeUrl"
                                             onchange="switchImageType('url')"
-                                            <?= empty($edit_product['image_url']) || str_starts_with($edit_product['image_url'] ?? '', 'http') ? 'checked' : '' ?> />
+                                            <?= empty($current_image) || $current_image_is_url ? 'checked' : '' ?> />
                                         <i class="fas fa-link"></i> URL se
                                     </label>
                                     <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-weight:500">
                                         <input type="radio" name="image_type" value="upload" id="imgTypeUpload"
                                             onchange="switchImageType('upload')"
-                                            <?= !empty($edit_product['image_url']) && !str_starts_with($edit_product['image_url'] ?? '', 'http') ? 'checked' : '' ?> />
+                                            <?= !empty($current_image) && !$current_image_is_url ? 'checked' : '' ?> />
                                         <i class="fas fa-upload"></i> Upload karo
                                     </label>
                                 </div>
@@ -239,8 +279,9 @@ $categories = ['Seeds & Grains', 'Spices', 'Nuts', 'Specialty', 'Wood & Timber',
                                 <div id="imgUrlSection">
                                     <input type="url" name="image_url" id="productImage"
                                         placeholder="https://images.unsplash.com/photo-..."
-                                        value="<?= html_escape($edit_product['image_url'] ?? '') ?>"
-                                        oninput="previewImage(this.value)" />
+                                        value="<?= html_escape($current_image_is_url ? $current_image : '') ?>"
+                                        oninput="previewImage(this.value)"
+                                        <?= !empty($current_image) && !$current_image_is_url ? 'disabled' : '' ?> />
                                     <p class="field-hint"><i class="fas fa-info-circle"></i> Koi bhi direct image URL paste karein</p>
                                 </div>
 
@@ -248,7 +289,8 @@ $categories = ['Seeds & Grains', 'Spices', 'Nuts', 'Specialty', 'Wood & Timber',
                                 <div id="imgUploadSection" style="display:none">
                                     <input type="file" name="image_file" id="imageFile"
                                         accept="image/jpeg,image/png,image/webp,image/gif"
-                                        onchange="previewUploadedFile(this)" />
+                                        onchange="previewUploadedFile(this)"
+                                        <?= empty($current_image) || $current_image_is_url ? 'disabled' : '' ?> />
                                     <p class="field-hint"><i class="fas fa-info-circle"></i> JPG, PNG, WEBP, GIF — max 5MB</p>
                                 </div>
                             </div>
@@ -396,10 +438,18 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('listViewBtn').classList.toggle('active', view === 'list');
     }
 
-    function switchImageType(type) {
+    function switchImageType(type, resetPreview = true) {
+        const urlInput  = document.getElementById('productImage');
+        const fileInput = document.getElementById('imageFile');
+
         document.getElementById('imgUrlSection').style.display    = type === 'url'    ? 'block' : 'none';
         document.getElementById('imgUploadSection').style.display = type === 'upload' ? 'block' : 'none';
-        resetImgPreview();
+        urlInput.disabled  = type !== 'url';
+        fileInput.disabled = type !== 'upload';
+
+        if (resetPreview) {
+            resetImgPreview();
+        }
     }
 
     function previewImage(url) {
@@ -438,7 +488,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Page load pe correct section dikhao
     document.addEventListener('DOMContentLoaded', () => {
         const checked = document.querySelector('input[name="image_type"]:checked');
-        if (checked) switchImageType(checked.value);
+        if (checked) switchImageType(checked.value, false);
     });
 </script>
 </body>
