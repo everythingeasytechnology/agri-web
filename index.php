@@ -174,7 +174,9 @@ function reel_embed_url(string $url): string {
           height: 100%;
         }
         .main-slider-one .hero-main-image {
-          background-position: center top !important;
+          background-color: #f6f4ec;
+          background-position: center center !important;
+          background-size: contain !important;
         }
         .main-slider-one .swiper-wrapper,
         .main-slider-one .swiper-slide {
