@@ -106,7 +106,7 @@ $icons = ['fa-seedling', 'fa-leaf', 'fa-chart-line', 'fa-box-open'];
         @media (max-width: 480px) {
             .logo img, .stricky-one-logo img { height: 38px; }
         }
-        .product-description-toggle {
+        .product-modal-trigger {
             border: 0;
             background: transparent;
             padding: 0;
@@ -115,11 +115,11 @@ $icons = ['fa-seedling', 'fa-leaf', 'fa-chart-line', 'fa-box-open'];
             font: inherit;
             line-height: inherit;
         }
-        .product-description-toggle:hover,
-        .product-description-toggle:focus {
+        .product-modal-trigger:hover,
+        .product-modal-trigger:focus {
             color: var(--thm-primary);
         }
-        .product-description-toggle:focus {
+        .product-modal-trigger:focus {
             outline: 2px solid var(--thm-primary);
             outline-offset: 4px;
         }
@@ -132,6 +132,7 @@ $icons = ['fa-seedling', 'fa-leaf', 'fa-chart-line', 'fa-box-open'];
             cursor: pointer;
         }
         .product-image-toggle img {
+            display: block;
             width: 100%;
         }
         .services-one__single-img::before,
@@ -145,8 +146,100 @@ $icons = ['fa-seedling', 'fa-leaf', 'fa-chart-line', 'fa-box-open'];
         .product-card-row {
             align-items: flex-start;
         }
-        .product-card-description[hidden] {
+        .product-modal[hidden] {
             display: none !important;
+        }
+        .product-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+        .product-modal__backdrop {
+            position: absolute;
+            inset: 0;
+            background: rgba(31, 47, 33, 0.68);
+        }
+        .product-modal__dialog {
+            position: relative;
+            z-index: 1;
+            width: min(940px, 100%);
+            max-height: min(82vh, 760px);
+            overflow: hidden;
+            border-radius: 10px;
+            background: #ffffff;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.22);
+        }
+        .product-modal__close {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            z-index: 2;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border: 0;
+            border-radius: 50%;
+            background: #f6f4ec;
+            color: var(--agriox-primary, #334b35);
+            cursor: pointer;
+            transition: background 200ms linear, color 200ms linear;
+        }
+        .product-modal__close:hover,
+        .product-modal__close:focus {
+            background: var(--agriox-primary, #334b35);
+            color: #ffffff;
+        }
+        .product-modal__body {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+        }
+        .product-modal__content {
+            max-height: min(82vh, 760px);
+            overflow-y: auto;
+            padding: 52px 44px 46px;
+        }
+        .product-modal__category {
+            display: inline-block;
+            margin-bottom: 12px;
+            color: var(--agriox-secondary, #6d8c54);
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+        .product-modal__title {
+            margin-bottom: 18px;
+            color: var(--agriox-primary, #334b35);
+            font-size: 34px;
+            line-height: 1.2;
+        }
+        .product-modal__description {
+            margin-bottom: 0;
+            color: var(--agriox-color-1, #687469);
+            font-size: 17px;
+            line-height: 1.8;
+        }
+        .product-modal__media {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 380px;
+            padding: 34px;
+            background: #f6f4ec;
+        }
+        .product-modal__media img {
+            width: 100%;
+            max-height: 430px;
+            object-fit: contain;
+        }
+        body.product-modal-open {
+            overflow: hidden;
         }
         .cta-one__right-btn .thm-btn {
             display: inline-flex;
@@ -159,6 +252,35 @@ $icons = ['fa-seedling', 'fa-leaf', 'fa-chart-line', 'fa-box-open'];
             .cta-one__right-btn .thm-btn {
                 padding-left: 32px;
                 padding-right: 32px;
+            }
+        }
+        @media (max-width: 767px) {
+            .product-modal {
+                align-items: flex-start;
+                padding: 16px;
+                overflow-y: auto;
+            }
+            .product-modal__dialog {
+                max-height: none;
+                margin: 24px 0;
+            }
+            .product-modal__body {
+                grid-template-columns: 1fr;
+            }
+            .product-modal__content {
+                max-height: none;
+                padding: 44px 24px 26px;
+            }
+            .product-modal__title {
+                font-size: 28px;
+            }
+            .product-modal__description {
+                font-size: 16px;
+                line-height: 1.7;
+            }
+            .product-modal__media {
+                min-height: 240px;
+                padding: 22px;
             }
         }
     </style>
@@ -233,7 +355,6 @@ $icons = ['fa-seedling', 'fa-leaf', 'fa-chart-line', 'fa-box-open'];
                         $icon  = $icons[$pi % 4];
                         $anim  = ($pi % 4 < 2) ? 'fadeInLeft' : 'fadeInRight';
                         $delay = ($pi % 2) * 100;
-                        $desc_id = 'product-desc-' . $section_index . '-' . $pi;
                         $img   = $p['image_url'] ?: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=280&fit=crop&auto=format&q=80';
                     ?>
                     <div class="col-xl-3 col-lg-6 wow <?= $anim ?>" data-wow-delay="<?= $delay ?>ms" data-wow-duration="1000ms">
@@ -242,9 +363,12 @@ $icons = ['fa-seedling', 'fa-leaf', 'fa-chart-line', 'fa-box-open'];
                                 <div class="services-one__single-img-inner">
                                     <button
                                         type="button"
-                                        class="product-description-toggle product-image-toggle"
-                                        aria-expanded="false"
-                                        aria-controls="<?= $desc_id ?>"
+                                        class="product-modal-trigger product-image-toggle"
+                                        aria-haspopup="dialog"
+                                        data-product-name="<?= html_escape($p['name']) ?>"
+                                        data-product-description="<?= html_escape($p['description']) ?>"
+                                        data-product-image="<?= html_escape($img) ?>"
+                                        data-product-category="<?= html_escape($category) ?>"
                                     >
                                         <img src="<?= html_escape($img) ?>" alt="<?= html_escape($p['name']) ?>" />
                                     </button>
@@ -255,12 +379,14 @@ $icons = ['fa-seedling', 'fa-leaf', 'fa-chart-line', 'fa-box-open'];
                                 <h3>
                                     <button
                                         type="button"
-                                        class="product-description-toggle"
-                                        aria-expanded="false"
-                                        aria-controls="<?= $desc_id ?>"
+                                        class="product-modal-trigger"
+                                        aria-haspopup="dialog"
+                                        data-product-name="<?= html_escape($p['name']) ?>"
+                                        data-product-description="<?= html_escape($p['description']) ?>"
+                                        data-product-image="<?= html_escape($img) ?>"
+                                        data-product-category="<?= html_escape($category) ?>"
                                     ><?= html_escape($p['name']) ?></button>
                                 </h3>
-                                <p id="<?= $desc_id ?>" class="product-card-description" hidden><?= html_escape($p['description']) ?></p>
                                 <!-- <a href="contact.php" class="read-more-btn"><i class="fas fa-arrow-right"></i></a> -->
                             </div>
                         </div>
@@ -326,6 +452,25 @@ $icons = ['fa-seedling', 'fa-leaf', 'fa-chart-line', 'fa-box-open'];
         </div>
     </div>
 
+    <div class="product-modal" id="productModal" role="dialog" aria-modal="true" aria-labelledby="productModalTitle" hidden>
+        <div class="product-modal__backdrop" data-product-modal-close></div>
+        <div class="product-modal__dialog">
+            <button type="button" class="product-modal__close" aria-label="Close product popup" data-product-modal-close>
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="product-modal__body">
+                <div class="product-modal__content">
+                    <span class="product-modal__category" id="productModalCategory"></span>
+                    <h2 class="product-modal__title" id="productModalTitle"></h2>
+                    <p class="product-modal__description" id="productModalDescription"></p>
+                </div>
+                <div class="product-modal__media">
+                    <img id="productModalImage" alt="" />
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fas fa-arrow-up"></i></a> -->
 
     <script src="assets/vendors/jquery/jquery-3.5.1.min.js"></script>
@@ -340,33 +485,57 @@ $icons = ['fa-seedling', 'fa-leaf', 'fa-chart-line', 'fa-box-open'];
     <script src="assets/vendors/owl-carousel/owl.carousel.min.js"></script>
     <script src="assets/js/agriox.js"></script>
     <script>
-        document.querySelectorAll('.product-description-toggle').forEach(function (toggle) {
-            toggle.addEventListener('click', function () {
-                var controls = toggle.getAttribute('aria-controls');
-                var description = document.getElementById(controls);
+        (function () {
+            var modal = document.getElementById('productModal');
+            var modalTitle = document.getElementById('productModalTitle');
+            var modalCategory = document.getElementById('productModalCategory');
+            var modalDescription = document.getElementById('productModalDescription');
+            var modalImage = document.getElementById('productModalImage');
+            var closeButton = modal ? modal.querySelector('.product-modal__close') : null;
+            var lastActiveTrigger = null;
 
-                if (!description) {
-                    return;
+            if (!modal || !modalTitle || !modalDescription || !modalImage || !closeButton) {
+                return;
+            }
+
+            function openProductModal(trigger) {
+                lastActiveTrigger = trigger;
+                modalTitle.textContent = trigger.getAttribute('data-product-name') || '';
+                modalCategory.textContent = trigger.getAttribute('data-product-category') || '';
+                modalDescription.textContent = trigger.getAttribute('data-product-description') || '';
+                modalImage.setAttribute('src', trigger.getAttribute('data-product-image') || '');
+                modalImage.alt = trigger.getAttribute('data-product-name') || '';
+                modal.hidden = false;
+                document.body.classList.add('product-modal-open');
+                closeButton.focus();
+            }
+
+            function closeProductModal() {
+                modal.hidden = true;
+                document.body.classList.remove('product-modal-open');
+                modalImage.removeAttribute('src');
+
+                if (lastActiveTrigger) {
+                    lastActiveTrigger.focus();
                 }
+            }
 
-                var shouldOpen = description.hidden;
-
-                document.querySelectorAll('.product-card-description').forEach(function (item) {
-                    item.hidden = true;
+            document.querySelectorAll('.product-modal-trigger').forEach(function (trigger) {
+                trigger.addEventListener('click', function () {
+                    openProductModal(trigger);
                 });
+            });
 
-                document.querySelectorAll('.product-description-toggle').forEach(function (item) {
-                    item.setAttribute('aria-expanded', 'false');
-                });
+            modal.querySelectorAll('[data-product-modal-close]').forEach(function (closeTarget) {
+                closeTarget.addEventListener('click', closeProductModal);
+            });
 
-                if (shouldOpen) {
-                    description.hidden = false;
-                    document.querySelectorAll('.product-description-toggle[aria-controls="' + controls + '"]').forEach(function (linkedToggle) {
-                        linkedToggle.setAttribute('aria-expanded', 'true');
-                    });
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape' && !modal.hidden) {
+                    closeProductModal();
                 }
             });
-        });
+        })();
     </script>
     <script src="assets/vendors/toolbar/js/js.cookie.min.js"></script>
     <script src="assets/vendors/toolbar/js/jQuery.style.switcher.min.js"></script>
