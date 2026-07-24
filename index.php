@@ -173,6 +173,9 @@ function reel_embed_url(string $url): string {
           width: 100%;
           height: 100%;
         }
+        .main-slider-one .hero-main-image {
+          background-position: center top !important;
+        }
         .main-slider-one .swiper-wrapper,
         .main-slider-one .swiper-slide {
           -webkit-transition-duration: 0ms !important;
@@ -480,7 +483,7 @@ function reel_embed_url(string $url): string {
           <div class="swiper-wrapper">
             <div class="swiper-slide">
               <div
-                class="image-layer"
+                class="image-layer hero-main-image"
                 style="
                   background-image: url(assets/images/backgrounds/1hero.jpeg);
                 "
