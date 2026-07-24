@@ -241,7 +241,7 @@
                                         <div class="icon" style="display:inline-flex;align-items:center;justify-content:center;width:50px;height:50px;border-radius:50%;flex-shrink:0;"><i class="fas fa-map-marker-alt" style="font-size:20px;color:#fff;line-height:1;"></i></div>
                                         <div class="title">
                                             <span>Africa Office</span>
-                                            <p>Plateux Vallon, Abidjan, Cote d'Ivoire</p>
+                                            <p>2 Plateux Vallon, Abidjan. Cote d'ivoire</p>
                                         </div>
                                     </li>
                                     <li>
