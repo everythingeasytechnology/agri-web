@@ -466,14 +466,14 @@ $formatted_date = date('F j, Y', strtotime($post['created_at']));
                 <li><i class="fas fa-phone"></i><a href="tel:+919653530361">+91 96535 30361</a></li>
                 <li><i class="fas fa-envelope"></i><a href="mailto:contact@ficusinternational.com">contact@ficusinternational.com</a></li>
             </ul>
-            <div class="mobile-nav__top">
+            <!-- <div class="mobile-nav__top">
                 <div class="mobile-nav__social">
                     <a href="https://x.com/FicusIntl" target="_blank" class="fab fa-twitter"></a>
                     <a href="https://www.facebook.com/share/1JcoEmGGfT/" target="_blank" class="fab fa-facebook-square"></a>
                     <a href="https://www.linkedin.com/company/ficus-international/" target="_blank" class="fab fa-linkedin"></a>
                     <a href="https://www.instagram.com/ficusinternational?igsh=MXA5dHowOXFjYnBlcg==" target="_blank" class="fab fa-instagram"></a>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 
