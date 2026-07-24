@@ -188,7 +188,7 @@ function reel_embed_url(string $url): string {
         .main-slider-one .hero-fit-image {
           background-color: #ffffff;
           background-position: center top !important;
-          background-size: 100% auto !important;
+          background-size: 100% 100% !important;
         }
         .main-slider.main-slider-one .swiper-container-initialized .swiper-slide:not(.swiper-slide-active) {
           opacity: 0 !important;
