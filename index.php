@@ -237,6 +237,9 @@ function reel_embed_url(string $url): string {
           -webkit-text-stroke: 0 !important;
           text-shadow: none !important;
         }
+        .hero-mobile-title {
+          display: none;
+        }
         .home-why-choose {
           padding-top: 70px !important;
           padding-bottom: 70px !important;
@@ -283,12 +286,39 @@ function reel_embed_url(string $url): string {
             display: flex;
             align-items: center;
           }
+          .main-slider.main-slider-one .row,
+          .main-slider.main-slider-one .col-lg-12,
+          .main-slider.main-slider-one .main-slider-inner {
+            height: 100%;
+            position: relative;
+          }
           .main-slider.main-slider-one .main-slider__content {
+            display: block;
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            z-index: 4;
+            max-width: 180px;
+            text-align: right;
+          }
+          .main-slider.main-slider-one .main-slider__content .main-slider__title {
+            display: block;
+            margin: 0;
+            color: var(--agriox-primary, #334b35);
+            font-size: 26px;
+            line-height: 1.08;
+            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+          }
+          .main-slider.main-slider-one .main-slider__content .main-slider__text,
+          .main-slider.main-slider-one .main-slider-tagline {
             display: none;
           }
           .main-slider.main-slider-one .main-slider__button-box {
+            position: absolute;
+            left: 50%;
+            bottom: 14px;
             margin-top: 0;
-            transform: none !important;
+            transform: translateX(-50%) !important;
           }
           .main-slider.main-slider-one .main-slider__button-box .arrow-icon {
             display: none;
@@ -516,7 +546,7 @@ function reel_embed_url(string $url): string {
           data-swiper-options='{"slidesPerView": 1, "loop": true, "effect": "fade", "speed": 0, "pagination": {"el": "#main-slider-pagination", "type": "bullets", "clickable": true}, "navigation": {"nextEl": "#main-slider__swiper-button-next", "prevEl": "#main-slider__swiper-button-prev"}, "autoplay": {"delay": 3000, "disableOnInteraction": false}}'
         >
           <div class="swiper-wrapper">
-            <div class="swiper-slide">
+            <div class="swiper-slide hero-main-slide">
               <div
                 class="image-layer hero-main-image"
                 style="
@@ -531,15 +561,7 @@ function reel_embed_url(string $url): string {
                       <div class="main-slider__content">
                         
                         
-                        <h2 class="main-slider__title">
-                          <!-- Welcome to <br />
-                          Ficus -->
-                          <span
-                            ><span class="leaf"
-                              >
-                              <!-- </span
-                            >International</span > -->
-                        </h2>
+                        <h2 class="main-slider__title hero-mobile-title">Delivering Trust</h2>
                         <p class="main-slider__text">
                         
 <!-- Delivering premium agro commodities with reliability, <br /> efficiency, and excellence across international markets. -->
@@ -626,10 +648,7 @@ function reel_embed_url(string $url): string {
                         <!-- <span class="main-slider-tagline"
                           >Seamless Supply Experience</span
                         > -->
-                        <h2 class="main-slider__title">
-                        Delivering Trust
-                          
-                        </h2>
+                        <h2 class="main-slider__title">Delivering Trust</h2>
                         <!-- <p class="main-slider__text">
                           Managing procurement, supply and logistics<br />
                           under one roof for your business needs.
