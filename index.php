@@ -490,7 +490,24 @@ function reel_embed_url(string $url): string {
                 <div class="row">
                   <div class="col-lg-12">
                     <div class="main-slider-inner">
-                      
+                      <div class="main-slider__content">
+                        
+                        
+                        <h2 class="main-slider__title">
+                          <!-- Welcome to <br />
+                          Ficus -->
+                          <span
+                            ><span class="leaf"
+                              >
+                              <!-- </span
+                            >International</span > -->
+                        </h2>
+                        <p class="main-slider__text">
+                        
+<!-- Delivering premium agro commodities with reliability, <br /> efficiency, and excellence across international markets. -->
+                        
+                        </p>
+                      </div>
                       <div class="main-slider__button-box">
                         <div class="arrow-icon">
                           <img
