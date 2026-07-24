@@ -532,8 +532,8 @@ function reel_embed_url(string $url): string {
                             alt=""
                           />
                         </div>
-                        <a href="products.php" class="thm-btn"
-                          >Our Products</a
+                        <!-- <a href="products.php" class="thm-btn"
+                          >Our Products</a -->
                         >
                       </div>
                     </div>
@@ -558,7 +558,7 @@ function reel_embed_url(string $url): string {
                         <!-- <span class="main-slider-tagline"
                           >Quality at the Source</span
                         > -->
-                        <h2 class="main-slider__title">
+                        <!-- <h2 class="main-slider__title">
                           Global <br />
                           Agro
                           <span
@@ -568,11 +568,11 @@ function reel_embed_url(string $url): string {
                                 alt="" /></span
                             >Commodity</span
                           >
-                        </h2>
-                        <p class="main-slider__text">
+                        </h2> -->
+                        <!-- <p class="main-slider__text">
                           Strict quality standards with reliable delivery<br />
                           to customers across global markets.
-                        </p>
+                        </p> -->
                       </div>
                       <div class="main-slider__button-box">
                         <div class="arrow-icon">
@@ -581,7 +581,7 @@ function reel_embed_url(string $url): string {
                             alt=""
                           />
                         </div>
-                        <a href="about.php" class="thm-btn">About Us</a>
+                        <!-- <a href="about.php" class="thm-btn">About Us</a> -->
                       </div>
                     </div>
                   </div>
