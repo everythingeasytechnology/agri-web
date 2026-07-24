@@ -183,7 +183,7 @@ function reel_embed_url(string $url): string {
         }
         .main-slider-one .hero-main-image {
           background-position: center center !important;
-          background-size: 100% 100% !important;
+          background-size: cover !important;
         }
         .main-slider.main-slider-one .swiper-container-initialized .swiper-slide:not(.swiper-slide-active) {
           opacity: 0 !important;
@@ -268,6 +268,10 @@ function reel_embed_url(string $url): string {
             bottom: 0 !important;
             left: 0 !important;
             height: 100% !important;
+          }
+          .main-slider-one .hero-main-image {
+            background-position: center center !important;
+            background-size: cover !important;
           }
           .main-slider.main-slider-one .container {
             height: 100%;
