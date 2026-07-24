@@ -200,6 +200,9 @@ function reel_embed_url(string $url): string {
           -webkit-transition-duration: 0ms !important;
           transition-duration: 0ms !important;
         }
+        .main-slider-one .swiper-slide {
+          position: relative;
+        }
         .main-slider-one .image-layer {
           z-index: 1;
         }
@@ -247,6 +250,22 @@ function reel_embed_url(string $url): string {
         }
         .mobile-hero-overlay {
           display: none;
+        }
+        .main-slider-one .hero-slide-cta.thm-btn {
+          position: absolute;
+          left: 50%;
+          bottom: 70px;
+          z-index: 7;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          min-width: 130px;
+          padding: 12px 22px;
+          font-size: 12px;
+          line-height: 1;
+          white-space: nowrap;
+          -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
         }
         .home-why-choose {
           padding-top: 70px !important;
@@ -336,6 +355,12 @@ function reel_embed_url(string $url): string {
             line-height: 1;
             white-space: nowrap;
             pointer-events: auto;
+          }
+          .main-slider.main-slider-one .hero-slide-cta.thm-btn {
+            bottom: 16px;
+            min-width: 110px;
+            padding: 10px 16px;
+            font-size: 11px;
           }
           .main-slider.main-slider-one .main-slider__nav,
           .main-slider.main-slider-one #main-slider-pagination {
@@ -603,7 +628,7 @@ function reel_embed_url(string $url): string {
               <div
                 class="image-layer hero-fit-image"
                 style="
-                  background-image: url(assets/images/backgrounds/2hero.jpeg);
+                  background-image: url(assets/images/backgrounds/1111.jpeg);
                 "
               ></div>
               <div class="image-layer-overlay"></div>
@@ -653,10 +678,7 @@ function reel_embed_url(string $url): string {
                   background-image: url(assets/images/backgrounds/123.jpeg);
                 "
               ></div>
-              <!-- <div class="mobile-hero-overlay">
-                <h2>Delivering Trust</h2>
-                <a href="contact.php" class="thm-btn">Get in Touch</a>
-              </div> -->
+              <a href="contact.php" class="thm-btn hero-slide-cta">Get in Touch</a>
               <div class="image-layer-overlay"></div>
               <div class="container">
                 <div class="row">
