@@ -246,8 +246,10 @@ function reel_embed_url(string $url): string {
           .main-slider.main-slider-one .swiper-container,
           .main-slider.main-slider-one .swiper-wrapper,
           .main-slider.main-slider-one .swiper-slide {
-            height: 560px !important;
-            min-height: 560px !important;
+            height: 46vh !important;
+            height: 46svh !important;
+            min-height: 280px !important;
+            max-height: 380px !important;
             overflow: hidden !important;
           }
           .main-slider.main-slider-one .swiper-slide {
@@ -269,16 +271,31 @@ function reel_embed_url(string $url): string {
             left: 0 !important;
             height: 100% !important;
           }
-          .main-slider-one .hero-main-image {
+          .main-slider.main-slider-one .image-layer {
+            background-color: #f6f4ec;
             background-position: center center !important;
-            background-size: cover !important;
+            background-size: contain !important;
           }
           .main-slider.main-slider-one .container {
             height: 100%;
-            padding-top: 95px !important;
-            padding-bottom: 80px !important;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
             display: flex;
             align-items: center;
+          }
+          .main-slider.main-slider-one .main-slider__content {
+            display: none;
+          }
+          .main-slider.main-slider-one .main-slider__button-box {
+            margin-top: 0;
+            transform: none !important;
+          }
+          .main-slider.main-slider-one .main-slider__button-box .arrow-icon {
+            display: none;
+          }
+          .main-slider.main-slider-one .main-slider__button-box .thm-btn {
+            padding: 12px 24px;
+            font-size: 12px;
           }
           .home-why-choose {
             padding-top: 35px !important;
