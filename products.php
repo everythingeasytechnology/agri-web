@@ -148,6 +148,19 @@ $icons = ['fa-seedling', 'fa-leaf', 'fa-chart-line', 'fa-box-open'];
         .product-card-description[hidden] {
             display: none !important;
         }
+        .cta-one__right-btn .thm-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 160px;
+            white-space: nowrap;
+        }
+        @media (max-width: 380px) {
+            .cta-one__right-btn .thm-btn {
+                padding-left: 32px;
+                padding-right: 32px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -271,7 +284,7 @@ $icons = ['fa-seedling', 'fa-leaf', 'fa-chart-line', 'fa-box-open'];
                             <div class="cta-one__left">
                                 <div class="cta-one__left-icon" style="display:inline-flex;align-items:center;justify-content:center;"><i class="fas fa-tractor" style="font-size:52px;color:#f1cf69;"></i></div>
                                 <div class="cta-one__left-title">
-                                    <h2>Interested in Our Products? Get a Quote</h2>
+                                    <h2>Interested in Our Products? <br> Get a Quote</h2>
                                 </div>
                             </div>
                             <div class="cta-one__right">
