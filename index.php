@@ -315,17 +315,34 @@ function reel_embed_url(string $url): string {
           }
           .main-slider.main-slider-one .main-slider__button-box {
             position: absolute;
-            left: 50%;
+            left: 0;
+            right: 0;
             bottom: 14px;
+            z-index: 5;
+            display: flex;
+            justify-content: center;
+            width: 100%;
             margin-top: 0;
-            transform: translateX(-50%) !important;
+            text-align: center;
+            transform: none !important;
           }
           .main-slider.main-slider-one .main-slider__button-box .arrow-icon {
             display: none;
           }
           .main-slider.main-slider-one .main-slider__button-box .thm-btn {
-            padding: 12px 24px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 132px;
+            max-width: calc(100vw - 40px);
+            padding: 12px 20px;
             font-size: 12px;
+            line-height: 1;
+            white-space: nowrap;
+          }
+          .main-slider.main-slider-one .main-slider__nav,
+          .main-slider.main-slider-one #main-slider-pagination {
+            display: none !important;
           }
           .home-why-choose {
             padding-top: 35px !important;
