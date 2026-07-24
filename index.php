@@ -240,6 +240,9 @@ function reel_embed_url(string $url): string {
         .hero-mobile-title {
           display: none;
         }
+        .mobile-hero-overlay {
+          display: none;
+        }
         .home-why-choose {
           padding-top: 70px !important;
           padding-bottom: 70px !important;
@@ -292,44 +295,32 @@ function reel_embed_url(string $url): string {
             height: 100%;
             position: relative;
           }
-          .main-slider.main-slider-one .main-slider__content {
-            display: block;
-            position: absolute;
-            top: 14px;
-            right: 14px;
-            z-index: 4;
-            max-width: 180px;
-            text-align: right;
+          .main-slider.main-slider-one .main-slider__content,
+          .main-slider.main-slider-one .main-slider__button-box {
+            display: none !important;
           }
-          .main-slider.main-slider-one .main-slider__content .main-slider__title {
-            display: block;
+          .main-slider.main-slider-one .mobile-hero-overlay {
+            display: flex;
+            position: absolute;
+            inset: 0;
+            z-index: 6;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding: 18px 16px 16px;
+            pointer-events: none;
+          }
+          .main-slider.main-slider-one .mobile-hero-overlay h2 {
+            max-width: 180px;
             margin: 0;
             color: var(--agriox-primary, #334b35);
             font-size: 26px;
             line-height: 1.08;
-            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+            text-align: right;
+            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.85);
           }
-          .main-slider.main-slider-one .main-slider__content .main-slider__text,
-          .main-slider.main-slider-one .main-slider-tagline {
-            display: none;
-          }
-          .main-slider.main-slider-one .main-slider__button-box {
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 14px;
-            z-index: 5;
-            display: flex;
-            justify-content: center;
-            width: 100%;
-            margin-top: 0;
-            text-align: center;
-            transform: none !important;
-          }
-          .main-slider.main-slider-one .main-slider__button-box .arrow-icon {
-            display: none;
-          }
-          .main-slider.main-slider-one .main-slider__button-box .thm-btn {
+          .main-slider.main-slider-one .mobile-hero-overlay .thm-btn {
+            align-self: center;
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -339,6 +330,7 @@ function reel_embed_url(string $url): string {
             font-size: 12px;
             line-height: 1;
             white-space: nowrap;
+            pointer-events: auto;
           }
           .main-slider.main-slider-one .main-slider__nav,
           .main-slider.main-slider-one #main-slider-pagination {
@@ -656,6 +648,10 @@ function reel_embed_url(string $url): string {
                   background-image: url(assets/images/backgrounds/1.jpeg);
                 "
               ></div>
+              <div class="mobile-hero-overlay">
+                <h2>Delivering Trust</h2>
+                <a href="contact.php" class="thm-btn">Get in Touch</a>
+              </div>
               <div class="image-layer-overlay"></div>
               <div class="container">
                 <div class="row">
