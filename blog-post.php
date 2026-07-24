@@ -438,11 +438,11 @@ $formatted_date = date('F j, Y', strtotime($post['created_at']));
                                     <h2>Partner with Ficus International Today</h2>
                                 </div>
                             </div>
-                            <div class="cta-one__right">
+                            <!-- <div class="cta-one__right">
                                 <div class="cta-one__right-btn">
                                     <a href="contact.php" class="thm-btn">Contact Us</a>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
