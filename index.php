@@ -482,7 +482,7 @@ function reel_embed_url(string $url): string {
               <div
                 class="image-layer"
                 style="
-                  background-image: url(assets/images/backgrounds/1.jpeg);
+                  background-image: url(assets/images/backgrounds/1hero.jpeg);
                 "
               ></div>
               <div class="image-layer-overlay"></div>
@@ -491,8 +491,7 @@ function reel_embed_url(string $url): string {
                   <div class="col-lg-12">
                     <div class="main-slider-inner">
                       <div class="main-slider__content">
-                        <!-- <span class="main-slider-tagline"
-                          >From Origin to Global Markets</span -->
+                        
                         
                         <h2 class="main-slider__title">
                           Welcome to <br />
