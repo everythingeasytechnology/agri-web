@@ -343,7 +343,7 @@ $formatted_date = date('F j, Y', strtotime($post['created_at']));
                             <hr class="blog-post__divider" />
 
                             <!-- Share Row -->
-                            <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-top:10px;">
+                            <!-- <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-top:10px;">
                                 <span style="font-weight:700; color:#1a1a1a; font-size:15px;">Share:</span>
                                 <a href="https://www.facebook.com/sharer/sharer ?u=<?php echo urlencode('https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']); ?>"
                                    target="_blank" rel="noopener"
@@ -365,7 +365,7 @@ $formatted_date = date('F j, Y', strtotime($post['created_at']));
                                    style="width:36px;height:36px;border-radius:50%;background:#25d366;display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:15px;">
                                     <i class="fab fa-whatsapp"></i>
                                 </a>
-                            </div>
+                            </div> -->
 
                         </div>
                     </div>
