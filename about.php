@@ -124,11 +124,11 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12">
                         <div class="about-three__content-box">
-                            <div class="sec-title">
+                            <!-- <div class="sec-title">
                                
                                 <span class="sec-title__tagline">Who We Are</span>
                                 <h2 class="sec-title__title">About Ficus International</h2>
-                            </div>
+                            </div> -->
                             <div class="about-three__content-box-inner">
                                 <!-- <h2>A Global Agro Commodity Company</h2> -->
                                 <p>Ficus International was founded in 2019 under the guidance of Mr. K.S. Lather with a vision to build more than just a company—it was about building lasting relationships through trust, quality, and dependable service. What started with a clear purpose has grown into a business serving customers across domestic and international markets. Every step of our journey has been guided by the same values: delivering quality products, maintaining transparency, and treating every customer as a long-term partner. We believe that true success comes not only from the products we supply, but from the trust we earn along the way.</p>
