@@ -185,6 +185,11 @@ function reel_embed_url(string $url): string {
           background-position: center center !important;
           background-size: cover !important;
         }
+        .main-slider-one .hero-fit-image {
+          background-color: #ffffff;
+          background-position: center center !important;
+          background-size: contain !important;
+        }
         .main-slider.main-slider-one .swiper-container-initialized .swiper-slide:not(.swiper-slide-active) {
           opacity: 0 !important;
           visibility: hidden !important;
@@ -596,7 +601,7 @@ function reel_embed_url(string $url): string {
 
             <div class="swiper-slide">
               <div
-                class="image-layer"
+                class="image-layer hero-fit-image"
                 style="
                   background-image: url(assets/images/backgrounds/2hero.jpeg);
                 "
@@ -643,7 +648,7 @@ function reel_embed_url(string $url): string {
 
             <div class="swiper-slide">
               <div
-                class="image-layer"
+                class="image-layer hero-fit-image"
                 style="
                   background-image: url(assets/images/backgrounds/11hero.jpeg);
                 "
@@ -667,15 +672,7 @@ function reel_embed_url(string $url): string {
                           under one roof for your business needs.
                         </p> -->
                       </div>
-                      <div class="main-slider__button-box">
-                        <div class="arrow-icon">
-                          <img
-                            src="assets/images/icon/main-slider__button-arrow.png"
-                            alt=""
-                          />
-                        </div>
-                        <!-- <a href="contact.php" class="thm-btn">Get in Touch</a> -->
-                      </div>
+                 
                     </div>
                   </div>
                 </div>
