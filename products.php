@@ -126,14 +126,18 @@ $icons = ['fa-seedling', 'fa-leaf', 'fa-chart-line', 'fa-box-open'];
         .product-image-toggle {
             display: block;
             width: 100%;
+            height: 220px;
             border: 0;
             background: transparent;
             padding: 0;
             cursor: pointer;
+            overflow: hidden;
         }
         .product-image-toggle img {
             display: block;
             width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         .services-one__single-img::before,
         .services-one__single-img-inner::before {
@@ -144,7 +148,34 @@ $icons = ['fa-seedling', 'fa-leaf', 'fa-chart-line', 'fa-box-open'];
             transform: scale(1) !important;
         }
         .product-card-row {
-            align-items: flex-start;
+            align-items: stretch;
+        }
+        .product-card-row > [class*="col-"] {
+            display: flex;
+        }
+        .product-card-row .services-one__single {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            min-height: 445px;
+        }
+        .product-card-row .services-one__single-img {
+            padding-bottom: 0;
+        }
+        .product-card-row .services-one__single-img-inner {
+            height: 220px;
+        }
+        .product-card-row .services-one__single-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            min-height: 220px;
+            padding: 32px 28px;
+        }
+        .product-card-row .services-one__single-content h3 {
+            width: 100%;
+            margin-bottom: 0;
         }
         .product-modal[hidden] {
             display: none !important;
