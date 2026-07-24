@@ -70,6 +70,23 @@
         @media (max-width: 480px) {
             .logo img, .stricky-one-logo img { height: 38px; }
         }
+        .about-company-center .about-three__content-box {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .about-company-center .about-three__content-box .sec-title,
+        .about-company-center .about-three__content-box-inner,
+        .about-company-center .about-three__content-box-btn {
+            text-align: center;
+        }
+        .about-company-center .about-three__content-box-inner p {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .about-company-center .about-three__arrow {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -101,7 +118,7 @@
         </section>
 
         <!-- ==================== ABOUT COMPANY ==================== -->
-        <section class="about-three">
+        <section class="about-three about-company-center">
             <!-- <div class="about-three__shape"></div> -->
             <div class="container">
                 <div class="row">
