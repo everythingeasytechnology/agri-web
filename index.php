@@ -645,13 +645,13 @@ function reel_embed_url(string $url): string {
               <div
                 class="image-layer"
                 style="
-                  background-image: url(assets/images/backgrounds/1.jpeg);
+                  background-image: url(assets/images/backgrounds/11hero.jpeg);
                 "
               ></div>
-              <div class="mobile-hero-overlay">
+              <!-- <div class="mobile-hero-overlay">
                 <h2>Delivering Trust</h2>
                 <a href="contact.php" class="thm-btn">Get in Touch</a>
-              </div>
+              </div> -->
               <div class="image-layer-overlay"></div>
               <div class="container">
                 <div class="row">
@@ -661,7 +661,7 @@ function reel_embed_url(string $url): string {
                         <!-- <span class="main-slider-tagline"
                           >Seamless Supply Experience</span
                         > -->
-                        <h2 class="main-slider__title">Delivering Trust</h2>
+                        <!-- <h2 class="main-slider__title">Delivering Trust</h2> -->
                         <!-- <p class="main-slider__text">
                           Managing procurement, supply and logistics<br />
                           under one roof for your business needs.
@@ -674,7 +674,7 @@ function reel_embed_url(string $url): string {
                             alt=""
                           />
                         </div>
-                        <a href="contact.php" class="thm-btn">Get in Touch</a>
+                        <!-- <a href="contact.php" class="thm-btn">Get in Touch</a> -->
                       </div>
                     </div>
                   </div>
