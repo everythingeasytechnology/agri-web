@@ -1,3 +1,10 @@
+<!--
+====================================================
+Theme Designed & Developed by EverythingEasy Technology
+Website: https://everythingeasy.in
+Email: info@everythingeasy.in
+====================================================
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -341,3 +348,10 @@
     <script src="assets/vendors/toolbar/js/toolbar.js"></script>
 </body>
 </html>
+<!--
+====================================================
+Theme Designed & Developed by EverythingEasy Technology
+Website: https://everythingeasy.in
+Email: info@everythingeasy.in
+====================================================
+-->

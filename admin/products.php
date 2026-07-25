@@ -151,6 +151,13 @@ $categories = ['Seeds & Grains', 'Spices', 'Nuts', 'Specialty', 'Wood & Timber',
 $current_image = $edit_product['image_url'] ?? '';
 $current_image_is_url = is_external_product_image($current_image);
 ?>
+<!--
+====================================================
+Theme Designed & Developed by EverythingEasy Technology
+Website: https://everythingeasy.in
+Email: info@everythingeasy.in
+====================================================
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -493,3 +500,10 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 </body>
 </html>
+<!--
+====================================================
+Theme Designed & Developed by EverythingEasy Technology
+Website: https://everythingeasy.in
+Email: info@everythingeasy.in
+====================================================
+-->

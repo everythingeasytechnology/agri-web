@@ -91,6 +91,13 @@ $session_ok = ($_SESSION['setup_test'] === 'ok');
 $results[] = $session_ok ? '✅ Sessions working' : '❌ Sessions NOT working — contact your host';
 
 ?>
+<!--
+====================================================
+Theme Designed & Developed by EverythingEasy Technology
+Website: https://everythingeasy.in
+Email: info@everythingeasy.in
+====================================================
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -122,3 +129,10 @@ li:last-child{border:none;}
 </div>
 </body>
 </html>
+<!--
+====================================================
+Theme Designed & Developed by EverythingEasy Technology
+Website: https://everythingeasy.in
+Email: info@everythingeasy.in
+====================================================
+-->

@@ -1,3 +1,10 @@
+/*
+====================================================
+Theme Designed & Developed by EverythingEasy Technology
+Website: https://everythingeasy.in
+Email: info@everythingeasy.in
+====================================================
+*/
 (function ($) {
   "use strict";
 
@@ -1161,3 +1168,10 @@
 
 
 })(jQuery);
+/*
+====================================================
+Theme Designed & Developed by EverythingEasy Technology
+Website: https://everythingeasy.in
+Email: info@everythingeasy.in
+====================================================
+*/

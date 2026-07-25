@@ -12,6 +12,13 @@ function reel_embed_url(string $url): string {
     return '';
 }
 ?>
+<!--
+====================================================
+Theme Designed & Developed by EverythingEasy Technology
+Website: https://everythingeasy.in
+Email: info@everythingeasy.in
+====================================================
+-->
 <!doctype html>
 <html lang="en">
   <head>
@@ -1559,3 +1566,10 @@ function reel_embed_url(string $url): string {
     <script src="assets/vendors/toolbar/js/toolbar.js"></script>
   </body>
 </html>
+<!--
+====================================================
+Theme Designed & Developed by EverythingEasy Technology
+Website: https://everythingeasy.in
+Email: info@everythingeasy.in
+====================================================
+-->

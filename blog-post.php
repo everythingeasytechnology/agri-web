@@ -36,6 +36,13 @@ $categories = db_fetch_all(
 $featured_image = $post['image_url'] ?: 'assets/images/blog/blog-v1-img1.jpg';
 $formatted_date = date('F j, Y', strtotime($post['created_at']));
 ?>
+<!--
+====================================================
+Theme Designed & Developed by EverythingEasy Technology
+Website: https://everythingeasy.in
+Email: info@everythingeasy.in
+====================================================
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -496,3 +503,10 @@ $formatted_date = date('F j, Y', strtotime($post['created_at']));
     <script src="assets/vendors/toolbar/js/toolbar.js"></script>
 </body>
 </html>
+<!--
+====================================================
+Theme Designed & Developed by EverythingEasy Technology
+Website: https://everythingeasy.in
+Email: info@everythingeasy.in
+====================================================
+-->

@@ -148,6 +148,13 @@ $blog_categories = ['Agro Commodities', 'Trade & Export', 'Sustainability', 'Ind
 $current_image    = $edit_blog['image_url'] ?? '';
 $image_is_upload  = $current_image && strpos($current_image, 'http') !== 0;
 ?>
+<!--
+====================================================
+Theme Designed & Developed by EverythingEasy Technology
+Website: https://everythingeasy.in
+Email: info@everythingeasy.in
+====================================================
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -572,3 +579,10 @@ function previewFromFile(input) {
 </script>
 </body>
 </html>
+<!--
+====================================================
+Theme Designed & Developed by EverythingEasy Technology
+Website: https://everythingeasy.in
+Email: info@everythingeasy.in
+====================================================
+-->

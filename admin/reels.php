@@ -60,6 +60,13 @@ $flash = flash_get();
 $reels = db_fetch_all('SELECT * FROM instagram_reels ORDER BY sort_order ASC, id ASC');
 $unread_count = db_fetch('SELECT COUNT(*) AS c FROM contact_queries WHERE status = ?', ['new'])['c'] ?? 0;
 ?>
+<!--
+====================================================
+Theme Designed & Developed by EverythingEasy Technology
+Website: https://everythingeasy.in
+Email: info@everythingeasy.in
+====================================================
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -273,3 +280,10 @@ $unread_count = db_fetch('SELECT COUNT(*) AS c FROM contact_queries WHERE status
 <script src="admin.js"></script>
 </body>
 </html>
+<!--
+====================================================
+Theme Designed & Developed by EverythingEasy Technology
+Website: https://everythingeasy.in
+Email: info@everythingeasy.in
+====================================================
+-->

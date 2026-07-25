@@ -1,4 +1,11 @@
 <?php require_once __DIR__ . '/admin/db.php'; $blogs = db_fetch_all("SELECT * FROM blogs WHERE status = 'published' ORDER BY created_at DESC"); ?>
+<!--
+====================================================
+Theme Designed & Developed by EverythingEasy Technology
+Website: https://everythingeasy.in
+Email: info@everythingeasy.in
+====================================================
+-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -328,3 +335,10 @@
 
 
 </html>
+<!--
+====================================================
+Theme Designed & Developed by EverythingEasy Technology
+Website: https://everythingeasy.in
+Email: info@everythingeasy.in
+====================================================
+-->

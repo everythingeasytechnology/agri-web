@@ -58,6 +58,13 @@ if ($search) {
     $queries = db_fetch_all('SELECT * FROM contact_queries ORDER BY created_at DESC');
 }
 ?>
+<!--
+====================================================
+Theme Designed & Developed by EverythingEasy Technology
+Website: https://everythingeasy.in
+Email: info@everythingeasy.in
+====================================================
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -260,3 +267,10 @@ document.addEventListener('DOMContentLoaded', function() {
 <script src="admin.js"></script>
 </body>
 </html>
+<!--
+====================================================
+Theme Designed & Developed by EverythingEasy Technology
+Website: https://everythingeasy.in
+Email: info@everythingeasy.in
+====================================================
+-->

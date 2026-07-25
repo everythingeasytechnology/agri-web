@@ -13,6 +13,13 @@ $recent_queries  = db_fetch_all('SELECT * FROM contact_queries ORDER BY created_
 $recent_products = db_fetch_all('SELECT * FROM products ORDER BY created_at DESC LIMIT 5');
 $recent_blogs    = db_fetch_all('SELECT * FROM blogs ORDER BY created_at DESC LIMIT 5');
 ?>
+<!--
+====================================================
+Theme Designed & Developed by EverythingEasy Technology
+Website: https://everythingeasy.in
+Email: info@everythingeasy.in
+====================================================
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -234,3 +241,10 @@ document.addEventListener('DOMContentLoaded', function() {
 <script src="admin.js"></script>
 </body>
 </html>
+<!--
+====================================================
+Theme Designed & Developed by EverythingEasy Technology
+Website: https://everythingeasy.in
+Email: info@everythingeasy.in
+====================================================
+-->
