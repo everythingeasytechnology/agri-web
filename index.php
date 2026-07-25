@@ -675,7 +675,7 @@ function reel_embed_url(string $url): string {
               <div
                 class="image-layer hero-fit-image"
                 style="
-                  background-image: url(assets/images/backgrounds/123.jpeg);
+                  background-image: url(assets/images/backgrounds/image.png);
                 "
               ></div>
               <a href="contact.php" class="thm-btn hero-slide-cta">Get in Touch</a>
