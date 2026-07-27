@@ -9212,7 +9212,7 @@ Sidebar
     display: none;
   }
   .main-header--one__bottom {
-    padding: 22px 0px 23px;
+    padding: 22px 0px;
   }
   .main-header--one__bottom-inner {
     min-height: 55px;
