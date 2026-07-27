@@ -314,7 +314,7 @@ Email: info@everythingeasy.in
             background-size: contain !important;
           }
           .main-slider.main-slider-one .hero-main-image {
-            background-size: 108% auto !important;
+            background-size: 103% auto !important;
           }
           .main-slider.main-slider-one .container {
             height: 100%;
