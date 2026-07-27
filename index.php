@@ -174,7 +174,7 @@ Email: info@everythingeasy.in
         .main-slider.main-slider-one .swiper-container,
         .main-slider.main-slider-one .swiper-wrapper,
         .main-slider.main-slider-one .swiper-slide {
-          height: calc(100vw * 0.41625) !important;
+          height: clamp(560px, 56.25vw, 860px) !important;
           min-height: 560px !important;
           max-height: 860px !important;
         }
@@ -188,14 +188,11 @@ Email: info@everythingeasy.in
           width: 100%;
           height: 100%;
         }
-        .main-slider-one .hero-main-image {
-          background-position: center center !important;
-          background-size: cover !important;
-        }
+        .main-slider-one .hero-main-image,
         .main-slider-one .hero-fit-image {
           background-color: #ffffff;
-          background-position: center top !important;
-          background-size: 100% 100% !important;
+          background-position: center center !important;
+          background-size: cover !important;
         }
         .main-slider.main-slider-one .swiper-container-initialized .swiper-slide:not(.swiper-slide-active) {
           opacity: 0 !important;
