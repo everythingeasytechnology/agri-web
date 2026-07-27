@@ -2255,6 +2255,8 @@ button {
   bottom: 0;
   right: 0;
   background: rgba(var(--agriox-primary-rgb, 51, 75, 53), 0.7);
+  /* background: #b3c2ba; */
+
   z-index: -1;
 }
 

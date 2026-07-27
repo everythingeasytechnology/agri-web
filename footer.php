@@ -1,5 +1,36 @@
     <style>
+      .whatsapp-floating-btn {
+        position: fixed;
+        right: 24px;
+        bottom: 24px;
+        width: 56px;
+        height: 56px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+        background: #25d366;
+        border-radius: 50%;
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+        font-size: 30px;
+        z-index: 999;
+        transition: transform 200ms ease, box-shadow 200ms ease,
+          background-color 200ms ease;
+      }
+      .whatsapp-floating-btn:hover {
+        color: #ffffff;
+        background: #1ebe57;
+        transform: translateY(-3px);
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.3);
+      }
       @media (max-width: 767px) {
+        .whatsapp-floating-btn {
+          right: 16px;
+          bottom: 16px;
+          width: 52px;
+          height: 52px;
+          font-size: 28px;
+        }
         .footer-one__top {
           padding-top: 24px !important;
           padding-bottom: 22px !important;
@@ -297,3 +328,13 @@
           </div>
         </div>
       </footer>
+      <a
+        class="whatsapp-floating-btn"
+        href="https://wa.me/22550099753"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chat with Ficus International on WhatsApp"
+        title="WhatsApp"
+      >
+        <i class="fab fa-whatsapp"></i>
+      </a>
