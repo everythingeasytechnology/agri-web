@@ -638,7 +638,7 @@ Email: info@everythingeasy.in
               <div
                 class="image-layer hero-fit-image"
                 style="
-                  background-image: url(assets/images/backgrounds/her12.jpeg);
+                  background-image: url(assets/images/backgrounds/23.png);
                 "
               ></div>
               <div class="image-layer-overlay"></div>
