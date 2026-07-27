@@ -195,7 +195,7 @@ Email: info@everythingeasy.in
           background-size: cover !important;
         }
         .main-slider-one .hero-main-image {
-          background-size: 108% auto !important;
+          background-size: 104% auto !important;
         }
         .main-slider.main-slider-one .swiper-container-initialized .swiper-slide:not(.swiper-slide-active) {
           opacity: 0 !important;
@@ -314,7 +314,7 @@ Email: info@everythingeasy.in
             background-size: contain !important;
           }
           .main-slider.main-slider-one .hero-main-image {
-            background-size: 122% auto !important;
+            background-size: 114% auto !important;
           }
           .main-slider.main-slider-one .container {
             height: 100%;
