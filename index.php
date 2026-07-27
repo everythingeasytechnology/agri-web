@@ -635,7 +635,7 @@ Email: info@everythingeasy.in
               <div
                 class="image-layer hero-fit-image"
                 style="
-                  background-image: url(assets/images/backgrounds/14.jpeg);
+                  background-image: url(assets/images/backgrounds/her12.jpeg);
                 "
               ></div>
               <div class="image-layer-overlay"></div>
@@ -682,7 +682,7 @@ Email: info@everythingeasy.in
               <div
                 class="image-layer hero-fit-image"
                 style="
-                  background-image: url(assets/images/backgrounds/image.png);
+                  background-image: url(assets/images/backgrounds/14.jpeg);
                 "
               ></div>
               <a href="contact.php" class="thm-btn hero-slide-cta">Get in Touch</a>
