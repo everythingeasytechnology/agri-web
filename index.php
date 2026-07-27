@@ -313,6 +313,9 @@ Email: info@everythingeasy.in
             background-position: center center !important;
             background-size: contain !important;
           }
+          .main-slider.main-slider-one .hero-main-image {
+            background-size: 122% auto !important;
+          }
           .main-slider.main-slider-one .container {
             height: 100%;
             padding-top: 0 !important;
