@@ -607,7 +607,7 @@ Email: info@everythingeasy.in
                       <div class="main-slider__content">
                         
                         
-                        <h2 class="main-slider__title hero-mobile-title">Delivering Trust</h2>
+                        <!-- <h2 class="main-slider__title hero-mobile-title">Delivering Trust</h2> -->
                         <p class="main-slider__text">
                         
 <!-- Delivering premium agro commodities with reliability, <br /> efficiency, and excellence across international markets. -->
@@ -635,7 +635,7 @@ Email: info@everythingeasy.in
               <div
                 class="image-layer hero-fit-image"
                 style="
-                  background-image: url(assets/images/backgrounds/her12.jpeg);
+                  background-image: url(assets/images/backgrounds/14.jpeg);
                 "
               ></div>
               <div class="image-layer-overlay"></div>
