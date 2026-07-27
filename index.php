@@ -607,7 +607,7 @@ Email: info@everythingeasy.in
                       <div class="main-slider__content">
                         
                         
-                        <!-- <h2 class="main-slider__title hero-mobile-title">Delivering Trust</h2> -->
+                        <h2 class="main-slider__title hero-mobile-title">Delivering Trust</h2>
                         <p class="main-slider__text">
                         
 <!-- Delivering premium agro commodities with reliability, <br /> efficiency, and excellence across international markets. -->
