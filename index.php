@@ -755,7 +755,7 @@ Email: info@everythingeasy.in
                       alt=""
                     />
                   </div> -->
-                  <span class="sec-title__tagline">Why Choose Us</span>
+                  <!-- <span class="sec-title__tagline">Why Choose Us</span> -->
                   <h2 class="sec-title__title">
                     Why Choose Ficus International
                   </h2>
