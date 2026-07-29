@@ -96,7 +96,7 @@ h5,
 h6 {
   color: var(--agriox-primary, #334b35);
   font-weight: 700;
-  font-family: var(--agriox-font-2, "Averia Sans Libre", cursive);
+  /* font-family: var(--agriox-font-2, "Averia Sans Libre", cursive); */
   margin: 0;
 }
 
@@ -2218,7 +2218,7 @@ button {
 }
 
 .main-slider-one--two .main-slider__title {
-  font-family: var(--agriox-font-2, "Averia Sans Libre", cursive);
+  /* font-family: var(--agriox-font-2, "Averia Sans Libre", cursive); */
 }
 
 .main-slider-one--two .main-slider__title span {
@@ -11509,7 +11509,7 @@ Sidebar
 }
 
 .main-slider-three .main-slider__title {
-  font-family: var(--agriox-font-2);
+  /* font-family: var(--agriox-font-2); */
   font-size: 50px;
   margin-bottom: 44px;
 }
@@ -11926,7 +11926,7 @@ Sidebar
 .product-details__content__quantity__text {
   font-size: 20px;
   font-weight: bold;
-  font-family: var(--agriox-font-2);
+  /* font-family: var(--agriox-font-2); */
   color: var(--agriox-primary);
   line-height: 1;
   margin-right: 20px;
@@ -12354,7 +12354,7 @@ Sidebar
   color: var(--agriox-primary);
   font-weight: 700;
   font-size: 20px;
-  font-family: var(--agriox-font-2);
+  /* font-family: var(--agriox-font-2); */
 }
 
 @media (min-width: 992px) {
@@ -12416,7 +12416,7 @@ Sidebar
 .cart-table th {
   font-size: 24px;
   color: var(--agriox-primary);
-  font-family: var(--agriox-font-2);
+  /* font-family: var(--agriox-font-2); */
   padding-bottom: 25px;
 }
 
@@ -12561,7 +12561,7 @@ Sidebar
     font-weight: bold;
     font-size: 20px;
     color: var(--agriox-primary);
-    font-family: var(--agriox-font-2);
+    /* font-family: var(--agriox-font-2); */
   }
   .cart-table table td:last-child {
     border-bottom: 0;
@@ -12641,7 +12641,7 @@ Sidebar
   color: var(--agriox-primary);
   font-size: 40px;
   font-weight: 700;
-  font-family: var(--agriox-font-2);
+  /* font-family: var(--agriox-font-2); */
   line-height: 1;
   margin-bottom: 40px;
   letter-spacing: -0.02em;
@@ -12768,7 +12768,7 @@ Sidebar
 }
 
 .checkout__table thead th {
-  font-family: var(--agriox-font-2);
+  /* font-family: var(--agriox-font-2); */
   color: var(--agriox-primary);
   font-size: 20px !important;
   line-height: 1;
@@ -13053,7 +13053,7 @@ body.boxed-wrapper {
   font-size: 40px;
   font-weight: bold;
   color: var(--agriox-primary);
-  font-family: var(--agriox-font-2);
+  /* font-family: var(--agriox-font-2); */
   margin: 0;
   letter-spacing: -0.02em;
   margin-bottom: 10px;
@@ -13264,7 +13264,7 @@ body.boxed-wrapper {
   font-size: 18px !important;
   text-align: center;
   font-weight: bold;
-  font-family: var(--agriox-font-2) !important;
+  /* font-family: var(--agriox-font-2) !important; */
 }
 
 @media (min-width: 1200px) {
@@ -13279,7 +13279,7 @@ body.boxed-wrapper {
   color: inherit;
   font-size: 18px !important;
   font-weight: 500 !important;
-  font-family: var(--agriox-font-2) !important;
+  /* font-family: var(--agriox-font-2) !important; */
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
   text-transform: capitalize;
