@@ -25,7 +25,7 @@ Email: info@everythingeasy.in
 --------------------------------------------------------------*/
 :root {
   --agriox-font: 'Lato', sans-serif;
-  --agriox-font-2: 'Montserrat', sans-serif;
+  /* --agriox-font-2: 'Montserrat', sans-serif; */
   --agriox-font-3: 'Montserrat', sans-serif;
   --agriox-base: #f1cf69;
   --agriox-base-rgb: 241, 207, 105;
