@@ -162,6 +162,7 @@ Email: info@everythingeasy.in
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blog Posts | Ficus International Admin</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" />
     <link rel="stylesheet" href="admin.css" />
     <style>
         .img-source-tabs { display:flex; gap:0; margin-bottom:10px; border:1px solid var(--border); border-radius:8px; overflow:hidden; width:fit-content; }
@@ -173,7 +174,9 @@ Email: info@everythingeasy.in
         .slug-prefix { padding:0 10px; font-size:12px; color:var(--text-mid); background:var(--border); height:40px; display:flex; align-items:center; white-space:nowrap; font-family:monospace; }
         .slug-wrap input { border:0; background:transparent; flex:1; height:40px; padding:0 10px; font-family:monospace; font-size:13px; color:var(--text-dark); }
         .slug-wrap input:focus { outline:none; }
-        .ck-editor__editable { min-height: 340px !important; }
+        #contentEditor .ql-editor { height: 220px; overflow-y: auto; font-size: 14px; }
+        #contentEditor.ql-container { border-radius: 0 0 8px 8px; }
+        .form-row .ql-toolbar.ql-snow { border-radius: 8px 8px 0 0; background: var(--light-bg); }
         .upload-preview-current { margin-top:8px; display:flex; align-items:center; gap:10px; font-size:12px; color:var(--text-mid); }
         .upload-preview-current img { width:60px; height:44px; object-fit:cover; border-radius:6px; border:1px solid var(--border); }
     </style>
@@ -367,13 +370,15 @@ Email: info@everythingeasy.in
                             </div>
                         </div>
 
-                        <!-- Full Content — CKEditor -->
+                        <!-- Full Content — Quill Editor -->
                         <div class="form-row">
                             <div>
-                                <label>Full Content * <span style="font-size:11px;color:var(--text-mid);font-weight:400"> — use the toolbar for headings, bold, tables, lists, etc.</span></label>
-                                <textarea id="content" name="content" rows="12"><?= html_escape($edit_blog['content'] ?? '') ?></textarea>
+                                <label>Full Content * <span style="font-size:11px;color:var(--text-mid);font-weight:400"> — use the toolbar for headings, bold, images, lists, etc.</span></label>
+                                <div id="contentEditor" style="background:#fff;border-radius:0 0 8px 8px;min-height:264px"></div>
+                                <textarea id="content" name="content" style="display:none"><?= html_escape($edit_blog['content'] ?? '') ?></textarea>
                             </div>
                         </div>
+                        <br><br>
 
                         <div class="form-actions">
                             <button type="submit" class="btn btn-primary">
@@ -496,34 +501,65 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 <?php endif; ?>
 
-<!-- CKEditor 4 Full (tables, headings, all formatting) -->
-<script src="https://cdn.ckeditor.com/4.22.1/full/ckeditor.js"></script>
+<!-- Quill (free, open-source BSD-licensed editor — no license key, no account) -->
+<script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
 <script src="admin.js"></script>
 <script>
-/* ---- CKEditor init ---- */
-CKEDITOR.replace('content', {
-    height: 380,
-    toolbar: [
-        { name: 'document',    items: ['Source', '-', 'Undo', 'Redo'] },
-        { name: 'basicstyles', items: ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat'] },
-        { name: 'paragraph',   items: ['NumberedList', 'BulletedList', '-', 'Blockquote'] },
-        { name: 'links',       items: ['Link', 'Unlink'] },
-        { name: 'insert',      items: ['Image', 'Table', 'HorizontalRule'] },
-        '/',
-        { name: 'styles',      items: ['Format', 'FontSize'] },
-        { name: 'colors',      items: ['TextColor', 'BGColor'] },
-        { name: 'align',       items: ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'] }
-    ],
-    format_tags: 'p;h1;h2;h3;h4;pre',
-    removePlugins: 'elementspath',
-    resize_enabled: true
+/* ---- Quill init ---- */
+var quillToolbarOptions = [
+    [{ 'header': [1, 2, 3, 4, false] }],
+    ['bold', 'italic', 'underline', 'strike'],
+    [{ 'color': [] }, { 'background': [] }],
+    [{ 'script': 'sub' }, { 'script': 'super' }],
+    ['blockquote', 'code-block'],
+    [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+    [{ 'indent': '-1' }, { 'indent': '+1' }],
+    [{ 'align': [] }],
+    ['link', 'image'],
+    ['clean']
+];
+
+var quill = new Quill('#contentEditor', {
+    theme: 'snow',
+    placeholder: 'Write your blog content here...',
+    modules: { toolbar: quillToolbarOptions }
 });
 
-/* Make sure CKEditor flushes content to textarea on submit */
+/* Load existing content into the editor */
+var initialContent = document.getElementById('content').value;
+if (initialContent) {
+    quill.clipboard.dangerouslyPasteHTML(initialContent);
+}
+
+/* Image upload: send file to blog-image-upload.php, insert returned URL */
+quill.getModule('toolbar').addHandler('image', function() {
+    var input = document.createElement('input');
+    input.setAttribute('type', 'file');
+    input.setAttribute('accept', 'image/png, image/jpeg, image/webp, image/gif');
+    input.click();
+    input.onchange = function() {
+        var file = input.files[0];
+        if (!file) return;
+        var formData = new FormData();
+        formData.append('upload', file);
+        fetch('blog-image-upload.php', { method: 'POST', body: formData })
+            .then(function(res) { return res.json(); })
+            .then(function(data) {
+                if (data.url) {
+                    var range = quill.getSelection(true);
+                    quill.insertEmbed(range.index, 'image', data.url);
+                    quill.setSelection(range.index + 1);
+                } else {
+                    alert((data.error && data.error.message) || 'Image upload failed.');
+                }
+            })
+            .catch(function() { alert('Image upload failed — network error.'); });
+    };
+});
+
+/* Make sure Quill flushes content to textarea on submit */
 document.getElementById('blogForm').addEventListener('submit', function() {
-    if (CKEDITOR.instances['content']) {
-        document.getElementById('content').value = CKEDITOR.instances['content'].getData();
-    }
+    document.getElementById('content').value = quill.root.innerHTML;
 });
 
 /* ---- Slug auto-generation ---- */
